@@ -40,13 +40,20 @@ public class TopDownMovement : MonoBehaviour
         Vector3 rotation = new Vector3(rotate.x, 0.0f, rotate.y).normalized;
 
 
-        // rotate the player
+        // rotate the player with stick
+        float targetAngle = transform.eulerAngles.y;
+
         if (rotate.sqrMagnitude >= 0.015f)
         {
-            float targetAngle = Mathf.Atan2(rotation.x, rotation.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+            targetAngle = Mathf.Atan2(rotation.x, rotation.z) * Mathf.Rad2Deg;
         }
+        else if(direction.magnitude>=0.1f)
+        {
+            targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        }
+
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
         // Move the player
         if(move.sqrMagnitude >= 0.1f)

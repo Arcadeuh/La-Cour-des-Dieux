@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 5270535073020506607}
   - component: {fileID: 6748356008372597857}
   - component: {fileID: 5270535073020506601}
+  - component: {fileID: 8810810450086757565}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -414,7 +415,19 @@ MonoBehaviour:
     m_ActionId: cf6206b3-c9e4-45c4-8c85-4bd9bb99de8c
     m_ActionName: Gameplay/South[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8810810450086757565}
+        m_TargetAssemblyTypeName: TopDownShooter, Assembly-CSharp
+        m_MethodName: OnRightTrigger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3f63642d-59d1-4600-8984-7f841a680660
     m_ActionName: Gameplay/Right Trigger[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
@@ -442,3 +455,15 @@ MonoBehaviour:
   move: {x: 0, y: 0}
   rotate: {x: 0, y: 0}
   speed: 6
+--- !u!114 &8810810450086757565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270535073020506606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84da01e6b016f54b84f1450ebbf97ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
