@@ -1,26 +1,45 @@
 /*
- * Component à ajouter à un objet que l'on souhaite deplacer à l'aide d'input
+ * Component a ajouter a un objet que l'on souhaite deplacer a l'aide d'input
  * 
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class TopDownMovement : MonoBehaviour
 {
+    public PlayerControls controls;
     public CharacterController controller;
 
+    public Vector2 move;
     public float speed = 6f;
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>(); // on met la valeur dans la variable move
+        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
+    }
+
+    private void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Gameplay.Disable();
+    }
 
     // Update is called once per frame
     void Update()
     {
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, 0.0f, vertical).normalized;
+        Vector3 direction = new Vector3(move.x, 0.0f, move.y).normalized;
 
         if(direction.magnitude >= 0.1f)
         {
