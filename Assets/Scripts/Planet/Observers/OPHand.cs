@@ -19,7 +19,7 @@ public class OPHand : MonoBehaviour
         activeEffect.SetText(planet.active.title);
         passiveEffect.SetText(planet.passive.title);
         GameObject planetGameobject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
-        planetGameobject.transform.localScale = new Vector3(40, 40, 40);
+        planetGameobject.transform.localScale = new Vector3(40, 40, 1);
         /*
         RectTransform planetRectTransform =  planetGameobject.AddComponent<RectTransform>();
         planetRectTransform.pos
