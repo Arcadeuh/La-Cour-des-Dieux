@@ -5,31 +5,38 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     [SerializeField] private List<Planet> deck;
-    [SerializeField] private List<OPHand> hand;
+    [SerializeField] private List<OPHand> hand = new List<OPHand>(4);
 
-    private List<Planet> planetsInHand;
+    private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
+    private Planet planetSelected = null;
 
     private Queue<Planet> queue = new Queue<Planet>();
 
     // Start is called before the first frame update
     void Start()
     {
-        planetsInHand = new List<Planet>();
         UpdateHand();
     }
 
-    void Delete(Planet planet)
+    public void Delete()
     {
-        planetsInHand.Remove(planet);
+        if (!planetSelected) { return; }
+        planetsInHand[planetsInHand.IndexOf(planetSelected)] = null;
+        planetSelected = null;
         UpdateHand();
     }
 
     void UpdateHand()
     {
+        int numberOfNull = 0;
+        foreach(Planet item in planetsInHand) { if (!item) { numberOfNull++; } }
         //When everything is empty
-        if(queue.Count == 0 && planetsInHand.Count == 0)
+        if (queue.Count == 0 && numberOfNull == 4)
         {
-            List<Planet> listPlanet = deck;
+            Planet[] tempListPlanet = new Planet[deck.Count];
+            deck.CopyTo(tempListPlanet);
+            List<Planet> listPlanet = new List<Planet>(tempListPlanet);
+
             while (listPlanet.Count>0)
             {
                 int index = Random.Range(0, listPlanet.Count);
@@ -39,16 +46,28 @@ public class DeckManager : MonoBehaviour
         }
 
         //When it miss cards in hand
-        while (planetsInHand.Count < hand.Count)
+        for(int i = 0; i<4; i++)
         {
-            if (queue.Count == 0) { break; }
-            planetsInHand.Add(queue.Dequeue());
+            if (planetsInHand[i]==null)
+            {
+                if (queue.Count == 0)
+                {
+                    hand[i].SetPlanet(null);
+                }
+                else
+                {
+                    planetsInHand[i] = queue.Dequeue();
+                    hand[i].SetPlanet(planetsInHand[i]);
+                }
+            }
+            hand[i].Display();
         }
+    }
 
-        for (int i = 0; i<planetsInHand.Count; i++)
-        {
-            Planet copyPlanet = planetsInHand[i];
-            hand[i].SetPlanet(copyPlanet);
-        }
+    public void SelectPlanet(int i)
+    {
+        if (i >= planetsInHand.Count || i<0) { return; }
+        planetSelected = planetsInHand[i];
+        Debug.Log(planetSelected.title + " is selected");
     }
 }

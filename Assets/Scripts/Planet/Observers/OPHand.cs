@@ -12,6 +12,8 @@ public class OPHand : MonoBehaviour
 
     [SerializeField] private Planet planet;
 
+    private GameObject planetGameObject = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +29,20 @@ public class OPHand : MonoBehaviour
 
     public void Display()
     {
+        Destroy(planetGameObject);
+
+        if (!planet)
+        {
+            planetName.SetText("None");
+            activeEffect.SetText("None");
+            passiveEffect.SetText("None");
+            return;
+        }
+
         planetName.SetText(planet.title);
         activeEffect.SetText(planet.active.title);
         passiveEffect.SetText(planet.passive.title);
-        GameObject planetGameobject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
-        planetGameobject.transform.localScale = new Vector3(40, 40, 1);
+        planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
+        planetGameObject.transform.localScale = new Vector3(40, 40, 1);
     }
 }
