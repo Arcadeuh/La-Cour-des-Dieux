@@ -11,7 +11,6 @@ using UnityEngine.InputSystem;
 
 public class TopDownMovement : MonoBehaviour
 {
-    public PlayerControls controls;
     public CharacterController controller;
 
     public Vector2 move;
@@ -22,27 +21,17 @@ public class TopDownMovement : MonoBehaviour
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
-    private void Awake()
+
+    public void OnMove(InputAction.CallbackContext context)
     {
-        controls = new PlayerControls();
-
-        // Left Stick for movement
-        controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>(); // on met la valeur dans la variable move
-        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
-
-        // Right Stick for rotation
-        controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>(); // on met la valeur dans la variable rotate
+        move = context.ReadValue<Vector2>();
     }
 
-    private void OnEnable()
+    public void OnRotate(InputAction.CallbackContext context)
     {
-        controls.Gameplay.Enable();
+        rotate = context.ReadValue<Vector2>();
     }
 
-    private void OnDisable()
-    {
-        controls.Gameplay.Disable();
-    }
 
     // Update is called once per frame
     void Update()
@@ -51,6 +40,7 @@ public class TopDownMovement : MonoBehaviour
         Vector3 rotation = new Vector3(rotate.x, 0.0f, rotate.y).normalized;
 
 
+        // rotate the player
         if (rotate.sqrMagnitude >= 0.015f)
         {
             float targetAngle = Mathf.Atan2(rotation.x, rotation.z) * Mathf.Rad2Deg;
@@ -58,6 +48,7 @@ public class TopDownMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
         }
 
+        // Move the player
         if(move.sqrMagnitude >= 0.1f)
         {
             controller.Move(direction * speed * Time.deltaTime);
