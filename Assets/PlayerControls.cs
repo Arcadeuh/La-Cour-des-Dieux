@@ -33,6 +33,54 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""North"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e6386f4-b857-41b2-865b-54fa9d02e045"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""East"",
+                    ""type"": ""Button"",
+                    ""id"": ""af7fc2c4-563b-45ee-9cde-456f72f3f2b6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""West"",
+                    ""type"": ""Button"",
+                    ""id"": ""52e24785-68fc-45ec-b4a5-ca26d38a28aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""South"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf6206b3-c9e4-45c4-8c85-4bd9bb99de8c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right Trigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f63642d-59d1-4600-8984-7f841a680660"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left Trigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""c51c19b6-11e9-4a67-9179-de06804a6a29"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +105,72 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89d2e48a-631f-4500-929f-3380f293b76b"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""North"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d659651-acb9-4916-8c24-d6cd73834179"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""East"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b73068b6-2397-4a03-9056-833a3d0c4f58"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""West"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f303ee0-aedb-440f-ae3a-1b636bd544dd"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""South"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92411c86-182a-44ae-ad8a-6c2953d8ebfc"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""038404ce-64c4-4fec-9906-64f955e15062"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -67,6 +181,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
+        m_Gameplay_North = m_Gameplay.FindAction("North", throwIfNotFound: true);
+        m_Gameplay_East = m_Gameplay.FindAction("East", throwIfNotFound: true);
+        m_Gameplay_West = m_Gameplay.FindAction("West", throwIfNotFound: true);
+        m_Gameplay_South = m_Gameplay.FindAction("South", throwIfNotFound: true);
+        m_Gameplay_RightTrigger = m_Gameplay.FindAction("Right Trigger", throwIfNotFound: true);
+        m_Gameplay_LeftTrigger = m_Gameplay.FindAction("Left Trigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +238,24 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Rotate;
+    private readonly InputAction m_Gameplay_North;
+    private readonly InputAction m_Gameplay_East;
+    private readonly InputAction m_Gameplay_West;
+    private readonly InputAction m_Gameplay_South;
+    private readonly InputAction m_Gameplay_RightTrigger;
+    private readonly InputAction m_Gameplay_LeftTrigger;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
+        public InputAction @North => m_Wrapper.m_Gameplay_North;
+        public InputAction @East => m_Wrapper.m_Gameplay_East;
+        public InputAction @West => m_Wrapper.m_Gameplay_West;
+        public InputAction @South => m_Wrapper.m_Gameplay_South;
+        public InputAction @RightTrigger => m_Wrapper.m_Gameplay_RightTrigger;
+        public InputAction @LeftTrigger => m_Wrapper.m_Gameplay_LeftTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -139,6 +271,24 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
+                @North.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNorth;
+                @North.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNorth;
+                @North.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNorth;
+                @East.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEast;
+                @East.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEast;
+                @East.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEast;
+                @West.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWest;
+                @West.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWest;
+                @West.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWest;
+                @South.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSouth;
+                @South.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSouth;
+                @South.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSouth;
+                @RightTrigger.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightTrigger;
+                @LeftTrigger.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftTrigger;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -149,6 +299,24 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @North.started += instance.OnNorth;
+                @North.performed += instance.OnNorth;
+                @North.canceled += instance.OnNorth;
+                @East.started += instance.OnEast;
+                @East.performed += instance.OnEast;
+                @East.canceled += instance.OnEast;
+                @West.started += instance.OnWest;
+                @West.performed += instance.OnWest;
+                @West.canceled += instance.OnWest;
+                @South.started += instance.OnSouth;
+                @South.performed += instance.OnSouth;
+                @South.canceled += instance.OnSouth;
+                @RightTrigger.started += instance.OnRightTrigger;
+                @RightTrigger.performed += instance.OnRightTrigger;
+                @RightTrigger.canceled += instance.OnRightTrigger;
+                @LeftTrigger.started += instance.OnLeftTrigger;
+                @LeftTrigger.performed += instance.OnLeftTrigger;
+                @LeftTrigger.canceled += instance.OnLeftTrigger;
             }
         }
     }
@@ -157,5 +325,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnNorth(InputAction.CallbackContext context);
+        void OnEast(InputAction.CallbackContext context);
+        void OnWest(InputAction.CallbackContext context);
+        void OnSouth(InputAction.CallbackContext context);
+        void OnRightTrigger(InputAction.CallbackContext context);
+        void OnLeftTrigger(InputAction.CallbackContext context);
     }
 }
