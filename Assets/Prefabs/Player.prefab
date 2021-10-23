@@ -467,3 +467,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84da01e6b016f54b84f1450ebbf97ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 3884935236133718758, guid: 440f05ca979198349bd7b3c139c1cb5b, type: 3}
