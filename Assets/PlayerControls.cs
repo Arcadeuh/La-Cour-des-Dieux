@@ -40,7 +40,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""5e6386f4-b857-41b2-865b-54fa9d02e045"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""East"",
@@ -48,7 +48,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""af7fc2c4-563b-45ee-9cde-456f72f3f2b6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""West"",
@@ -56,7 +56,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""52e24785-68fc-45ec-b4a5-ca26d38a28aa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""South"",
@@ -64,7 +64,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""cf6206b3-c9e4-45c4-8c85-4bd9bb99de8c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Right Trigger"",
@@ -81,6 +81,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right Shoulder"",
+                    ""type"": ""Button"",
+                    ""id"": ""05aa0213-d483-4887-9242-ea716d44a8dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left Shoulder"",
+                    ""type"": ""Button"",
+                    ""id"": ""8089df75-5723-4067-b46d-0193328e4ea3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -171,6 +187,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Left Trigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1ad88a2-5827-43fb-983d-bd969cb5b237"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right Shoulder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""137671e9-0142-4d77-8d1b-753816401f46"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Shoulder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +225,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_South = m_Gameplay.FindAction("South", throwIfNotFound: true);
         m_Gameplay_RightTrigger = m_Gameplay.FindAction("Right Trigger", throwIfNotFound: true);
         m_Gameplay_LeftTrigger = m_Gameplay.FindAction("Left Trigger", throwIfNotFound: true);
+        m_Gameplay_RightShoulder = m_Gameplay.FindAction("Right Shoulder", throwIfNotFound: true);
+        m_Gameplay_LeftShoulder = m_Gameplay.FindAction("Left Shoulder", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,6 +284,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_South;
     private readonly InputAction m_Gameplay_RightTrigger;
     private readonly InputAction m_Gameplay_LeftTrigger;
+    private readonly InputAction m_Gameplay_RightShoulder;
+    private readonly InputAction m_Gameplay_LeftShoulder;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -256,6 +298,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @South => m_Wrapper.m_Gameplay_South;
         public InputAction @RightTrigger => m_Wrapper.m_Gameplay_RightTrigger;
         public InputAction @LeftTrigger => m_Wrapper.m_Gameplay_LeftTrigger;
+        public InputAction @RightShoulder => m_Wrapper.m_Gameplay_RightShoulder;
+        public InputAction @LeftShoulder => m_Wrapper.m_Gameplay_LeftShoulder;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -289,6 +333,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LeftTrigger.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftTrigger;
                 @LeftTrigger.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftTrigger;
                 @LeftTrigger.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftTrigger;
+                @RightShoulder.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightShoulder;
+                @RightShoulder.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightShoulder;
+                @RightShoulder.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRightShoulder;
+                @LeftShoulder.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftShoulder;
+                @LeftShoulder.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftShoulder;
+                @LeftShoulder.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLeftShoulder;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -317,6 +367,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LeftTrigger.started += instance.OnLeftTrigger;
                 @LeftTrigger.performed += instance.OnLeftTrigger;
                 @LeftTrigger.canceled += instance.OnLeftTrigger;
+                @RightShoulder.started += instance.OnRightShoulder;
+                @RightShoulder.performed += instance.OnRightShoulder;
+                @RightShoulder.canceled += instance.OnRightShoulder;
+                @LeftShoulder.started += instance.OnLeftShoulder;
+                @LeftShoulder.performed += instance.OnLeftShoulder;
+                @LeftShoulder.canceled += instance.OnLeftShoulder;
             }
         }
     }
@@ -331,5 +387,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSouth(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
+        void OnRightShoulder(InputAction.CallbackContext context);
+        void OnLeftShoulder(InputAction.CallbackContext context);
     }
 }

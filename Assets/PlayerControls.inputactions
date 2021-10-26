@@ -27,7 +27,7 @@
                     "id": "5e6386f4-b857-41b2-865b-54fa9d02e045",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "East",
@@ -35,7 +35,7 @@
                     "id": "af7fc2c4-563b-45ee-9cde-456f72f3f2b6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "West",
@@ -43,7 +43,7 @@
                     "id": "52e24785-68fc-45ec-b4a5-ca26d38a28aa",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "South",
@@ -51,7 +51,7 @@
                     "id": "cf6206b3-c9e4-45c4-8c85-4bd9bb99de8c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Right Trigger",
@@ -68,6 +68,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Right Shoulder",
+                    "type": "Button",
+                    "id": "05aa0213-d483-4887-9242-ea716d44a8dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Left Shoulder",
+                    "type": "Button",
+                    "id": "8089df75-5723-4067-b46d-0193328e4ea3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -156,6 +172,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Left Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1ad88a2-5827-43fb-983d-bd969cb5b237",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right Shoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "137671e9-0142-4d77-8d1b-753816401f46",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Shoulder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

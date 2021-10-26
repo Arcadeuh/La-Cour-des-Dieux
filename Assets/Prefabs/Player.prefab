@@ -399,26 +399,10 @@ MonoBehaviour:
     m_ActionId: 25be5725-6da8-4c76-b093-c60bc43983a4
     m_ActionName: Gameplay/Rotate[/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5e6386f4-b857-41b2-865b-54fa9d02e045
-    m_ActionName: Gameplay/North[/XInputControllerWindows/buttonNorth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: af7fc2c4-563b-45ee-9cde-456f72f3f2b6
-    m_ActionName: Gameplay/East[/XInputControllerWindows/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 52e24785-68fc-45ec-b4a5-ca26d38a28aa
-    m_ActionName: Gameplay/West[/XInputControllerWindows/buttonWest]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cf6206b3-c9e4-45c4-8c85-4bd9bb99de8c
-    m_ActionName: Gameplay/South[/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8810810450086757565}
         m_TargetAssemblyTypeName: TopDownShooter, Assembly-CSharp
-        m_MethodName: OnRightTrigger
+        m_MethodName: OnNorth
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -428,12 +412,96 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_ActionId: 5e6386f4-b857-41b2-865b-54fa9d02e045
+    m_ActionName: Gameplay/North[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8810810450086757565}
+        m_TargetAssemblyTypeName: TopDownShooter, Assembly-CSharp
+        m_MethodName: OnEast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: af7fc2c4-563b-45ee-9cde-456f72f3f2b6
+    m_ActionName: Gameplay/East[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8810810450086757565}
+        m_TargetAssemblyTypeName: TopDownShooter, Assembly-CSharp
+        m_MethodName: OnWest
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 52e24785-68fc-45ec-b4a5-ca26d38a28aa
+    m_ActionName: Gameplay/West[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8810810450086757565}
+        m_TargetAssemblyTypeName: TopDownShooter, Assembly-CSharp
+        m_MethodName: OnSouth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cf6206b3-c9e4-45c4-8c85-4bd9bb99de8c
+    m_ActionName: Gameplay/South[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: 3f63642d-59d1-4600-8984-7f841a680660
     m_ActionName: Gameplay/Right Trigger[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c51c19b6-11e9-4a67-9179-de06804a6a29
     m_ActionName: Gameplay/Left Trigger[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8810810450086757565}
+        m_TargetAssemblyTypeName: TopDownShooter, Assembly-CSharp
+        m_MethodName: OnShoulderRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 05aa0213-d483-4887-9242-ea716d44a8dd
+    m_ActionName: Gameplay/Right Shoulder
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8089df75-5723-4067-b46d-0193328e4ea3
+    m_ActionName: Gameplay/Left Shoulder
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -467,4 +535,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84da01e6b016f54b84f1450ebbf97ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 3884935236133718758, guid: 440f05ca979198349bd7b3c139c1cb5b, type: 3}
