@@ -10,19 +10,39 @@ public class OPHand : MonoBehaviour
     [SerializeField] private TMP_Text passiveEffect;
     [SerializeField] private Canvas planetCanvas;
 
-    public Planet planet;
+    [SerializeField] private Planet planet;
+
+    private GameObject planetGameObject = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (planet == null) { return; }
+        Display();
+    }
+
+    public void SetPlanet(Planet newPlanet)
+    {
+        planet = newPlanet;
+
+    }
+
+    public void Display()
+    {
+        Destroy(planetGameObject);
+
+        if (!planet)
+        {
+            planetName.SetText("None");
+            activeEffect.SetText("None");
+            passiveEffect.SetText("None");
+            return;
+        }
+
         planetName.SetText(planet.title);
         activeEffect.SetText(planet.active.title);
         passiveEffect.SetText(planet.passive.title);
-        GameObject planetGameobject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
-        planetGameobject.transform.localScale = new Vector3(40, 40, 1);
-        /*
-        RectTransform planetRectTransform =  planetGameobject.AddComponent<RectTransform>();
-        planetRectTransform.pos
-        */
+        planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
+        planetGameObject.transform.localScale = new Vector3(40, 40, 1);
     }
 }
