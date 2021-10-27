@@ -14,7 +14,7 @@ public class TopDownShooter : MonoBehaviour
 {
     private DeckManager deckManager;
 
-    float bulletForce = 2.0f;
+    float bulletForce = 8.0f;
 
 
     private void Start()
