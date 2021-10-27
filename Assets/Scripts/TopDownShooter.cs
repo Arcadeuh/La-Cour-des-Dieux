@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+///  Gestion des Input Pour Tirer
+///  On Recupere les touches on on applique les fonctions : 
+///  Selection des planetes
+///  lancer les planetes
+/// </summary>
 
 public class TopDownShooter : MonoBehaviour
 {
     private DeckManager deckManager;
+
+    float bulletForce = 2.0f;
+
 
     private void Start()
     {
@@ -21,6 +30,7 @@ public class TopDownShooter : MonoBehaviour
     {
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
         if (!context.performed) { return; }
+        if (!deckManager) { return; }
         if (deckManager.isHandEmpty()) { return; }
         {
             deckManager.SelectPlanet(3);
@@ -64,8 +74,13 @@ public class TopDownShooter : MonoBehaviour
         {
             if (! deckManager.GetPlanetSelected()) { return; }  // si pas de planete selectionne, fin
             Debug.Log("Fire");
-            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position, transform.rotation);
+            GameObject planet =  Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position + transform.forward * 4, transform.rotation);
             deckManager.DeletePlanetSelected();
+
+            Rigidbody rb = planet.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+
+
         }
     }
 }
