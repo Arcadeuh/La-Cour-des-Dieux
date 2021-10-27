@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// -----------------------------
+// OBSERVEUR D'UNE PLANETE
+// -----------------------------
+
 public class OPHand : MonoBehaviour
 {
-    [SerializeField] private TMP_Text planetName;
-    [SerializeField] private TMP_Text activeEffect;
-    [SerializeField] private TMP_Text passiveEffect;
-    [SerializeField] private Canvas planetCanvas;
+    [SerializeField] private TMP_Text planetName; // Nom de la planète
+    [SerializeField] private TMP_Text activeEffect; // Effet actif
+    [SerializeField] private TMP_Text passiveEffect; // Effet passif
+    [SerializeField] private Canvas planetCanvas; // Pour l'isntant c'est temporaire
 
-    [SerializeField] private Planet planet;
+    [SerializeField] private Planet planet; // Objet planete
 
     private GameObject planetGameObject = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Créé si non nul
         if (planet == null) { return; }
         Display();
     }
@@ -24,7 +29,6 @@ public class OPHand : MonoBehaviour
     public void SetPlanet(Planet newPlanet)
     {
         planet = newPlanet;
-
     }
 
     public void Display()

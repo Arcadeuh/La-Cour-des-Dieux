@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewEffect", menuName = "Effect")]
-public class Effect : ScriptableObject
+
+// La Classe Effect est abstraite : on créé directement chaque effets qui vont hériter de cette classe
+public abstract class Effect : ScriptableObject
 {
-    public string title;
-    [TextArea] public string description;
-    public EffectType type;
-    public Color color;
-    public Color textColor;
-    public EffectEnum effectEnum;
+    public string title; // Nom de l'effet
+    [TextArea] public string description; // Description brève de l'effet
+    public EnumType type; // Type de l'effet
+    public Color color; // Couleur associée
+    public Color textColor; // Couleur texte
+    public EffectEnum effectEnum; // Effet qui hérite
+    public bool canBounce;
 }
 
 [System.Serializable]
@@ -18,12 +21,14 @@ public enum EffectEnum
 {
     Neutral,
     //actives choosen
+    Big, // Planète + grosse
     Water,
     ZigZag,
     Bouncing,
     Flash,
     Grenade,
     //passives choosen
+    BigPassive, // Planète + grosse passif
     Reflect,
     Slow,
     Shield,
@@ -32,7 +37,7 @@ public enum EffectEnum
 }
 
 [System.Serializable]
-public enum EffectType
+public enum EnumType
 { 
     Active,
     Passive,
