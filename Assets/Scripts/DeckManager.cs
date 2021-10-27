@@ -50,6 +50,14 @@ public class DeckManager : MonoBehaviour
         UpdateHandDisplay();
     }
 
+    public bool isHandEmpty()
+    {
+        int numberOfNull = 0;
+        foreach (Planet item in planetsInHand) { if (!item) { numberOfNull++; } }
+
+        return (queue.Count == 0 && numberOfNull == 4);
+    }
+
     private void RefillQueue()
     {
         Planet[] tempListPlanet = new Planet[deck.Count];
