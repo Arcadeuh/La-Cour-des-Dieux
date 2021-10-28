@@ -52,7 +52,7 @@ public class TopDownShooter : MonoBehaviour
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
-            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position, transform.rotation);
+            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position + transform.forward * 2, transform.rotation);
             deckManager.DeletePlanetSelected();
         }
     }
@@ -63,7 +63,7 @@ public class TopDownShooter : MonoBehaviour
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
-            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position, transform.rotation);
+            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position + transform.forward * 2, transform.rotation);
             deckManager.DeletePlanetSelected();
         }
     }

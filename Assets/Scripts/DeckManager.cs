@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
+
     [SerializeField] private List<Planet> deck;
     [SerializeField] private List<OPHand> hand = new List<OPHand>(4);
+   
 
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
@@ -102,7 +104,8 @@ public class DeckManager : MonoBehaviour
 
         if (i >= planetsInHand.Count || i<0) { return; }
         planetSelected = planetsInHand[i];
-        Debug.Log(planetSelected.title + " is selected");
+        if (planetSelected)
+            Debug.Log(planetSelected.title + " is selected");
     }
 
 }
