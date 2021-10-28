@@ -99,8 +99,10 @@ public class DeckManager : MonoBehaviour
 
     public void SelectPlanet(int i)
     {
+
         if (i >= planetsInHand.Count || i<0) { return; }
         planetSelected = planetsInHand[i];
         Debug.Log(planetSelected.title + " is selected");
     }
+
 }

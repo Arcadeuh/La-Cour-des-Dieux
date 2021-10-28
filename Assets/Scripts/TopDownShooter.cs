@@ -46,10 +46,22 @@ public class TopDownShooter : MonoBehaviour
         }
     }
 
+
     public void OnShoulderRight(InputAction.CallbackContext context)
     {
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
-        if (context.performed)
+        if (context.performed && deckManager.GetPlanetSelected())
+        {
+            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position, transform.rotation);
+            deckManager.DeletePlanetSelected();
+        }
+    }
+
+
+    public void OnShoulderLeft(InputAction.CallbackContext context)
+    {
+        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (context.performed && deckManager.GetPlanetSelected())
         {
             Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position, transform.rotation);
             deckManager.DeletePlanetSelected();
