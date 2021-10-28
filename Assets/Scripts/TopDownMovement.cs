@@ -3,6 +3,7 @@
  * 
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,14 +17,16 @@ public class TopDownMovement : MonoBehaviour
 
     public float speed = 6f;
 
+    private GameObject planetAttached = null;
     private Vector2 move;
     private Vector2 rotate;
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
-    //Setters and getters included in variables
+    //Setters and getters
     public Vector2 Move { get => move; set => move = value; }
     public Vector2 Rotate { get => rotate; set => rotate = value; }
+    public GameObject PlanetAttached { get => planetAttached; set => planetAttached = value; }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -43,7 +46,7 @@ public class TopDownMovement : MonoBehaviour
         Vector3 rotation = new Vector3(Rotate.x, 0.0f, Rotate.y).normalized;
 
 
-        // rotate the player with stick
+        // rotate the player with stick and the planet linked if attached
         float targetAngle = transform.eulerAngles.y;
 
         if (Rotate.sqrMagnitude >= 0.015f)
@@ -58,12 +61,27 @@ public class TopDownMovement : MonoBehaviour
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
-        // Move the player
+        // Move the player and the planet linked if attached
         if(Move.sqrMagnitude >= 0.1f)
         {
             controller.Move(direction * speed * Time.deltaTime);
         }
 
+        MovePlanetIfAttached();
 
+    }
+
+    public void MovePlanetIfAttached()
+    {
+        if (PlanetAttached)
+        {
+            planetAttached.transform.position = transform.position + transform.forward * 2;
+        }
+    }
+
+    public void attach(GameObject planet)
+    {
+        planetAttached = planet;
+        planetAttached.GetComponent<SphereCollider>().enabled = false;
     }
 }

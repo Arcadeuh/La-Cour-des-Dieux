@@ -7,7 +7,7 @@ public class DeckManager : MonoBehaviour
 
     [SerializeField] private List<Planet> deck;
     [SerializeField] private List<OPHand> hand = new List<OPHand>(4);
-   
+    public GameObject player1;
 
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
@@ -106,6 +106,15 @@ public class DeckManager : MonoBehaviour
         planetSelected = planetsInHand[i];
         if (planetSelected)
             Debug.Log(planetSelected.title + " is selected");
+        //mustcheck if other planet was selected and delete it (detach function?)
+        
+        GameObject planetCreated = Instantiate<GameObject>(planetSelected.appearance, player1.transform.position + player1.transform.forward * 2, player1.transform.rotation);
+
+        planetCreated.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetCreated.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
+        player1.GetComponent<TopDownMovement>().attach(planetCreated);
+        //Make planet display
     }
+
+
 
 }
