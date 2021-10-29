@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Est là uniquement pour être affiché
+ */
 [CreateAssetMenu(fileName = "NewEffect", menuName = "Effect")]
 public class Effect : ScriptableObject
 {
