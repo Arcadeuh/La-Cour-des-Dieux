@@ -13,16 +13,34 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
+    private bool isDefense = false;
+
+    // disable collision
+    public void setIsDefense(bool newIsDefense) {
+        isDefense = newIsDefense;
+
+        if (isDefense)
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision");
 
         TopDownShooter player = collision.gameObject.GetComponentInParent<TopDownShooter>();
 
-        if (player)
+        if (player && !isDefense)
         {
             Destroy(player.gameObject);
         }
-        Destroy(gameObject);
+        else if (player && isDefense){
+
+        }else
+        {
+
+            Destroy(gameObject);
+        }
     }
 }

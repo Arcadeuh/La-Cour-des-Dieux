@@ -125,9 +125,12 @@ public class DeckManager : MonoBehaviour
                 Destroy(planetSelectedAttached);
             }
 
-            planetSelectedAttached = Instantiate<GameObject>(planetSelected.appearance, player1.transform.position + player1.transform.forward * 2, player1.transform.rotation);
+            planetSelectedAttached = Instantiate<GameObject>(planetSelected.appearance, player1.transform.position + player1.transform.forward * 3, player1.transform.rotation);
 
+            // met transparance 
             planetSelectedAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
+            
+            // attache planete
             player1.GetComponent<TopDownMovement>().attach(planetSelectedAttached);
         }
     }

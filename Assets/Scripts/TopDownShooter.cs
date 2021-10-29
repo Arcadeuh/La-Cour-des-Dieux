@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class TopDownShooter : MonoBehaviour
 {
     private DeckManager deckManager;
+    float bulletForce = 8.0f;
 
     private void Start()
     {
@@ -52,18 +53,29 @@ public class TopDownShooter : MonoBehaviour
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
-            GetComponent<TopDownMovement>().detach();
-            deckManager.DeletePlanetSelected();
+            Debug.Log("Fire");
+            //GameObject planet = Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position + transform.forward * 4, transform.rotation);
+
+            GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
+            GetComponent<TopDownMovement>().detach();   // on la detache de la main
+            deckManager.DeletePlanetSelected();         // on la supp du deck
+
+            Rigidbody rb = planet.GetComponent<Rigidbody>();                    // on recup rigidbody
+            rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);    // On envoie la planete
         }
     }
 
 
     public void OnShoulderLeft(InputAction.CallbackContext context)
     {
+        Debug.Log("Def planet");
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
+
+            GetComponent<TopDownMovement>().PlanetAttached.GetComponent<Bullet>().setIsDefense(true);
             GetComponent<TopDownMovement>().detach();
+
             deckManager.DeletePlanetSelected();
         }
     }
