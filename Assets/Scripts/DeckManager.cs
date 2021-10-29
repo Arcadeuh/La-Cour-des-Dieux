@@ -11,6 +11,7 @@ public class DeckManager : MonoBehaviour
 
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
+    private GameObject planetSelectedAttached = null;
     private Timer timer;
 
     private Queue<Planet> queue = new Queue<Planet>();
@@ -25,13 +26,10 @@ public class DeckManager : MonoBehaviour
 
     public void DeletePlanetSelected()
     {
-        Debug.Log("Delete incoming !");
         if (!planetSelected) { return; }
-        Debug.Log("Passing the wall");
         planetsInHand[planetsInHand.IndexOf(planetSelected)] = null;
-        Debug.Log("Almost...");
         planetSelected = null;
-        Debug.Log("Delete DONE !");
+        planetSelectedAttached = null;
         UpdateHand();
     }
 
@@ -104,15 +102,26 @@ public class DeckManager : MonoBehaviour
 
         if (i >= planetsInHand.Count || i<0) { return; }
         planetSelected = planetsInHand[i];
-        if (planetSelected)
-            Debug.Log(planetSelected.title + " is selected");
-        //mustcheck if other planet was selected and delete it (detach function?)
-        
-        GameObject planetCreated = Instantiate<GameObject>(planetSelected.appearance, player1.transform.position + player1.transform.forward * 2, player1.transform.rotation);
 
-        planetCreated.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetCreated.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
-        player1.GetComponent<TopDownMovement>().attach(planetCreated);
-        //Make planet display
+
+       
+
+        //If we chose one of the gamepad buttons to select a planet
+        if (planetSelected)
+        {
+            Debug.Log("Planet selected : " + planetSelected.title);
+
+            //If a planet was already attached to the player
+            if (planetSelectedAttached)
+            {
+                Destroy(planetSelectedAttached);
+            }
+
+            planetSelectedAttached = Instantiate<GameObject>(planetSelected.appearance, player1.transform.position + player1.transform.forward * 2, player1.transform.rotation);
+
+            planetSelectedAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
+            player1.GetComponent<TopDownMovement>().attach(planetSelectedAttached);
+        }
     }
 
 
