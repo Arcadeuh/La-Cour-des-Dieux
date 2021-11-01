@@ -27,13 +27,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision");
 
         TopDownShooter player = collision.gameObject.GetComponentInParent<TopDownShooter>();
 
         if (player && !isDefense)
         {
             Destroy(player.gameObject);
+            Destroy(gameObject);
         }
         else if (player && isDefense){
 

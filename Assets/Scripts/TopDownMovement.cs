@@ -17,7 +17,7 @@ public class TopDownMovement : MonoBehaviour
 
     public float speed = 6f;
 
-    private GameObject planetAttached = null;
+    private GameObject planetAttached = null;           // planete selectionné
     private Vector2 move;
     private Vector2 rotate;
     private float turnSmoothTime = 0.1f;

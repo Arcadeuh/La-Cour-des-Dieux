@@ -11,7 +11,8 @@ public class TopDownShooter : MonoBehaviour
 
     private void Start()
     {
-        deckManager = GameObject.Find("DeckManager").GetComponent<DeckManager>();
+        deckManager = GetComponent<DeckManager>();
+        if (!deckManager) { Debug.LogError("No Deck Mnager in TopDownShooter"); }
     }
 
     public void OnSouth(InputAction.CallbackContext context)
@@ -47,7 +48,7 @@ public class TopDownShooter : MonoBehaviour
         }
     }
 
-
+    // tiré
     public void OnShoulderRight(InputAction.CallbackContext context)
     {
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
@@ -65,7 +66,7 @@ public class TopDownShooter : MonoBehaviour
         }
     }
 
-
+    // defendre
     public void OnShoulderLeft(InputAction.CallbackContext context)
     {
         Debug.Log("Def planet");
