@@ -18,7 +18,9 @@ public class TopDownMovement : MonoBehaviour
 
     public float speed = 6f;
 
-    public GameObject planetAttached = null; // planete selectionné
+    private GameObject planetAttached = null; // planete selectionné
+    public GameObject PlanetAttached { get => planetAttached; set => planetAttached = value; }
+
 
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
@@ -88,7 +90,7 @@ public class TopDownMovement : MonoBehaviour
     {
         if (planetAttached)
         {
-            planetAttached.transform.position = transform.position + transform.forward * 2;
+            planetAttached.transform.position = transform.position + transform.forward * 2.5f;
         }
     }
 
