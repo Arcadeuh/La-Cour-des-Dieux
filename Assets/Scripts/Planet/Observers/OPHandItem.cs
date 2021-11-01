@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class OPHand : MonoBehaviour
+/*
+ * Observer Planet Hand Item : Permet de montrer les planètes en forme d'item de main lors de la phase de combat
+ */
+public class OPHandItem : MonoBehaviour
 {
     [SerializeField] private TMP_Text planetName;
     [SerializeField] private TMP_Text activeEffect;

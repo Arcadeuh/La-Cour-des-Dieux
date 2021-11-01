@@ -2,26 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Créer, recharge le deck d'un joueur
+ */
 public class DeckManager : MonoBehaviour
 {
+    //Deck de base
+    [SerializeField] private List<Planet> deckInit;
+    //Liste pour afficher les planètes
+    private List<OPHandItem> hand = new List<OPHandItem>(4);
 
-    [SerializeField] private List<Planet> deck;
-    [SerializeField] private List<OPHand> hand = new List<OPHand>(4);
-    public GameObject player1;
-
+    //La main, liste de planètes à jouer pour le joueur
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
-    private GameObject planetSelectedAttached = null;
     private Timer timer;
 
-    private Queue<Planet> queue = new Queue<Planet>();
+    //Deck, se vidant au fur et à mesure
+    private Queue<Planet> deck = new Queue<Planet>();
 
-    // Start is called before the first frame update
     void Start()
     {
+        GameObject player = GameObject.Find("UI/Player1");
+        if (player.GetComponent<LinkToDeckManager>().IsLinked())
+        {
+            player = GameObject.Find("UI/Player2");
+        }
+        OPHandItem[] hand = player.GetComponentsInChildren<OPHandItem>();
+        for(int i = 0; i < hand.Length; i++)
+        {
+            this.hand.Add(hand[i]);
+        }
+
         timer = GetComponent<Timer>();
-        timer.AddCallback(RefillQueueAndHand);
-        UpdateHand();
+        timer.AddCallback(RefillQueueAndHand); //Callback appelée à la fin du timer
+        RefillQueueAndHand(); //Refill le deck et la main
+        UpdateHand(); //Update l'affichage
     }
 
     public void DeletePlanetSelected()
@@ -29,7 +44,6 @@ public class DeckManager : MonoBehaviour
         if (!planetSelected) { return; }
         planetsInHand[planetsInHand.IndexOf(planetSelected)] = null;
         planetSelected = null;
-        planetSelectedAttached = null;
         UpdateHand();
     }
 
@@ -42,7 +56,8 @@ public class DeckManager : MonoBehaviour
     {
         int numberOfNull = 0;
         foreach(Planet item in planetsInHand) { if (!item) { numberOfNull++; } }
-        if (queue.Count == 0 && numberOfNull == 4)
+        //Si le 
+        if (deck.Count == 0 && numberOfNull == 4)
         {
             timer.StartTimer(5.0f);
         }
@@ -50,23 +65,15 @@ public class DeckManager : MonoBehaviour
         UpdateHandDisplay();
     }
 
-    public bool isHandEmpty()
+    private void RefillDeck()
     {
-        int numberOfNull = 0;
-        foreach (Planet item in planetsInHand) { if (!item) { numberOfNull++; } }
-
-        return (queue.Count == 0 && numberOfNull == 4);
-    }
-
-    private void RefillQueue()
-    {
-        Planet[] tempListPlanet = new Planet[deck.Count];
-        deck.CopyTo(tempListPlanet);
+        Planet[] tempListPlanet = new Planet[deckInit.Count];
+        deckInit.CopyTo(tempListPlanet);
         List<Planet> listPlanet = new List<Planet>(tempListPlanet);
         while (listPlanet.Count > 0)
         {
             int index = Random.Range(0, listPlanet.Count);
-            queue.Enqueue(listPlanet[index]);
+            deck.Enqueue(listPlanet[index]);
             listPlanet.RemoveAt(index);
         }
     }
@@ -77,13 +84,13 @@ public class DeckManager : MonoBehaviour
         {
             if (planetsInHand[i] == null)
             {
-                if (queue.Count == 0)
+                if (deck.Count == 0)
                 {
                     hand[i].SetPlanet(null);
                 }
                 else
                 {
-                    planetsInHand[i] = queue.Dequeue();
+                    planetsInHand[i] = deck.Dequeue();
                     hand[i].SetPlanet(planetsInHand[i]);
                 }
             }
@@ -92,7 +99,7 @@ public class DeckManager : MonoBehaviour
 
     private void UpdateHandDisplay()
     {
-        foreach(OPHand item in hand)
+        foreach(OPHandItem item in hand)
         {
             item.Display();
         }
@@ -100,41 +107,15 @@ public class DeckManager : MonoBehaviour
 
     private void RefillQueueAndHand()
     {
-        RefillQueue();
+        RefillDeck();
         RefillHand();
         UpdateHandDisplay();
     }
 
     public void SelectPlanet(int i)
     {
-
         if (i >= planetsInHand.Count || i<0) { return; }
         planetSelected = planetsInHand[i];
-
-
-       
-
-        //If we chose one of the gamepad buttons to select a planet
-        if (planetSelected)
-        {
-            Debug.Log("Planet selected : " + planetSelected.title);
-
-            //If a planet was already attached to the player
-            if (planetSelectedAttached)
-            {
-                Destroy(planetSelectedAttached);
-            }
-
-            planetSelectedAttached = Instantiate<GameObject>(planetSelected.appearance, player1.transform.position + player1.transform.forward * 3, player1.transform.rotation);
-
-            // met transparance 
-            planetSelectedAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
-            
-            // attache planete
-            player1.GetComponent<TopDownMovement>().attach(planetSelectedAttached);
-        }
+        Debug.Log(planetSelected.title + " is selected");
     }
-
-
-
 }

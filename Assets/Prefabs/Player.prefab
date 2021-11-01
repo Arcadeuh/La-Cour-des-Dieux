@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 6748356008372597857}
   - component: {fileID: 5270535073020506601}
   - component: {fileID: 8810810450086757565}
+  - component: {fileID: 1556607493261676329}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -533,3 +534,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84da01e6b016f54b84f1450ebbf97ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1556607493261676329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270535073020506606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aed093c81b76dc4f83a41becb5f33c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckInit:
+  - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
+  - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
+  - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
+  - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
+  - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
+  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
