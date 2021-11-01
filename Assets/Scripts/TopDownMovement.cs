@@ -21,6 +21,8 @@ public class TopDownMovement : MonoBehaviour
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
+    private Vector3 lastPosition;
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -39,6 +41,9 @@ public class TopDownMovement : MonoBehaviour
         Vector3 direction = new Vector3(move.x, 0.0f, move.y).normalized;
         Vector3 rotation = new Vector3(rotate.x, 0.0f, rotate.y).normalized;
 
+        Vector3 screen = Camera.main.WorldToScreenPoint(transform.position);
+        float distX = Vector3.Distance(new Vector3(Screen.width / 2, 0f, 0f), new Vector3(screen.x, 0f, 0f));
+        float distY = Vector3.Distance(new Vector3(0f, Screen.height / 2, 0f), new Vector3(0f, screen.y, 0f));
 
         // rotate the player with stick
         float targetAngle = transform.eulerAngles.y;
@@ -56,9 +61,19 @@ public class TopDownMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
         // Move the player
-        if(move.sqrMagnitude >= 0.1f)
-        {
-            controller.Move(direction * speed * Time.deltaTime);
+        if (move.sqrMagnitude >= 0.1f)
+        { 
+            if (distX > Screen.width / 2 || distY > Screen.height / 2)
+            {
+                controller.transform.position = lastPosition;
+            }
+            
+            else
+            {
+                lastPosition = transform.position;
+                controller.Move(direction * speed * Time.deltaTime);
+            }
+
         }
 
 
