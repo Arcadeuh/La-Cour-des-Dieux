@@ -18,6 +18,8 @@ public class TopDownMovement : MonoBehaviour
 
     public float speed = 6f;
 
+    public GameObject planetAttached = null; // planete selectionné
+
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
@@ -76,6 +78,34 @@ public class TopDownMovement : MonoBehaviour
 
         }
 
+        MovePlanetIfAttached();
 
+
+    }
+
+
+    public void MovePlanetIfAttached()
+    {
+        if (planetAttached)
+        {
+            planetAttached.transform.position = transform.position + transform.forward * 2;
+        }
+    }
+
+    public void attach(GameObject planet)
+    {
+        planetAttached = planet;
+        planetAttached.GetComponent<SphereCollider>().enabled = false;
+    }
+
+    public void detach()
+    {
+        if (planetAttached)
+        {
+            planetAttached.GetComponent<SphereCollider>().enabled = true;
+            planetAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Opaque);
+            planetAttached = null;
+
+        }
     }
 }

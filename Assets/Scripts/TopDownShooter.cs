@@ -57,7 +57,7 @@ public class TopDownShooter : MonoBehaviour
             Debug.Log("Fire");
             //GameObject planet = Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position + transform.forward * 4, transform.rotation);
 
-            GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
+            GameObject planet = GetComponent<TopDownMovement>().planetAttached; // on recup la planete
             GetComponent<TopDownMovement>().detach();   // on la detache de la main
             deckManager.DeletePlanetSelected();         // on la supp du deck
 
@@ -74,7 +74,7 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed && deckManager.GetPlanetSelected())
         {
 
-            GetComponent<TopDownMovement>().PlanetAttached.GetComponent<Bullet>().setIsDefense(true);
+            GetComponent<TopDownMovement>().planetAttached.GetComponent<Bullet>().setIsDefense(true);
             GetComponent<TopDownMovement>().detach();
 
             deckManager.DeletePlanetSelected();
