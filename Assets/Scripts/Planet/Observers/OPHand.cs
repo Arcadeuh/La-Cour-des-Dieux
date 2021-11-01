@@ -12,7 +12,7 @@ public class OPHand : MonoBehaviour
     [SerializeField] private TMP_Text planetName; // Nom de la planète
     [SerializeField] private TMP_Text activeEffect; // Effet actif
     [SerializeField] private TMP_Text passiveEffect; // Effet passif
-    [SerializeField] private Canvas planetCanvas; // Pour l'isntant c'est temporaire
+    [SerializeField] private Canvas planetCanvas; // Pour l'instant c'est temporaire
 
     [SerializeField] private Planet planet; // Objet planete
 
@@ -23,6 +23,7 @@ public class OPHand : MonoBehaviour
     {
         // Créé si non nul
         if (planet == null) { return; }
+        
         Display();
     }
 
