@@ -7,10 +7,12 @@ using UnityEngine.InputSystem;
 public class TopDownShooter : MonoBehaviour
 {
     private DeckManager deckManager;
+    float bulletForce = 8.0f;
 
     private void Start()
     {
-        deckManager = GameObject.Find("DeckManager").GetComponent<DeckManager>();
+        deckManager = GetComponent<DeckManager>();
+        if (!deckManager) { Debug.LogError("No Deck Mnager in TopDownShooter"); }
     }
 
     public void OnSouth(InputAction.CallbackContext context)
@@ -46,12 +48,35 @@ public class TopDownShooter : MonoBehaviour
         }
     }
 
+    // tiré
     public void OnShoulderRight(InputAction.CallbackContext context)
     {
         if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
-        if (context.performed)
+        if (context.performed && deckManager.GetPlanetSelected())
         {
-            Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position, transform.rotation);
+            Debug.Log("Fire");
+            //GameObject planet = Instantiate<GameObject>(deckManager.GetPlanetSelected().appearance, transform.position + transform.forward * 4, transform.rotation);
+
+            GameObject planet = GetComponent<TopDownMovement>().planetAttached; // on recup la planete
+            GetComponent<TopDownMovement>().detach();   // on la detache de la main
+            deckManager.DeletePlanetSelected();         // on la supp du deck
+
+            Rigidbody rb = planet.GetComponent<Rigidbody>();                    // on recup rigidbody
+            rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);    // On envoie la planete
+        }
+    }
+
+    // defendre
+    public void OnShoulderLeft(InputAction.CallbackContext context)
+    {
+        Debug.Log("Def planet");
+        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (context.performed && deckManager.GetPlanetSelected())
+        {
+
+            GetComponent<TopDownMovement>().planetAttached.GetComponent<Bullet>().setIsDefense(true);
+            GetComponent<TopDownMovement>().detach();
+
             deckManager.DeletePlanetSelected();
         }
     }

@@ -8,6 +8,9 @@ using TMPro;
 // -----------------------------
 
 public class OPHand : MonoBehaviour
+/*
+ * Observer Planet Hand Item : Permet de montrer les plan�tes en forme d'item de main lors de la phase de combat
+ */
 {
     [SerializeField] private TMP_Text planetName; // Nom de la planète
     [SerializeField] private TMP_Text activeEffect; // Effet actif
