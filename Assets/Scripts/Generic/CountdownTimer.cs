@@ -24,7 +24,7 @@ public class CountdownTimer : MonoBehaviour
 
         foreach( GameObject player in players)
         {
-            //player.GetComponent<TopDownShooter>().enabled = false ;
+            player.GetComponent<TopDownShooter>().enabled = false ;
         }
 
     }
