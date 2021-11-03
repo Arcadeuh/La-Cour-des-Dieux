@@ -72,7 +72,7 @@ public class DeckManager : MonoBehaviour
         {
             timer.StartTimer(5.0f);
         }
-        else { RefillHand(); }
+        RefillHand();
         UpdateHandDisplay();
     }
 
@@ -134,8 +134,6 @@ public class DeckManager : MonoBehaviour
         //If we chose one of the gamepad buttons to select a planet
         if (planetSelected)
         {
-            Debug.Log("Planet selected : " + planetSelected.title);
-
             //If a planet was already attached to the player
             if (planetSelectedAttached)
             {
