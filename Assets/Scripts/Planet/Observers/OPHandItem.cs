@@ -46,6 +46,7 @@ public class OPHandItem : MonoBehaviour
         activeEffect.SetText(planet.active.title);
         passiveEffect.SetText(planet.passive.title);
         planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
+        planetGameObject.GetComponent<SphereCollider>().enabled = false;
         planetGameObject.transform.localScale = new Vector3(40, 40, 1);
     }
 }
