@@ -7,7 +7,7 @@ using TMPro;
 // OBSERVEUR D'UNE PLANETE
 // -----------------------------
 
-public class OPHand : MonoBehaviour
+public class OPHandItem : MonoBehaviour
 /*
  * Observer Planet Hand Item : Permet de montrer les plan�tes en forme d'item de main lors de la phase de combat
  */
