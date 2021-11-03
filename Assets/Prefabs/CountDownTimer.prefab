@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 5806869104721667161}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5806869104721667175
 GameObject:
   m_ObjectHideFlags: 0
