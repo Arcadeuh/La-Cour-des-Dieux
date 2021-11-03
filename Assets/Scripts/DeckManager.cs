@@ -33,6 +33,7 @@ public class DeckManager : MonoBehaviour
         {
             player = GameObject.Find("UI/Player2");
         }
+        player.GetComponent<LinkToDeckManager>().DoLink();
 
         // link la main
         OPHandItem[] hand = player.GetComponentsInChildren<OPHandItem>();   // recupère toutes les OPHand

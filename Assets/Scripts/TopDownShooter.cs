@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class TopDownShooter : MonoBehaviour
 {
     private DeckManager deckManager;
-    float bulletForce = 8.0f;
+    [SerializeField] private float bulletForce = 15.0f;
 
     private void Start()
     {
