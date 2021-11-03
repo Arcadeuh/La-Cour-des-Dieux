@@ -1,7 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
+
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class CountdownTimer : MonoBehaviour
     float currentTime = 0.0f;
     float startingTime = 5.0f;
 
+
     public TextMeshProUGUI textMeshPro;
+
+    [SerializeField] private GameObject[] players;
 
 
 
@@ -17,6 +21,11 @@ public class CountdownTimer : MonoBehaviour
     {
         currentTime = startingTime;
         textMeshPro.text = currentTime.ToString("0");
+
+        foreach( GameObject player in players)
+        {
+            //player.GetComponent<TopDownShooter>().enabled = false ;
+        }
 
     }
 
@@ -29,6 +38,12 @@ public class CountdownTimer : MonoBehaviour
         if(currentTime <= 0)
         {
             currentTime = 0;
+
+            foreach (GameObject player in players)
+            {
+                player.GetComponent<TopDownShooter>().enabled = true;
+            }
+
             Destroy(gameObject);
 
         }
