@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ZigZag : MonoBehaviour
 {
-    public float zigZagRange = 15;
-    public float zigZagSpeed = 0.1f;
+    public float zigZagRange = 3;
+    public float zigZagSpeed = 2f;
     private float centerLine;
     private float zigZagValue = 1;
 
@@ -18,7 +18,7 @@ public class ZigZag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //We choose if we go down or up on the z axis
         if (transform.position.z > centerLine + zigZagRange)
         {
             zigZagValue = -1;
@@ -26,9 +26,8 @@ public class ZigZag : MonoBehaviour
         {
             zigZagValue = 1;
         }
-        GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, zigZagValue * zigZagSpeed),ForceMode.VelocityChange);
-        //transform.position += new Vector3(0,0, zigZagValue * zigZagSpeed);
-        //transform.position = new Vector3(transform.position.x, transform.position.y, pingPong);
+        //We move the planet up or down multiplied by the speed of the zigzag wantend (divided by 100 to reduce effect speed and help user interface)
+        transform.position += new Vector3(0, 0, zigZagValue * zigZagSpeed/100);
 
     }
 
