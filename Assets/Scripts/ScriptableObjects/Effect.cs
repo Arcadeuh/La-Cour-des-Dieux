@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Est l� uniquement pour �tre affich�
+ * Est l� uniquement pour �tre affich�
  */
 [CreateAssetMenu(fileName = "NewEffect", menuName = "Effect")]
 
@@ -21,7 +21,7 @@ Les propriétés communes sont décrites plus bas
 
 
 // La Classe Effect est abstraite : on créé directement chaque effets qui vont hériter de cette classe
-public abstract class Effect : ScriptableObject
+public class Effect : ScriptableObject
 {
     public string title; // Nom de l'effet
     [TextArea] public string description; // Description brève de l'effet
