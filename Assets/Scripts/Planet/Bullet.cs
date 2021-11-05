@@ -40,8 +40,10 @@ public class Bullet : MonoBehaviour
 
         }else
         {
-
-            Destroy(gameObject);
+            if (GetComponent<Bounce>() && GetComponent<Bounce>().GetBounceActivated())
+                GetComponent<Bounce>().Deactivate();
+            else
+                Destroy(gameObject);
         }
     }
 }
