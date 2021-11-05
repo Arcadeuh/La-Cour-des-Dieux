@@ -105,7 +105,7 @@ public class TopDownMovement : MonoBehaviour
         if (planetAttached)
         {
             planetAttached.GetComponent<SphereCollider>().enabled = true;
-            planetAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Opaque);
+            planetAttached.GetComponent<PlanetMaterialBehaviour>().ChangeMaterialRenderingMode(planetAttached.GetComponent<MeshRenderer>().material, PlanetMaterialBehaviour.BlendMode.Opaque);
             planetAttached = null;
 
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class PlanetBehaviour : MonoBehaviour
+public class PlanetMaterialBehaviour : MonoBehaviour
 {
 
     public enum BlendMode
