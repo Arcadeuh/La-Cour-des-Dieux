@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
 
         }else
         {
+            //We check if a bouncing script is attached to the planet and if yes if the bouncing effect is activated
             if (GetComponent<Bounce>() && GetComponent<Bounce>().GetBounceActivated())
                 GetComponent<Bounce>().Deactivate();
             else

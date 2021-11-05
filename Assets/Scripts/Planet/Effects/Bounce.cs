@@ -15,9 +15,12 @@ public class Bounce : MonoBehaviour
      {
         bounceActivated = true;
         rb = GetComponent<Rigidbody>();
+        //We store the inital angular drag for future reuse
         initialAngularDrag = rb.angularDrag;
+        //We set the rigidbody angular drag to 0
         rb.angularDrag = 0;
         sphereCollider = GetComponent<SphereCollider>();
+        //We use the bouncing physic material as new sphere colider physic material
         sphereCollider.material = Resources.Load<PhysicMaterial>("Materials/BouncingMaterial");
         
     }
@@ -29,10 +32,14 @@ public class Bounce : MonoBehaviour
 
     }
 
+    //We disbale the bouncing effect
     public void Deactivate()
     {
+        //We activate the future collisions
         bounceActivated = false;
+        //We restore the rigidbody to it's normal state
         rb.angularDrag = initialAngularDrag;
+        //We remove the bouncing physic material
         sphereCollider.material = null;
     }
 
