@@ -142,7 +142,7 @@ public class DeckManager : MonoBehaviour
 
             planetSelectedAttached = Instantiate<GameObject>(planetSelected.appearance, transform.position + transform.forward * 2, transform.rotation);
 
-            planetSelectedAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
+            planetSelectedAttached.GetComponent<PlanetMaterialBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetMaterialBehaviour.BlendMode.Transparent);
             GetComponent<TopDownMovement>().attach(planetSelectedAttached);
         }
     }
