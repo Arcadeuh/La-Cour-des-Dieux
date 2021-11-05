@@ -11,4 +11,5 @@ public class Planet : ScriptableObject
     public Effect active;
     public Effect passive;
     public GameObject appearance;
+
 }
