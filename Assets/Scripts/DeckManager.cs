@@ -13,9 +13,6 @@ public class DeckManager : MonoBehaviour
     //Liste pour afficher les planètes
     private List<OPHandItem> hand = new List<OPHandItem>(4);
 
-
-    
-
     //La main, liste de planètes à jouer pour le joueur
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
