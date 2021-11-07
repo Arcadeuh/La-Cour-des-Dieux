@@ -32,7 +32,7 @@ public class DisplayDeck : MonoBehaviour
             }
 
             // /!\  /!\  /!\  /!\  /!\  /!\  /!\ 
-            //THIS PART SHOULD BE CHANGED WHEN THE REAL SCRIPT WILL BE DONE
+            //THIS PART SHOULD BE CHANGED WHEN THE REAL SCRIPT WILL BE DONE (class)
             TestCard card = cards[i].GetComponent<TestCard>();
             card.SetPlanet(planetsToShow[i]);
             card.Display();
@@ -45,5 +45,12 @@ public class DisplayDeck : MonoBehaviour
         Planet[] tempListPlanet = new Planet[planets.Count];
         planets.CopyTo(tempListPlanet);
         planetsToShow = new List<Planet>(tempListPlanet);
+    }
+
+    public List<Planet> GetPlanetsToShow()
+    {
+        Planet[] tempListPlanet = new Planet[planetsToShow.Count];
+        planetsToShow.CopyTo(tempListPlanet);
+        return new List<Planet>(tempListPlanet);
     }
 }
