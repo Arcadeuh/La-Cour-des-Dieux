@@ -53,5 +53,7 @@ public class OPHandItem : MonoBehaviour
         planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
         planetGameObject.GetComponent<SphereCollider>().enabled = false;
         planetGameObject.transform.localScale = new Vector3(40, 40, 1);
+
+        planetGameObject.GetComponent<RandomMesh3d>().definePlanetStyle();
     }
 }
