@@ -18,13 +18,13 @@ public class SaveManager : MonoBehaviour
 
     public void LoadDecksSaved()
     {
-        ListDeckData decks = SaveSystem.LoadListDeck();
-        if (decks == null) { Debug.LogError("Load failed"); return; }
-        foreach(string title in decks.deckPlayer1.GetListPlanetTitle())
+        ListDeckData data = SaveSystem.LoadListDeck();
+        if (data == null) { Debug.LogError("Load failed"); return; }
+        foreach(string title in data.deckPlayer1.GetListPlanetTitle())
         {
             Debug.Log(title);
         }
-        foreach (string title in decks.deckPlayer2.GetListPlanetTitle())
+        foreach (string title in data.deckPlayer2.GetListPlanetTitle())
         {
             Debug.Log(title);
         }
