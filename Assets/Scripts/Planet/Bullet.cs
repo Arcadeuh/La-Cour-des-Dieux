@@ -50,12 +50,28 @@ public class Bullet : MonoBehaviour
         else if (player && isDefense){
 
         }else
-        {
-            //We check if a bouncing script is attached to the planet and if yes if the bouncing effect is activated
-            if (GetComponent<Bounce>() && GetComponent<Bounce>().GetBounceActivated())
-                GetComponent<Bounce>().Deactivate();
+        {            
+            //We check if a bouncing script is attached to the planet and if yes if the bouncing effect is deactivated
+            if (GetComponent<Bounce>())
+            {
+                //We check if we are not colliding with a planet
+                if (collision.gameObject.layer != 7)
+                {
+                    GetComponent<Bounce>().DeactivateOrDestroy();
+                } else
+                {
+                    Destroy(gameObject);
+                }
+            }
+            //We check if a RussianDoll script is attached to the planet and if yes we reduce the size of the planet or destroy it
+            else if (GetComponent<RussianDoll>())
+            {
+                GetComponent<RussianDoll>().UpdateSizeOrDestroy();
+            }
             else
+            {
                 Destroy(gameObject);
+            }
         }
     }
 }

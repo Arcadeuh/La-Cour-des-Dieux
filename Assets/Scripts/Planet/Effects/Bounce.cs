@@ -32,15 +32,21 @@ public class Bounce : MonoBehaviour
 
     }
 
-    //We disbale the bouncing effect
-    public void Deactivate()
+    //We disable the bouncing effect and destroy the planet if already disabled
+    public void DeactivateOrDestroy()
     {
-        //We activate the future collisions
-        bounceActivated = false;
-        //We restore the rigidbody to it's normal state
-        rb.angularDrag = initialAngularDrag;
-        //We remove the bouncing physic material
-        sphereCollider.material = null;
+        if (bounceActivated)
+        {
+            //We activate the future collisions
+            bounceActivated = false;
+            //We restore the rigidbody to it's normal state
+            rb.angularDrag = initialAngularDrag;
+            //We remove the bouncing physic material
+            sphereCollider.material = null;
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public bool GetBounceActivated()
