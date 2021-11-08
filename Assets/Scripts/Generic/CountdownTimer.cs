@@ -7,24 +7,24 @@ using UnityEngine;
 public class CountdownTimer : MonoBehaviour
 {
 
-    float currentTime = 0.0f;
-    float startingTime = 5.0f;
+    float currentTime = 0.0f;       // le temps reel
+    float startingTime = 5.0f;      // le temps a attendre pour lancer la partie
 
 
-    public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI textMeshPro;                 // le texte pour afficher le décompte
 
-    [SerializeField] private GameObject[] players;
+    [SerializeField] private GameObject[] players;      // les deux joueurs
 
 
 
     private void Start()
     {
-        currentTime = startingTime;
-        textMeshPro.text = currentTime.ToString("0");
+        currentTime = startingTime;                     // On fixe le temps à attendre
+        textMeshPro.text = currentTime.ToString("0");   // On affiche le start time
 
         foreach( GameObject player in players)
         {
-            player.GetComponent<TopDownShooter>().enabled = false ;
+            player.GetComponent<TopDownShooter>().enabled = false ;     // On empeche aux joueurs de tirer avant la fin du compteur
         }
 
     }
@@ -32,19 +32,19 @@ public class CountdownTimer : MonoBehaviour
     private void Update()
     {
 
-        currentTime -= 1 * Time.deltaTime;
-        textMeshPro.text = currentTime.ToString("0");
+        currentTime -= 1 * Time.deltaTime;              // update le chrono
+        textMeshPro.text = currentTime.ToString("0");   // On affiche le temps
 
-        if(currentTime <= 0)
+        if(currentTime <= 0)        // si le chrono est fini
         {
-            currentTime = 0;
+            currentTime = 0;        // On bloque le current time pour eviter tout bug d'affichage
 
             foreach (GameObject player in players)
             {
-                player.GetComponent<TopDownShooter>().enabled = true;
+                player.GetComponent<TopDownShooter>().enabled = true;       // On permet aux joueurs de tirer
             }
 
-            Destroy(gameObject);
+            Destroy(gameObject);        // On supprime le timer.
 
         }
 

@@ -11,45 +11,45 @@ using UnityEngine.InputSystem;
 
 public class TopDownMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    public CharacterController controller;  // controller (utilise pour calibrer les sticks)
 
-    public Vector2 move;
-    public Vector2 rotate;
+    public Vector2 move;    // Movement of the player
+    public Vector2 rotate;  // rotation of the player
 
-    public float speed = 6f;
+    public float speed = 6f;    // vitesse de movement 
 
     private GameObject planetAttached = null; // planete selectionne
     public GameObject PlanetAttached { get => planetAttached; set => planetAttached = value; }
 
 
-    private float turnSmoothTime = 0.1f;
-    private float turnSmoothVelocity;
+    private float turnSmoothTime = 0.1f;    // Smooth the rotation with lerp
+    private float turnSmoothVelocity;       // velocity de la rotation 
 
     private Vector3 lastPosition;
 
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)     // Input on left sitck for move
     {
-        move = context.ReadValue<Vector2>();
+        move = context.ReadValue<Vector2>();    // recup le stick
     }
 
-    public void OnRotate(InputAction.CallbackContext context)
+    public void OnRotate(InputAction.CallbackContext context)   // Input right stick for rotate
     {
-        rotate = context.ReadValue<Vector2>();
+        rotate = context.ReadValue<Vector2>();  // recup le stick
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = new Vector3(move.x, 0.0f, move.y).normalized;
-        Vector3 rotation = new Vector3(rotate.x, 0.0f, rotate.y).normalized;
+        RotatePlayer(); // rotate the player with stick
+        MovePlayer(); // Move the player
+        MovePlanetIfAttached();
+    }
 
-        Vector3 screen = Camera.main.WorldToScreenPoint(transform.position);
-        float distX = Vector3.Distance(new Vector3(Screen.width / 2, 0f, 0f), new Vector3(screen.x, 0f, 0f));
-        float distY = Vector3.Distance(new Vector3(0f, Screen.height / 2, 0f), new Vector3(0f, screen.y, 0f));
-
-        // rotate the player with stick
+    private void RotatePlayer(){
+        Vector3 direction = new Vector3(move.x, 0.0f, move.y).normalized;       // normalise la direction
+        Vector3 rotation = new Vector3(rotate.x, 0.0f, rotate.y).normalized;    // normalise la rotation
         float targetAngle = transform.eulerAngles.y;
 
         if (rotate.sqrMagnitude >= 0.015f)
@@ -63,8 +63,14 @@ public class TopDownMovement : MonoBehaviour
 
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+    }
 
-        // Move the player
+    private void MovePlayer(){
+        Vector3 direction = new Vector3(move.x, 0.0f, move.y).normalized;       // normalise la direction
+        Vector3 screen = Camera.main.WorldToScreenPoint(transform.position);    // position de l'écran
+        float distX = Vector3.Distance(new Vector3(Screen.width / 2, 0f, 0f), new Vector3(screen.x, 0f, 0f));   // dist en X de l'ecran
+        float distY = Vector3.Distance(new Vector3(0f, Screen.height / 2, 0f), new Vector3(0f, screen.y, 0f));  // dist en Y de l'ecran
+
         if (move.sqrMagnitude >= 0.1f)
         { 
             if (distX > Screen.width / 2 || distY > Screen.height / 2)
@@ -79,12 +85,7 @@ public class TopDownMovement : MonoBehaviour
             }
 
         }
-
-        MovePlanetIfAttached();
-
-
     }
-
 
     public void MovePlanetIfAttached()
     {

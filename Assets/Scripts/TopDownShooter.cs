@@ -14,11 +14,14 @@ public class TopDownShooter : MonoBehaviour
     {
         deckManager = GetComponent<DeckManager>();
         if (!deckManager) { Debug.LogError("No Deck Mnager in TopDownShooter"); }
+
+
+        
     }
 
     public void OnSouth(InputAction.CallbackContext context)
     {
-        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (!gameObject.scene.IsValid() ||  !enabled ) { return; }    // avoid to create things with Player Input manager
         if (context.performed)
         {
             deckManager.SelectPlanet(3);
@@ -26,7 +29,7 @@ public class TopDownShooter : MonoBehaviour
     }
     public void OnEast(InputAction.CallbackContext context)
     {
-        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (!gameObject.scene.IsValid() ||  !enabled) { return; }    // avoid to create things with Player Input manager
         if (context.performed)
         {
             deckManager.SelectPlanet(2);
@@ -34,7 +37,7 @@ public class TopDownShooter : MonoBehaviour
     }
     public void OnWest(InputAction.CallbackContext context)
     {
-        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (!gameObject.scene.IsValid() ||  !enabled) { return; }    // avoid to create things with Player Input manager
         if (context.performed)
         {
             deckManager.SelectPlanet(1);
@@ -42,7 +45,7 @@ public class TopDownShooter : MonoBehaviour
     }
     public void OnNorth(InputAction.CallbackContext context)
     {
-        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (!gameObject.scene.IsValid() ||  !enabled) { return; }    // avoid to create things with Player Input manager
         if (context.performed)
         {
             deckManager.SelectPlanet(0);
@@ -52,7 +55,7 @@ public class TopDownShooter : MonoBehaviour
     // tirer
     public void OnShoulderRight(InputAction.CallbackContext context)
     {
-        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (!gameObject.scene.IsValid() ||  !enabled ) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
             Debug.Log("Fire");
@@ -73,7 +76,7 @@ public class TopDownShooter : MonoBehaviour
     public void OnShoulderLeft(InputAction.CallbackContext context)
     {
         Debug.Log("Def planet");
-        if (!gameObject.scene.IsValid()) { return; }    // avoid to create things with Player Input manager
+        if (!gameObject.scene.IsValid() ||  !enabled ) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
             Debug.Log(deckManager.GetPlanetSelected().passive.name);
