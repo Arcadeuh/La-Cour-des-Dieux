@@ -13,9 +13,6 @@ public class DeckManager : MonoBehaviour
     //Liste pour afficher les planètes
     private List<OPHandItem> hand = new List<OPHandItem>(4);
 
-
-    
-
     //La main, liste de planètes à jouer pour le joueur
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
@@ -25,7 +22,7 @@ public class DeckManager : MonoBehaviour
     //Deck, se vidant au fur et à mesure
     private Queue<Planet> deck = new Queue<Planet>();
 
-    void Start()
+    void Awake()
     {
         // defini si c'est l'ui du player 1 ou du player 2
         GameObject player = GameObject.Find("UI/Player1");
@@ -35,18 +32,24 @@ public class DeckManager : MonoBehaviour
         }
         player.GetComponent<LinkToDeckManager>().DoLink();
 
+        timer = GetComponent<Timer>();
+        timer.AddCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer
+
         // link la main
         OPHandItem[] hand = player.GetComponentsInChildren<OPHandItem>();   // recupère toutes les OPHand
-        Debug.Log(hand.Length);
         for(int i = 0; i < hand.Length; i++)
         {
             this.hand.Add(hand[i]);     // On les save dans la main
         }
 
-        timer = GetComponent<Timer>();
-        timer.AddCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer
-        RefillQueueAndHand();                   //Refill le deck et la main
-        UpdateHand();                           //Update l'affichage
+        //RefillQueueAndHand();                   //Refill le deck et la main
+    }
+
+    public void SetDeckInit(List<Planet> planets)
+    {
+        Planet[] tempListPlanet = new Planet[planets.Count];
+        planets.CopyTo(tempListPlanet);
+        deckInit = new List<Planet>(tempListPlanet);
     }
 
     public void DeletePlanetSelected()
@@ -116,7 +119,7 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    private void RefillQueueAndHand()
+    public void RefillQueueAndHand()
     {
         RefillDeck();
         RefillHand();
@@ -144,6 +147,15 @@ public class DeckManager : MonoBehaviour
 
             planetSelectedAttached.GetComponent<PlanetBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetBehaviour.BlendMode.Transparent);
             GetComponent<TopDownMovement>().attach(planetSelectedAttached);
+        }
+    }
+
+    public void PrintDeckInit()
+    {
+        Debug.Log("~~~~PLANETS INSIDE DECK INIT~~~~");
+        foreach(Planet planet in deckInit)
+        {
+            Debug.Log(planet.title);
         }
     }
 }

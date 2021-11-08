@@ -52,7 +52,6 @@ public class Timer : MonoBehaviour
     public void AddCallback(UnityAction callback)
     {
         endTimer.AddListener(callback);
-        Debug.Log("HERE");
     }
 
     public void RemoveCallbacks(UnityAction callback)
