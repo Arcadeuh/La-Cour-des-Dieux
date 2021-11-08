@@ -18,7 +18,7 @@ public class TopDownMovement : MonoBehaviour
 
     public float speed = 6f;
 
-    private GameObject planetAttached = null; // planete selectionné
+    private GameObject planetAttached = null; // planete selectionne
     public GameObject PlanetAttached { get => planetAttached; set => planetAttached = value; }
 
 
