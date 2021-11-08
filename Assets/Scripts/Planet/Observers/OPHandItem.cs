@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 /*
- * Observer Planet Hand Item : Permet de montrer les planètes en forme d'item de main lors de la phase de combat
+ * Observer Planet Hand Item : Permet de montrer les planï¿½tes en forme d'item de main lors de la phase de combat
  */
 public class OPHandItem : MonoBehaviour
 {
@@ -48,5 +48,7 @@ public class OPHandItem : MonoBehaviour
         planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
         planetGameObject.GetComponent<SphereCollider>().enabled = false;
         planetGameObject.transform.localScale = new Vector3(40, 40, 1);
+
+        planetGameObject.GetComponent<RandomMesh3d>().definePlanetStyle();
     }
 }
