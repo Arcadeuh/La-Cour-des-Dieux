@@ -9,7 +9,7 @@ using TMPro;
 
 public class OPHandItem : MonoBehaviour
 /*
- * Observer Planet Hand Item : Permet de montrer les plan�tes en forme d'item de main lors de la phase de combat
+ * Observer Planet Hand Item : Permet de montrer les planetes en forme d'item de main lors de la phase de combat
  */
 {
     [SerializeField] private TMP_Text planetName; // Nom de la planète
@@ -47,13 +47,14 @@ public class OPHandItem : MonoBehaviour
             return;
         }
 
-        planetName.SetText(planet.title);
-        activeEffect.SetText(planet.active.title);
-        passiveEffect.SetText(planet.passive.title);
-        planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);
+        planetName.SetText(planet.title);               // show Planete name in UI
+        activeEffect.SetText(planet.active.title);      // show Planete active effect in UI
+        passiveEffect.SetText(planet.passive.title);    // show Planete passive effect in UI
+
+        planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);   // on creer le game object planete
         planetGameObject.GetComponent<SphereCollider>().enabled = false;
         planetGameObject.transform.localScale = new Vector3(40, 40, 1);
 
-        planetGameObject.GetComponent<RandomMesh3d>().definePlanetStyle();
+        //planetGameObject.GetComponent<RandomMesh3d>().definePlanetStyle();
     }
 }

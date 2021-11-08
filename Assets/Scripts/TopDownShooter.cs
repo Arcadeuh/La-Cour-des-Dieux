@@ -7,16 +7,13 @@ using UnityEngine.InputSystem;
 
 public class TopDownShooter : MonoBehaviour
 {
-    private DeckManager deckManager;
-    [SerializeField] private float bulletForce = 15.0f;
+    private DeckManager deckManager;     
+    [SerializeField] private float bulletForce = 15.0f;     // force à laquel on envoie la planete
 
     private void Start()
     {
         deckManager = GetComponent<DeckManager>();
         if (!deckManager) { Debug.LogError("No Deck Mnager in TopDownShooter"); }
-
-
-        
     }
 
     public void OnSouth(InputAction.CallbackContext context)
@@ -56,11 +53,12 @@ public class TopDownShooter : MonoBehaviour
     public void OnShoulderRight(InputAction.CallbackContext context)
     {
         if (!gameObject.scene.IsValid() ||  !enabled ) { return; }    // avoid to create things with Player Input manager
+
         if (context.performed && deckManager.GetPlanetSelected())
         {
             Debug.Log("Fire");
-
             Debug.Log(deckManager.GetPlanetSelected().active.name);
+            
             GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
             planet.AddComponent(Type.GetType(deckManager.GetPlanetSelected().active.name)); //On lui donne le script d'effet actif
             GetComponent<TopDownMovement>().detach();   // on la detache de la main

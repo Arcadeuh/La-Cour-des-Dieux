@@ -9,13 +9,13 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     //Deck de base
-    [SerializeField] private List<Planet> deckInit;
+    [SerializeField] private List<Planet> deckInit;     // liste des planete dans le deck au début
 
-    //Liste pour afficher les planètes
-    private List<OPHandItem> hand = new List<OPHandItem>(4);
-    //La main, liste de planètes à jouer pour le joueur
-    private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
-    private Planet planetSelected = null;
+    
+    private List<OPHandItem> hand = new List<OPHandItem>(4); //Liste pour afficher les planètes
+    
+    private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null }; //La main, liste de planètes à jouer pour le joueur
+    private Planet planetSelected = null;   
     private GameObject planetSelectedAttached = null;
     private Timer timer;
 
@@ -150,7 +150,7 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    public void PrintDeckInit()
+    public void PrintDeckInit() // debug fonction
     {
         Debug.Log("~~~~PLANETS INSIDE DECK INIT~~~~");
         foreach(Planet planet in deckInit)
