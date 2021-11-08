@@ -25,18 +25,16 @@ public class DisplayDeck : MonoBehaviour
         }
         for(int i = 0; i< cards.Count; i++)
         {
+            Debug.Log("There");
             //if there is too much card, disable them
             if (i >= planetsToShow.Count) {
                 cards[i].SetActive(false);
                 continue;
             }
 
-            // /!\  /!\  /!\  /!\  /!\  /!\  /!\ 
-            //THIS PART SHOULD BE CHANGED WHEN THE REAL SCRIPT WILL BE DONE (class)
-            TestCard card = cards[i].GetComponent<TestCard>();
+            DisplayCard card = cards[i].GetComponent<DisplayCard>();
             card.SetPlanet(planetsToShow[i]);
             card.Display();
-            // /!\  /!\  /!\  /!\  /!\  /!\  /!\ 
         }
     }
 

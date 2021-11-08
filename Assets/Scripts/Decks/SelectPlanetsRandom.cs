@@ -56,11 +56,6 @@ public class SelectPlanetsRandom : MonoBehaviour
         {
             int index = Random.Range(0, tempListPlanet.Length);
 
-            if (planetsSelected.Contains(tempListPlanet[index]))//if planet is already selected, do another loop
-            {
-                i--;
-                continue;
-            }
             planetsSelected.Add(tempListPlanet[index]);
         }
     }

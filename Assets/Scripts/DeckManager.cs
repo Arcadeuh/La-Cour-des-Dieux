@@ -4,14 +4,14 @@ using UnityEngine;
 
 
 /*
- * Crï¿½er, recharge le deck d'un joueur
+ * Créer, recharge le deck d'un joueur
  */
 public class DeckManager : MonoBehaviour
 {
     //Deck de base
     [SerializeField] private List<Planet> deckInit;
 
-    //Liste pour afficher les planï¿½tes
+    //Liste pour afficher les planètes
     private List<OPHandItem> hand = new List<OPHandItem>(4);
     //La main, liste de planètes à jouer pour le joueur
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
@@ -19,7 +19,7 @@ public class DeckManager : MonoBehaviour
     private GameObject planetSelectedAttached = null;
     private Timer timer;
 
-    //Deck, se vidant au fur et ï¿½ mesure
+    //Deck, se vidant au fur et à mesure
     private Queue<Planet> deck = new Queue<Planet>();
 
     void Awake()

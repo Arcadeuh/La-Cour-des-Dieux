@@ -17,18 +17,33 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private TMP_Text activeEffectDescription; // Description de l'effet actif
     [SerializeField] private TMP_Text passiveEffect; // Texte de l'effet passif
     [SerializeField] private TMP_Text passiveEffectDescription; // Description de l'effet passif
-    [SerializeField] private GameObject planetAppareance; // Template de l'image
+    [SerializeField] private Canvas planetAppareance; // Template de l'image
 
-    void Start()
+    private GameObject planetGameObject = null;
+
+    private void Start()
     {
+        //Display();
+    }
+
+    public void Display()
+    {
+        Destroy(planetGameObject);
+
         // Attribut chaque paramètre
         planetName.SetText(planet.title);
         activeEffect.SetText(planet.active.name);
         passiveEffectDescription.SetText(planet.passive.description);
         activeEffectDescription.SetText(planet.active.description);
         passiveEffect.SetText(planet.passive.name);
-        planetAppareance = planet.appearance;
-        Instantiate(planetAppareance, new Vector3(0, 0, 7.0f), Quaternion.identity);
+        planetGameObject = GameObject.Instantiate(planet.appearance, planetAppareance.transform);
+        planetGameObject.GetComponent<SphereCollider>().enabled = false;
+        planetGameObject.transform.localScale = planetAppareance.transform.localScale * 200;
+    }
+
+    public void SetPlanet(Planet newPlanet)
+    {
+        planet = newPlanet;
     }
 
 }

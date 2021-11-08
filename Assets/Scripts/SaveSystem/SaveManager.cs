@@ -18,6 +18,7 @@ public class SaveManager : MonoBehaviour
     {
         deckP1 = new Deck(1, displayDeckP1.GetPlanetsToShow());
         deckP2 = new Deck(2, displayDeckP2.GetPlanetsToShow());
+        // /!\ /!\ GET CARDS FROM JETONS /!\ /!\
         SaveSystem.SaveData(deckP1, deckP2);
     }
 
