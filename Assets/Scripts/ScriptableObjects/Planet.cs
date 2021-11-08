@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "NewPlanet", menuName = "Planet")]
 public class Planet : ScriptableObject
 {
@@ -11,5 +12,4 @@ public class Planet : ScriptableObject
     public Effect active;
     public Effect passive;
     public GameObject appearance;
-
 }

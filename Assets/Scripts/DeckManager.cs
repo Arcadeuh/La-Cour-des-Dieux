@@ -2,30 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /*
- * Créer, recharge le deck d'un joueur
+ * CrÃ©er, recharge le deck d'un joueur
  */
 public class DeckManager : MonoBehaviour
 {
     //Deck de base
     [SerializeField] private List<Planet> deckInit;
 
-    //Liste pour afficher les planètes
+    //Liste pour afficher les planÃ¨tes
     private List<OPHandItem> hand = new List<OPHandItem>(4);
-
-
-    
-
-    //La main, liste de planètes à jouer pour le joueur
+    //La main, liste de planÃ¨tes Ã  jouer pour le joueur
     private List<Planet> planetsInHand = new List<Planet>(4) { null, null, null, null };
     private Planet planetSelected = null;
     private GameObject planetSelectedAttached = null;
     private Timer timer;
 
-    //Deck, se vidant au fur et à mesure
+    //Deck, se vidant au fur et Ã  mesure
     private Queue<Planet> deck = new Queue<Planet>();
 
-    void Start()
+    void Awake()
     {
         // defini si c'est l'ui du player 1 ou du player 2
         GameObject player = GameObject.Find("UI/Player1");
@@ -35,18 +32,24 @@ public class DeckManager : MonoBehaviour
         }
         player.GetComponent<LinkToDeckManager>().DoLink();
 
+        timer = GetComponent<Timer>();
+        timer.AddCallback(RefillQueueAndHand);  //Callback appelÃ©e Ã  la fin du timer
+
         // link la main
-        OPHandItem[] hand = player.GetComponentsInChildren<OPHandItem>();   // recupère toutes les OPHand
-        Debug.Log(hand.Length);
+        OPHandItem[] hand = player.GetComponentsInChildren<OPHandItem>();   // recupÃ¨re toutes les OPHand
         for(int i = 0; i < hand.Length; i++)
         {
             this.hand.Add(hand[i]);     // On les save dans la main
         }
+        
+        //RefillQueueAndHand();                   //Refill le deck et la main
+    }
 
-        timer = GetComponent<Timer>();
-        timer.AddCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer
-        RefillQueueAndHand();                   //Refill le deck et la main
-        UpdateHand();                           //Update l'affichage
+    public void SetDeckInit(List<Planet> planets)
+    {
+        Planet[] tempListPlanet = new Planet[planets.Count];
+        planets.CopyTo(tempListPlanet);
+        deckInit = new List<Planet>(tempListPlanet);
     }
 
     public void DeletePlanetSelected()
@@ -116,7 +119,7 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    private void RefillQueueAndHand()
+    public void RefillQueueAndHand()
     {
         RefillDeck();
         RefillHand();
@@ -144,6 +147,15 @@ public class DeckManager : MonoBehaviour
 
             planetSelectedAttached.GetComponent<PlanetMaterialBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetMaterialBehaviour.BlendMode.Transparent);
             GetComponent<TopDownMovement>().attach(planetSelectedAttached);
+        }
+    }
+
+    public void PrintDeckInit()
+    {
+        Debug.Log("~~~~PLANETS INSIDE DECK INIT~~~~");
+        foreach(Planet planet in deckInit)
+        {
+            Debug.Log(planet.title);
         }
     }
 }

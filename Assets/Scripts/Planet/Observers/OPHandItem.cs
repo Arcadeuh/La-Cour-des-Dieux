@@ -3,31 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-/*
- * Observer Planet Hand Item : Permet de montrer les plan�tes en forme d'item de main lors de la phase de combat
- */
-public class OPHandItem : MonoBehaviour
-{
-    [SerializeField] private TMP_Text planetName;
-    [SerializeField] private TMP_Text activeEffect;
-    [SerializeField] private TMP_Text passiveEffect;
-    [SerializeField] private Canvas planetCanvas;
+// -----------------------------
+// OBSERVEUR D'UNE PLANETE
+// -----------------------------
 
-    [SerializeField] private Planet planet;
+public class OPHandItem : MonoBehaviour
+/*
+ * Observer Planet Hand Item : Permet de montrer les plan�tes en forme d'item de main lors de la phase de combat
+ */
+{
+    [SerializeField] private TMP_Text planetName; // Nom de la planète
+    [SerializeField] private TMP_Text activeEffect; // Effet actif
+    [SerializeField] private TMP_Text passiveEffect; // Effet passif
+    [SerializeField] private Canvas planetCanvas; // Pour l'instant c'est temporaire
+
+    [SerializeField] private Planet planet; // Objet planete
 
     private GameObject planetGameObject = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Créé si non nul
         if (planet == null) { return; }
+        
         Display();
     }
 
     public void SetPlanet(Planet newPlanet)
     {
         planet = newPlanet;
-
     }
 
     public void Display()
