@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 719635576296913751}
   - component: {fileID: 6713699265160178048}
   - component: {fileID: 440294271393781332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Saturne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,3 +139,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abce2ae07addaf647a0867f51ac4d2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localZ: 0

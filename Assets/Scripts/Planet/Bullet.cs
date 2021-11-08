@@ -13,7 +13,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
+    public float localZ = -1000;
+
     private bool isDefense = false;
+
+
 
     // disable collision
     public void setIsDefense(bool newIsDefense) {
@@ -22,6 +26,13 @@ public class Bullet : MonoBehaviour
         if (isDefense)
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+        }
+    }
+    private void Update()
+    {
+        if (localZ != -1000 && GetComponent<ZigZag>())
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, localZ);
         }
     }
 
