@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4299025647053924131}
   - component: {fileID: -6457938508356891055}
   - component: {fileID: 2083947195047634276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DummyPlanet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
