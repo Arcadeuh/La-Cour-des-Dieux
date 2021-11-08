@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bounce
   m_EditorClassIdentifier: 
   title: Rebond
-  description: Rebondis une fois en touchant un obstacle.
+  description: Rebondit une fois en touchant un obstacle.
   type: 0
   color: {r: 0.96610284, g: 1, b: 0, a: 0}
   textColor: {r: 0, g: 0, b: 0, a: 0}

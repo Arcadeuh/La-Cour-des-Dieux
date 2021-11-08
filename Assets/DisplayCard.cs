@@ -19,7 +19,8 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private TMP_Text passiveEffectDescription; // Description de l'effet passif
     [SerializeField] private GameObject planetAppareance; // Template de l'image
 
-    void Start()
+    // Méthode d'affichage de carte sur l'écran. Nom en frnaçais parce qu'il veut pas DisplayCard
+    void AffichageCarte()
     {
         // Attribut chaque paramètre
         planetName.SetText(planet.title);
