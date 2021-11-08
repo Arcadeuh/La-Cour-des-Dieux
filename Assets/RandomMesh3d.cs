@@ -8,12 +8,14 @@ public class RandomMesh3d : MonoBehaviour
     public GameObject dummies;
     public GameObject[] planetesMeshes; 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-       definePlanetStyle();
+       definePlanetStyle(); 
+       
     }
 
     public void definePlanetStyle(){
+        Debug.Log("Set planet visu");
         dummies.GetComponent<MeshRenderer>().enabled = false;
 
 

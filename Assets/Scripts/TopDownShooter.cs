@@ -60,13 +60,13 @@ public class TopDownShooter : MonoBehaviour
             Debug.Log(deckManager.GetPlanetSelected().active.name);
             
             GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
+            
             planet.AddComponent(Type.GetType(deckManager.GetPlanetSelected().active.name)); //On lui donne le script d'effet actif
             GetComponent<TopDownMovement>().detach();   // on la detache de la main
             deckManager.DeletePlanetSelected();         // on la supp du deck
 
             Rigidbody rb = planet.GetComponent<Rigidbody>();                    // on recup rigidbody
             rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);    // On envoie la planete
-            
         }
     }
 
@@ -78,8 +78,10 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed && deckManager.GetPlanetSelected())
         {
             Debug.Log(deckManager.GetPlanetSelected().passive.name);
-            GetComponent<TopDownMovement>().PlanetAttached.AddComponent(Type.GetType(deckManager.GetPlanetSelected().passive.name)); //On lui donne le script d'effet passif
-            GetComponent<TopDownMovement>().PlanetAttached.GetComponent<Bullet>().setIsDefense(true);
+            GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
+
+            planet.AddComponent(Type.GetType(deckManager.GetPlanetSelected().passive.name)); //On lui donne le script d'effet passif
+            planet.GetComponent<Bullet>().setIsDefense(true);
             GetComponent<TopDownMovement>().detach();
 
             deckManager.DeletePlanetSelected();
