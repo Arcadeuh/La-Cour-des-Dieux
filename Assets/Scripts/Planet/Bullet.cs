@@ -12,9 +12,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    public float localZ = -1000;
-
     private bool isDefense = false;
 
 
@@ -30,10 +27,7 @@ public class Bullet : MonoBehaviour
     }
     private void Update()
     {
-        if (localZ != -1000 && GetComponent<ZigZag>())
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, localZ);
-        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
