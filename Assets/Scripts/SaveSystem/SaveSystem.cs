@@ -2,21 +2,24 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+/*
+ * Classe static qui gère la sauvegarde et le chargement des données de la partie
+ */
 public static class SaveSystem
 {
     
-    public static void SaveDeck(Deck deckP1, Deck deckP2)
+    public static void SaveData(Deck deckP1, Deck deckP2)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/deckPlayers.god";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ListDeckData listDeckData = new ListDeckData(deckP1, deckP2);
+        SaveData listDeckData = new SaveData(deckP1, deckP2);
         formatter.Serialize(stream, listDeckData);
         stream.Close();
     }
 
-    public static ListDeckData LoadListDeck()
+    public static SaveData LoadData()
     {
         string path = Application.persistentDataPath + "/deckPlayers.god";
         if (!File.Exists(path))
@@ -27,7 +30,7 @@ public static class SaveSystem
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Open);
-        ListDeckData data = formatter.Deserialize(stream) as ListDeckData;
+        SaveData data = formatter.Deserialize(stream) as SaveData;
         return data;
     }
 

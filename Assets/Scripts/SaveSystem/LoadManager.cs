@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Mise en place de la scène de fight, 
+ * récupère les deck sauvegardés,
+ * et met à jour les deck manager.
+ * En gros, fait l'interface entre la sauvegarde et le début du combat
+ */
 public class LoadManager : MonoBehaviour
 {
     [SerializeField] private DeckManager deckManagerP1;
@@ -9,20 +15,25 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private List<Planet> planetsAvailable;
     private void Start()
     {
+        //Set les deck manager...
         SetEachDeckManager();
+        //Et les met à jour
         deckManagerP1.RefillQueueAndHand();
         deckManagerP2.RefillQueueAndHand();
     }
 
     private void SetEachDeckManager()
     {
-        ListDeckData data = SaveSystem.LoadListDeck();
+        //Check si il y a bien une save
+        SaveData data = SaveSystem.LoadData();
         if (data == null) { Debug.LogError("No data loaded"); return; }
 
+        //Load la première save
         List<Planet> planetsLoaded = new List<Planet>();
         List<string> planetsTitle = data.deckPlayer1.GetListPlanetTitle();
         for(int i=0; i< planetsTitle.Count; i++)
         {
+            //Va sauvegarder dans "planetsLoaded" les planètes de "planetsAvailable" ayant les mêmes noms ("title")
             Planet[] tempListPlanet = new Planet[planetsAvailable.Count];
             planetsAvailable.CopyTo(tempListPlanet);
             for (int j = 0; j < tempListPlanet.Length; j++)
@@ -35,8 +46,9 @@ public class LoadManager : MonoBehaviour
             }
         }
         deckManagerP1.SetDeckInit(planetsLoaded);
-        deckManagerP1.PrintDeckInit();
+        deckManagerP1.PrintDeckInit(); //DEBUG
 
+        //Load la première save
         planetsLoaded = new List<Planet>();
         planetsTitle = data.deckPlayer2.GetListPlanetTitle();
         for (int i = 0; i < planetsTitle.Count; i++)
@@ -53,6 +65,6 @@ public class LoadManager : MonoBehaviour
             }
         }
         deckManagerP2.SetDeckInit(planetsLoaded);
-        deckManagerP2.PrintDeckInit();
+        deckManagerP2.PrintDeckInit(); //DEBUG
     }
 }

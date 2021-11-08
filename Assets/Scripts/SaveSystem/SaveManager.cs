@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Interface entre les decks affichés (DisplayDeck),
+ * les cartes sélectionnés (ENCORE A FAIRE)
+ * et le système de sauvegarde (SaveSystem)
+ */
 public class SaveManager : MonoBehaviour
 {
     [SerializeField] private DisplayDeck displayDeckP1;
@@ -13,12 +18,13 @@ public class SaveManager : MonoBehaviour
     {
         deckP1 = new Deck(1, displayDeckP1.GetPlanetsToShow());
         deckP2 = new Deck(2, displayDeckP2.GetPlanetsToShow());
-        SaveSystem.SaveDeck(deckP1, deckP2);
+        SaveSystem.SaveData(deckP1, deckP2);
     }
 
+    //JUSTE FOR TEST, TO SEE IF IT'S SAVED OR NOT
     public void LoadDecksSaved()
     {
-        ListDeckData data = SaveSystem.LoadListDeck();
+        SaveData data = SaveSystem.LoadData();
         if (data == null) { Debug.LogError("Load failed"); return; }
         foreach(string title in data.deckPlayer1.GetListPlanetTitle())
         {

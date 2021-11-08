@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Permet la sélection de planètes de manière random
+ */
 public class SelectPlanetsRandom : MonoBehaviour
 {
 
