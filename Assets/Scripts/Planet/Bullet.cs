@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     private bool isDefense = false;
 
 
+    public float bulletForce;
+
 
     // disable collision
     public void setIsDefense(bool newIsDefense) {
