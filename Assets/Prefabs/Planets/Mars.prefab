@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8523882287422662841}
   - component: {fileID: 2258268121823759444}
   - component: {fileID: 7803616158209459333}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
