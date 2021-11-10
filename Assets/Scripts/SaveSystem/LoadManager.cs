@@ -46,7 +46,7 @@ public class LoadManager : MonoBehaviour
             }
         }
         deckManagerP1.SetDeckInit(planetsLoaded);
-        deckManagerP1.PrintDeckInit(); //DEBUG
+        //deckManagerP1.PrintDeckInit(); //DEBUG
 
         //Load la premiere save
         planetsLoaded = new List<Planet>();
@@ -65,6 +65,6 @@ public class LoadManager : MonoBehaviour
             }
         }
         deckManagerP2.SetDeckInit(planetsLoaded);
-        deckManagerP2.PrintDeckInit(); //DEBUG
+        //deckManagerP2.PrintDeckInit(); //DEBUG
     }
 }

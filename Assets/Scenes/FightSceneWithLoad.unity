@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5270535073020506601, guid: 725a0ad525c1bbe4b9f47ee1235b7455, type: 3}
       propertyPath: speed
-      value: 15
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5270535073020506606, guid: 725a0ad525c1bbe4b9f47ee1235b7455, type: 3}
       propertyPath: m_Name
@@ -539,7 +539,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 30, z: 5}
+  m_Size: {x: 3, y: 30, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &875751420
 GameObject:
@@ -1341,7 +1341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5270535073020506601, guid: 725a0ad525c1bbe4b9f47ee1235b7455, type: 3}
       propertyPath: speed
-      value: 15
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5270535073020506606, guid: 725a0ad525c1bbe4b9f47ee1235b7455, type: 3}
       propertyPath: m_Name

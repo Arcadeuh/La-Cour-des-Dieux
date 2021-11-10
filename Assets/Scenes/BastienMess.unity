@@ -458,6 +458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384763459}
     m_Modifications:
+    - target: {fileID: 4712766210546335723, guid: 5642472fc337064429527f6a8a44f32c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4712766210606659208, guid: 5642472fc337064429527f6a8a44f32c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -922,9 +926,6 @@ MonoBehaviour:
   listPlanets:
   - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
   - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
-  - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
-  - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
-  - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
   - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
   numberPlanetsToGet: 6
   showAtStart: 1
@@ -1856,9 +1857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listPlanets:
-  - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
-  - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
-  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
   - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
   - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
   - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}

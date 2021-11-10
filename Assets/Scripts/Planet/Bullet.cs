@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Colliding with : " + collision.gameObject.name);
+        //Debug.Log("Colliding with : " + collision.gameObject.name);
 
         TopDownShooter player = collision.gameObject.GetComponentInParent<TopDownShooter>();
 

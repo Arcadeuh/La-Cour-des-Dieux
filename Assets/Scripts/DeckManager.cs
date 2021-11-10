@@ -130,13 +130,12 @@ public class DeckManager : MonoBehaviour
     {
         
         if (i >= planetsInHand.Count || i<0) { return; }    // si il n'y a plus de planete
-        planetSelected = planetsInHand[i];
-        Debug.Log(planetSelected.title + " is selected");
-
 
         //If we chose one of the gamepad buttons to select a planet
-        if (planetSelected)
+        if (planetsInHand[i])
         {
+            planetSelected = planetsInHand[i];
+            Debug.Log(planetSelected.title + " is selected");
             //If a planet was already attached to the player
             if (planetSelectedAttached)
             {
@@ -145,7 +144,7 @@ public class DeckManager : MonoBehaviour
 
             planetSelectedAttached = Instantiate<GameObject>(planetSelected.appearance, transform.position + transform.forward * 2, transform.rotation);
 
-            planetSelectedAttached.GetComponent<PlanetMaterialBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.GetComponent<MeshRenderer>().material, PlanetMaterialBehaviour.BlendMode.Transparent);
+            planetSelectedAttached.GetComponent<PlanetMaterialBehaviour>().ChangeMaterialRenderingMode(planetSelectedAttached.transform.GetComponent<MeshRenderer>().material, PlanetMaterialBehaviour.BlendMode.Transparent);
             GetComponent<TopDownMovement>().attach(planetSelectedAttached);
         }
     }

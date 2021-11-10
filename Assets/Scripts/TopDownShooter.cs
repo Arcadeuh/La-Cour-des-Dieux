@@ -57,7 +57,7 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed && deckManager.GetPlanetSelected())
         {
             Debug.Log("Fire");
-            Debug.Log(deckManager.GetPlanetSelected().active.name);
+            //Debug.Log(deckManager.GetPlanetSelected().active.name);
             
             GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
             
