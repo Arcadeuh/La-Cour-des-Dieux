@@ -11,8 +11,9 @@ public class ZigZag : MonoBehaviour
 
     private Rigidbody rb;
 
-    public float frequency = 6f; // Speed of sine movement
-    public float magnitude = 20f; //  Size of sine movement, its the amplitude of the side curve
+    public float frequency; // Speed of sine movement
+    public float magnitude; //  Size of sine movement, its the amplitude of the side curve
+    public float speed; // the offset speed
 
     private Vector3 tempRotated;
 
@@ -20,8 +21,9 @@ public class ZigZag : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        frequency = frequency / (GetComponent<Bullet>().bulletForce);
-        magnitude = magnitude / GetComponent<Bullet>().bulletForce;
+        frequency = GetComponent<Bullet>().bulletForce/50;
+        magnitude = GetComponent<Bullet>().bulletForce/50;
+        speed = GetComponent<Bullet>().bulletForce/50;
     }
 
     // Update is called once per frame
@@ -40,8 +42,8 @@ public class ZigZag : MonoBehaviour
                 tempRotated = (Quaternion.AngleAxis(-90, Vector3.up) * rb.velocity.normalized);
             } else
             {
-                offset += frequency;
-                Vector3 position = tempRotated * Mathf.Sin(offset) * magnitude;
+                offset += speed;
+                Vector3 position = tempRotated * Mathf.Sin(offset * frequency) * magnitude;
                 transform.localPosition += position;
             }
 
