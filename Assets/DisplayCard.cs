@@ -46,4 +46,9 @@ public class DisplayCard : MonoBehaviour
         planet = newPlanet;
     }
 
+    public Planet GetPlanet()
+    {
+        return planet;
+    }
+
 }
