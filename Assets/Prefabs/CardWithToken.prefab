@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 7881817716633256757}
   m_Layer: 0
   m_Name: TokenP2
-  m_TagString: Untagged
+  m_TagString: TokenP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 7881817718123814129}
   m_Layer: 0
   m_Name: TokenP1
-  m_TagString: Untagged
+  m_TagString: TokenP1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
