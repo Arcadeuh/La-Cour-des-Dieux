@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.InputSystem;
 
 /*
  * Classe static qui gère la sauvegarde et le chargement des données de la partie
@@ -17,6 +18,16 @@ public static class SaveSystem
         SaveData listDeckData = new SaveData(deckP1, deckP2);
         formatter.Serialize(stream, listDeckData);
         stream.Close();
+    }
+
+    //Well. This is just a test...
+    public static void SetPlayersController(PlayerInput playerInput)
+    {
+        if(playerInput.devices.Count == 0) { Debug.LogError("Not enough controllers detected"); return; }
+        InputDevice playerDevice = playerInput.devices[0];
+        Gamepad gamepad = (Gamepad)InputSystem.GetDeviceById(playerDevice.deviceId);
+        Debug.Log(gamepad.deviceId);
+        Debug.Log(gamepad.name);
     }
 
     public static SaveData LoadData()
