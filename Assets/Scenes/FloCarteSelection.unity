@@ -3225,6 +3225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4024925a6a2f445ac5098b04a1d9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagTokensP1: TokenP1
+  tagTokensP2: TokenP2
   displayDeckP1: {fileID: 285456167}
   displayDeckP2: {fileID: 1099157616}
 --- !u!4 &1302123465
