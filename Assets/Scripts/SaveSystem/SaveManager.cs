@@ -9,17 +9,19 @@ using UnityEngine;
  */
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private DisplayDeck displayDeckP1;
-    [SerializeField] private DisplayDeck displayDeckP2;
     private Deck deckP1;
     private Deck deckP2;
 
     public string tagTokensP1 = "TokenP1";
     public string tagTokensP2 = "TokenP2";
 
+    [Header("For fight scene")]
+    [SerializeField] private DisplayDeck displayDeckP1;
+    [SerializeField] private DisplayDeck displayDeckP2;
+
     public void SetAndSaveDecks()
     {
-        if (displayDeckP1 == null)
+        if (displayDeckP1 == null || displayDeckP2 == null)
         {
             deckP1 = new Deck(1);
             deckP2 = new Deck(2);

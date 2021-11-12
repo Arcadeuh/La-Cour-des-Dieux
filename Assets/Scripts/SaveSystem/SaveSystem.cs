@@ -19,6 +19,11 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void SavePlayer()
+    {
+
+    }
+
     public static SaveData LoadData()
     {
         string path = Application.persistentDataPath + "/deckPlayers.god";
