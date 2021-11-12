@@ -1108,6 +1108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TokenPlayer2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2ea483131abedc47b3af9742aa656cd, type: 3}
+      propertyPath: m_TagString
+      value: TokenP2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2ea483131abedc47b3af9742aa656cd, type: 3}
 --- !u!1 &927868165438098240 stripped
@@ -1186,6 +1190,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c7df433021f0e854ebae22ecb9acb8ab, type: 3}
       propertyPath: m_Name
       value: TokenPlayer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c7df433021f0e854ebae22ecb9acb8ab, type: 3}
+      propertyPath: m_TagString
+      value: TokenP1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7df433021f0e854ebae22ecb9acb8ab, type: 3}
