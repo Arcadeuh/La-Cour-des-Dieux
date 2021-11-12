@@ -25,12 +25,10 @@ public class DeckManager : MonoBehaviour
     void Awake()
     {
         // defini si c'est l'ui du player 1 ou du player 2
-        GameObject player = GameObject.Find("UI/Player1");
-        if (player.GetComponent<LinkToDeckManager>().IsLinked())
-        {
-            player = GameObject.Find("UI/Player2");
-        }
-        player.GetComponent<LinkToDeckManager>().DoLink();
+        GameObject player = null;
+        if (gameObject.name == "Player1"){ player = GameObject.Find("UI/Player1"); }
+        else if (gameObject.name == "Player2") { player = GameObject.Find("UI/Player2"); }
+        else { Debug.LogError("The gameObject name is not 'Player1' nor 'Player2'"); return; }
 
         timer = GetComponent<Timer>();
         timer.AddCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer

@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
-
 /*
  * Objet contenant ce qui doit être sauvegarder
  */
@@ -16,11 +11,5 @@ public class SaveData
     {
         deckPlayer1 = p1;
         deckPlayer2 = p2;
-    }
-
-    public void SetPlayersController(PlayerInput playerInput)
-    {
-        InputDevice playerDevice = playerInput.devices[0];
-        Gamepad gamepad = (Gamepad)InputSystem.GetDeviceById(playerDevice.deviceId);
     }
 }
