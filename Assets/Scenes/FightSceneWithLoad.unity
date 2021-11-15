@@ -378,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 800068024}
   - component: {fileID: 800068025}
+  - component: {fileID: 800068026}
   m_Layer: 0
   m_Name: LoadDecks
   m_TagString: Untagged
@@ -418,6 +419,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
   - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
   - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
+--- !u!114 &800068026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800068023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba158850a7466a8469fbf5ba3427aba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerA: {fileID: 1310048923}
+  playerB: {fileID: 612085013}
 --- !u!1 &802908655
 GameObject:
   m_ObjectHideFlags: 0

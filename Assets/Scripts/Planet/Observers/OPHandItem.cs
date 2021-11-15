@@ -50,8 +50,8 @@ public class OPHandItem : MonoBehaviour
             passiveText.SetText("None");
             activeBack.enabled = false;
             passiveBack.enabled = false;
-            activeText.color = Color.black;
-            passiveText.color = Color.black;
+            activeText.color = Color.white;
+            passiveText.color = Color.white;
             return;
         }
 

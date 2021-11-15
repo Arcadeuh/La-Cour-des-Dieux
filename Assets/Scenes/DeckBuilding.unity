@@ -1294,7 +1294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3973133682968600276, guid: 8b0f6528096081648a5122c7fddcf26c, type: 3}
       propertyPath: tokensNumber
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0f6528096081648a5122c7fddcf26c, type: 3}
@@ -1539,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3973133682968600276, guid: 8b0f6528096081648a5122c7fddcf26c, type: 3}
       propertyPath: tokensNumber
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0f6528096081648a5122c7fddcf26c, type: 3}
