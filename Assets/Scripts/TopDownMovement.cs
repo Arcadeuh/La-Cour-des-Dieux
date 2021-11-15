@@ -27,7 +27,6 @@ public class TopDownMovement : MonoBehaviour
 
     private Vector3 lastPosition;
 
-
     public void OnMove(InputAction.CallbackContext context)     // Input on left sitck for move
     {
         move = context.ReadValue<Vector2>();    // recup le stick
