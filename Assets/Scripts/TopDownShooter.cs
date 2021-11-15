@@ -66,8 +66,10 @@ public class TopDownShooter : MonoBehaviour
             GetComponent<TopDownMovement>().detach();   // on la detache de la main
             deckManager.DeletePlanetSelected();         // on la supp du deck
 
-            Rigidbody rb = planet.GetComponent<Rigidbody>();                    // on recup rigidbody
+            Rigidbody rb = planet.GetComponent<Rigidbody>(); // on recup rigidbody
             rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);    // On envoie la planete
+
+            planet.GetComponent<Bullet>().forwardVector = transform.forward; //On récupérer dans le script de la planète son vecteur de déplacement pour les scripts des effets
         }
     }
 

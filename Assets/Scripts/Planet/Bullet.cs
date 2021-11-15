@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
 
 
     public float bulletForce;
+    public Vector3 forwardVector;
 
 
     // disable collision
