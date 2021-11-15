@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 /*
@@ -24,17 +25,39 @@ public class DeckManager : MonoBehaviour
 
     void Awake()
     {
+        GameObject playerUI = null;
+        /*
+        ControllerData cd = SaveSystem.LoadControllerData();
+        if (cd == null) { Debug.LogError("Pas de controllers sauvegardés"); return; }
+
         // defini si c'est l'ui du player 1 ou du player 2
-        GameObject player = null;
-        if (gameObject.name == "Player1"){ player = GameObject.Find("UI/Player1"); }
-        else if (gameObject.name == "Player2") { player = GameObject.Find("UI/Player2"); }
+        InputDevice inputDevice = GetComponent<PlayerInput>().devices[0];
+        Gamepad presentGamepad = (Gamepad)InputSystem.GetDeviceById(inputDevice.deviceId);
+        
+        if (cd.controllerP1 == presentGamepad.name)
+        {
+            playerUI = GameObject.Find("UI/Player1");
+            transform.position = playerUI.transform.position + new Vector3(20, 0, 0);
+            //playerUI.GetComponent<LinkToDeckManager>().DoLink();
+        }
+        else if (cd.controllerP2 == presentGamepad.name)
+        {
+            playerUI = GameObject.Find("UI/Player2");
+            transform.position = playerUI.transform.position - new Vector3(20, 0, 0);
+            //playerUI.GetComponent<LinkToDeckManager>().DoLink();
+        }
+        else { Debug.LogError("The gameObject name is not 'Player1' nor 'Player2'"); return; }
+        */
+
+        if (gameObject.name == "Player1"){ playerUI = GameObject.Find("UI/Player1"); }
+        else if (gameObject.name == "Player2") { playerUI = GameObject.Find("UI/Player2"); }
         else { Debug.LogError("The gameObject name is not 'Player1' nor 'Player2'"); return; }
 
         timer = GetComponent<Timer>();
         timer.AddCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer
 
         // link la main
-        OPHandItem[] hand = player.GetComponentsInChildren<OPHandItem>();   // recupère toutes les OPHand
+        OPHandItem[] hand = playerUI.GetComponentsInChildren<OPHandItem>();   // recupère toutes les OPHand
         for(int i = 0; i < hand.Length; i++)
         {
             this.hand.Add(hand[i]);     // On les save dans la main

@@ -13,3 +13,15 @@ public class SaveData
         deckPlayer2 = p2;
     }
 }
+
+public class ControllerData
+{
+    public string controllerP1;
+    public string controllerP2;
+
+    public ControllerData(string p1, string p2)
+    {
+        controllerP1 = p1;
+        controllerP2 = p2;
+    }
+}
