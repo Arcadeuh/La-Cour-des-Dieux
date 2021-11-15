@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public static class SaveSystem
 {
     
-    public static void SaveData(Deck deckP1, Deck deckP2)
+    public static void SaveDeckData(Deck deckP1, Deck deckP2)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/deckPlayers.god";
@@ -20,14 +20,15 @@ public static class SaveSystem
         stream.Close();
     }
 
-    //Well. This is just a test...
-    public static void SetPlayersController(PlayerInput playerInput)
+    public static void SaveControllerData(string controllerP1, string controllerP2)
     {
-        if(playerInput.devices.Count == 0) { Debug.LogError("Not enough controllers detected"); return; }
-        InputDevice playerDevice = playerInput.devices[0];
-        Gamepad gamepad = (Gamepad)InputSystem.GetDeviceById(playerDevice.deviceId);
-        Debug.Log(gamepad.deviceId);
-        Debug.Log(gamepad.name);
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/controllerPlayers.god";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        ControllerData controllerData = new ControllerData(controllerP1, controllerP2);
+        formatter.Serialize(stream, controllerData);
+        stream.Close();
     }
 
     public static SaveData LoadData()
@@ -42,6 +43,21 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Open);
         SaveData data = formatter.Deserialize(stream) as SaveData;
+        return data;
+    }
+
+    public static ControllerData LoadControllerData()
+    {
+        string path = Application.persistentDataPath + "/controllerPlayers.god";
+        if (!File.Exists(path))
+        {
+            Debug.LogError("Save not found in " + path);
+            return null;
+        }
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Open);
+        ControllerData data = formatter.Deserialize(stream) as ControllerData;
         return data;
     }
 
