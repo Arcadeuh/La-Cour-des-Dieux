@@ -16,6 +16,7 @@ public class OPHandItem : MonoBehaviour
     [SerializeField] private TMP_Text activeEffect; // Effet actif
     [SerializeField] private TMP_Text passiveEffect; // Effet passif
     [SerializeField] private Canvas planetCanvas; // Pour l'instant c'est temporaire
+    [SerializeField] private GameObject selectedSprite; // Encadré de sélection
 
     [SerializeField] private Planet planet; // Objet planete
 
@@ -56,5 +57,10 @@ public class OPHandItem : MonoBehaviour
         planetGameObject.transform.localScale = new Vector3(80, 80, 1);
 
         //planetGameObject.GetComponent<RandomMesh3d>().definePlanetStyle();
+    }
+
+    public void SetSelected(bool isSelected)
+    {
+        selectedSprite.SetActive(isSelected);
     }
 }

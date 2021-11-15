@@ -137,6 +137,7 @@ public class DeckManager : MonoBehaviour
         foreach(OPHandItem item in hand)
         {
             item.Display();
+            item.SetSelected(false);
         }
     }
 
@@ -155,6 +156,15 @@ public class DeckManager : MonoBehaviour
         //If we chose one of the gamepad buttons to select a planet
         if (planetsInHand[i])
         {
+            for(int j = 0; j<hand.Count; j++)
+            {
+                if (j == i) { 
+                    hand[j].SetSelected(true);
+                    continue;
+                }
+                hand[j].SetSelected(false);
+            }
+
             planetSelected = planetsInHand[i];
             Debug.Log(planetSelected.title + " is selected");
             //If a planet was already attached to the player
