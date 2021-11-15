@@ -44,7 +44,7 @@ public class SaveManager : MonoBehaviour
             deckP2.AddPlanetToDeck(token.GetComponentInParent<DisplayCard>().GetPlanet());
         }
 
-        SaveSystem.SaveData(deckP1, deckP2);
+        SaveSystem.SaveDeckData(deckP1, deckP2);
     }
 
     //JUSTE FOR TEST, TO SEE IF IT'S SAVED OR NOT

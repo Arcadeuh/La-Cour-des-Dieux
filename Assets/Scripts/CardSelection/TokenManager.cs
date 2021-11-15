@@ -5,19 +5,8 @@ using UnityEngine.InputSystem;
 
 public class TokenManager : MonoBehaviour
 {
-    public int tokensNumber = 4 ;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int tokensNumber = 4;
+    public int playerId;
 
 
     public void Interact(InputAction.CallbackContext context){
@@ -40,10 +29,10 @@ public class TokenManager : MonoBehaviour
             if(hit.transform.GetComponentInParent<CardTokenHolder>() != null ){      // est-ce une carte ?
 
                 CardTokenHolder card = hit.transform.GetComponentInParent<CardTokenHolder>();
-                if(card.HasToken()){
-                    RetrieveToken(card);
+                if(card.HasToken(playerId)){
+                    RetrieveToken(card, playerId);
                 }else if(tokensNumber>0){
-                    PlaceToken(card);
+                    PlaceToken(card, playerId);
                 }
             }
             
@@ -53,13 +42,14 @@ public class TokenManager : MonoBehaviour
 
 
 
-    public void PlaceToken(CardTokenHolder card){
-        card.AddToken(new Token());
+    public void PlaceToken(CardTokenHolder card, int playerId){
+        card.AddToken(new Token(), playerId);
         tokensNumber --;
     }
 
-    public void RetrieveToken(CardTokenHolder card){
-        card.RemoveToken();
+    public void RetrieveToken(CardTokenHolder card, int playerId)
+    {
+        card.RemoveToken(playerId);
         tokensNumber ++;
     }
 }
