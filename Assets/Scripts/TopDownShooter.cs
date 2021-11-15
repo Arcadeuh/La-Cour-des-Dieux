@@ -62,6 +62,8 @@ public class TopDownShooter : MonoBehaviour
             GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
 
             planet.GetComponent<Bullet>().bulletForce = bulletForce;
+            planet.GetComponent<Bullet>().forwardVector = transform.forward; //On récupérer dans le script de la planète son vecteur de déplacement pour les scripts des effets
+
             planet.AddComponent(Type.GetType(deckManager.GetPlanetSelected().active.name)); //On lui donne le script d'effet actif
             GetComponent<TopDownMovement>().detach();   // on la detache de la main
             deckManager.DeletePlanetSelected();         // on la supp du deck
@@ -69,7 +71,9 @@ public class TopDownShooter : MonoBehaviour
             Rigidbody rb = planet.GetComponent<Rigidbody>(); // on recup rigidbody
             rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);    // On envoie la planete
 
-            planet.GetComponent<Bullet>().forwardVector = transform.forward; //On récupérer dans le script de la planète son vecteur de déplacement pour les scripts des effets
+            planet.tag = gameObject.name + "Planets"; //on identifie cette planète comme appartenant a ce joueur (Player1 ou Player2) pour les zones d"effets
+
+            
         }
     }
 
@@ -85,6 +89,12 @@ public class TopDownShooter : MonoBehaviour
 
             planet.AddComponent(Type.GetType(deckManager.GetPlanetSelected().passive.name)); //On lui donne le script d'effet passif
             planet.GetComponent<Bullet>().setIsDefense(true);
+
+            planet.GetComponent<Bullet>().bulletForce = bulletForce;
+            planet.GetComponent<Bullet>().forwardVector = transform.forward; //On récupérer dans le script de la planète son vecteur de déplacement pour les scripts des effets
+
+            planet.tag = gameObject.name + "Planets"; //on identifie cette planète comme appartenant a ce joueur (Player1 ou Player2) pour les zones d"effets
+
             GetComponent<TopDownMovement>().detach();
 
             deckManager.DeletePlanetSelected();
