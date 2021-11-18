@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
 
 
     public float bulletForce;
+    public Vector3 forwardVector;
 
 
     // disable collision
@@ -63,6 +64,10 @@ public class Bullet : MonoBehaviour
             else if (GetComponent<RussianDoll>())
             {
                 GetComponent<RussianDoll>().UpdateSizeOrDestroy();
+            }
+            else if (GetComponent<Water>())
+            {
+                GetComponent<Water>().RemovePlanet();
             }
             else
             {

@@ -16,7 +16,8 @@ public class TopDownMovement : MonoBehaviour
     public Vector2 move;    // Movement of the player
     public Vector2 rotate;  // rotation of the player
 
-    public float speed = 6f;    // vitesse de movement 
+    public float maxSpeed = 12f;    // vitesse de movement  max
+    public float currentSpeed = 12f;   // vitesse de movement  actuelle
 
     private GameObject planetAttached = null; // planete selectionne
     public GameObject PlanetAttached { get => planetAttached; set => planetAttached = value; }
@@ -25,8 +26,15 @@ public class TopDownMovement : MonoBehaviour
     private float turnSmoothTime = 0.1f;    // Smooth the rotation with lerp
     private float turnSmoothVelocity;       // velocity de la rotation 
 
+    private float initialY;      
+
     private Vector3 lastPosition;
 
+    private void Start()
+    {
+        initialY = transform.position.y;
+        currentSpeed = maxSpeed;
+    }
 
     public void OnMove(InputAction.CallbackContext context)     // Input on left sitck for move
     {
@@ -42,9 +50,14 @@ public class TopDownMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         RotatePlayer(); // rotate the player with stick
         MovePlayer(); // Move the player
         MovePlanetIfAttached();
+
+        //Temporary fix for moving defense planet who moves player if player tries to go through it sometimes
+        if (transform.position.y != initialY)
+            transform.position = new Vector3(transform.position.x, initialY, transform.position.z);
     }
 
     private void RotatePlayer(){
@@ -81,7 +94,7 @@ public class TopDownMovement : MonoBehaviour
             else
             {
                 lastPosition = transform.position;
-                controller.Move(direction * speed * Time.deltaTime);
+                controller.Move(direction * currentSpeed * Time.deltaTime);
             }
 
         }

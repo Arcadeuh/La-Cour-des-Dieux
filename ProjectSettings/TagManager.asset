@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TokenP1
   - TokenP2
+  - Player1Planets
+  - Player2Planets
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - UI
   - CenterWall
   - Planet
-  - 
+  - Player
   - 
   - 
   - 
