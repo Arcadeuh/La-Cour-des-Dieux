@@ -13,6 +13,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private bool isDefense = false;
+    private bool flag = true;
+    private ScoreProgress UIRounds;
+
+    private void Start()
+    {
+        UIRounds = GameObject.Find("Rounds").GetComponent<ScoreProgress>();
+    }
 
 
     public float bulletForce;
@@ -39,10 +46,14 @@ public class Bullet : MonoBehaviour
 
         TopDownShooter player = collision.gameObject.GetComponentInParent<TopDownShooter>();
 
-        if (player && !isDefense)
+        if (player && !isDefense && flag)
         {
+            //UIRounds.killPlayer(player.name);
             Destroy(player.gameObject);
             Destroy(gameObject);
+            UIRounds.killPlayer(player.name);
+            flag = false;
+
         }
         else if (player && isDefense){
 
