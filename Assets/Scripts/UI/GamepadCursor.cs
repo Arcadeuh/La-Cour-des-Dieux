@@ -19,25 +19,31 @@ public class GamepadCursor : MonoBehaviour
 
     private Mouse virtualMouse;
 
+   
+    void Start()
+    {
+
+    }
 
     private void OnEnable()
     {
+        cursorTransform.position = new Vector3(0, 0, 0);
+        Debug.Log(cursorTransform.position);
+
         mainCamera = Camera.main;   // IL FAUT QUE LA CAMERA AIT LE TAG MAINCAMERA
 
         if (virtualMouse == null)
-        {
             virtualMouse = (Mouse)InputSystem.AddDevice("VirtualMouse");
-        }
+        
         else if (!virtualMouse.added)
-        {
             InputSystem.AddDevice(virtualMouse);
-        }
+        
 
         InputUser.PerformPairingWithDevice(virtualMouse, playerInput.user);
 
         if(cursorTransform != null)
         {
-            Vector2 position = cursorTransform.anchoredPosition;
+            Vector2 position = new Vector2(Screen.width / 2, Screen.height / 2);
             InputState.Change(virtualMouse.position, position);
         }
 
@@ -47,9 +53,9 @@ public class GamepadCursor : MonoBehaviour
 
     private void OnDisable()
     {
-        playerInput.user.UnpairDevice(virtualMouse);
-        InputSystem.RemoveDevice(virtualMouse);
+        if(virtualMouse != null && virtualMouse.added) InputSystem.RemoveDevice(virtualMouse);
         InputSystem.onAfterUpdate -= UpdateMotion; 
+
 
     }
 
