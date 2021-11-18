@@ -65,6 +65,10 @@ public class Bullet : MonoBehaviour
             {
                 GetComponent<RussianDoll>().UpdateSizeOrDestroy();
             }
+            else if (GetComponent<Water>())
+            {
+                GetComponent<Water>().RemovePlanet();
+            }
             else
             {
                 Destroy(gameObject);
