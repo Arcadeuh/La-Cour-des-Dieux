@@ -35,10 +35,6 @@ public class Bullet : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         }
     }
-    private void Update()
-    {
-
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -49,11 +45,11 @@ public class Bullet : MonoBehaviour
         if (player && !isDefense && flag)
         {
             //UIRounds.killPlayer(player.name);
-            Destroy(player.gameObject);
+            //Destroy(player.gameObject);
             Destroy(gameObject);
             UIRounds.killPlayer(player.name);
             flag = false;
-
+            StartCoroutine("InvincibleTime");
         }
         else if (player && isDefense){
 
@@ -85,5 +81,11 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    IEnumerator InvincibleTime()
+    {
+        yield return new WaitForSeconds(2.0f);
+        flag = true;
     }
 }

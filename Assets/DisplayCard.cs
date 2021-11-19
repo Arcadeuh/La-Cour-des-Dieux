@@ -41,6 +41,7 @@ public class DisplayCard : MonoBehaviour
         passiveFrame.color = planet.passive.color;
         planetGameObject = GameObject.Instantiate(planet.appearance, planetAppareance.transform);
         planetGameObject.GetComponent<SphereCollider>().enabled = false;
+        planetGameObject.GetComponent<Bullet>().enabled = false;
         planetGameObject.transform.localScale = planetAppareance.transform.localScale * 200;
     }
 

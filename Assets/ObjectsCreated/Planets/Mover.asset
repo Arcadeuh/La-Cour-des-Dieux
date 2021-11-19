@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9005c16a8ef9d9d46b8da8554dc6b9cb, type: 3}
-  m_Name: "Plan\xE8te Water-Moving"
+  m_Name: Mover
   m_EditorClassIdentifier: 
   title: "Plan\xE8te Water-Moving"
   radius: 10
