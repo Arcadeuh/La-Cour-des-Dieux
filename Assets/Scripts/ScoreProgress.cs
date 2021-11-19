@@ -35,8 +35,10 @@ public class ScoreProgress : MonoBehaviour
             else
             {
                 reDrawUI();
+                /*
                 player1 = Instantiate<GameObject>(player1);
                 player1.name = playerName;
+                */
             }
         }
         if (player2.name == playerName)
@@ -52,8 +54,10 @@ public class ScoreProgress : MonoBehaviour
             else
             {
                 reDrawUI();
+                /*
                 player2 = Instantiate<GameObject>(player2);
                 player2.name = playerName;
+                */
             }     
         }
         

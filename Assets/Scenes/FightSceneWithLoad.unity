@@ -243,6 +243,18 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 612085013}
+    - target: {fileID: 946312242550671774, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: onPlayer1Win.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 946312242550671774, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: onPlayer1Win.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 946312242550671774, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: onPlayer1Win.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 946312242550671775, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: m_RootOrder
       value: 8
