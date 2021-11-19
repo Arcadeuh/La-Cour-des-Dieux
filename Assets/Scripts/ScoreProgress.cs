@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScoreProgress : MonoBehaviour
 {
     private int scorePlayer1 = 0;
     private int scorePlayer2 = 0;
     private int roundNb = 1;
-   
+    private int victoryCountP1 = 0;
+    private int victoryCountP2 = 0;
 
     private bool player1Alive = true;
     private bool player2Alive = true;
 
+    [SerializeField] private UnityEvent onPlayer1Win;
+    [SerializeField] private UnityEvent onPlayer2Win;
+    [SerializeField] private UnityEvent onVictoryP1;
+    [SerializeField] private UnityEvent onVictoryP2;
     public GameObject player1;
     public GameObject player2;
     public GameObject UIScore;
@@ -28,9 +34,18 @@ public class ScoreProgress : MonoBehaviour
             scorePlayer2++;
             if (scorePlayer2 >= 3)
             {
-                roundNb++;
+                //roundNb++;
                 reDrawUI();
                 win(player2.name);
+                victoryCountP2++;
+                SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
+
+                if (victoryCountP2 == 3)
+                {
+                    onVictoryP2.Invoke();
+                    return;
+                }
+                onPlayer2Win.Invoke();
             }
             else
             {
@@ -47,9 +62,18 @@ public class ScoreProgress : MonoBehaviour
             scorePlayer1++;
             if (scorePlayer1 >= 3)
             {
-                roundNb++;
+                //roundNb++;
                 reDrawUI();
                 win(player1.name);
+                victoryCountP1++; 
+                SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
+
+                if (victoryCountP1 == 3)
+                {
+                    onVictoryP1.Invoke();
+                    return;
+                }
+                onPlayer1Win.Invoke();
             }
             else
             {
@@ -58,9 +82,9 @@ public class ScoreProgress : MonoBehaviour
                 player2 = Instantiate<GameObject>(player2);
                 player2.name = playerName;
                 */
-            }     
+            }
         }
-        
+
     }
 
     public void reDrawUI()
@@ -75,4 +99,15 @@ public class ScoreProgress : MonoBehaviour
         UIWin.GetComponentInChildren<UnityEngine.UI.Text>().text = playerName + " Won This Round";
     }
 
+    public void SetVictoriesNumber(int p1, int p2)
+    {
+        victoryCountP1 = p1;
+        victoryCountP2 = p2;
+    }
+
+    public void SetRoundNumber(int n)
+    {
+        roundNb = n;
+        reDrawUI();
+    }
 }

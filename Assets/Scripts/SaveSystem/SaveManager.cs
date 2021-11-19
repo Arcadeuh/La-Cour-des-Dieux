@@ -50,7 +50,7 @@ public class SaveManager : MonoBehaviour
     //JUSTE FOR TEST, TO SEE IF IT'S SAVED OR NOT
     public void LoadDecksSaved()
     {
-        SaveData data = SaveSystem.LoadData();
+        DeckData data = SaveSystem.LoadData();
         if (data == null) { Debug.LogError("Load failed"); return; }
         Debug.Log("PLAYER 1");
         foreach (string title in data.deckPlayer1.GetListPlanetTitle())

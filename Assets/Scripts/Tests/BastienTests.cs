@@ -1,21 +1,17 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
+using UnityEngine.SceneManagement;
 
 public class BastienTests : MonoBehaviour
 {
-    public void PrintFunction()
+    public void ChangeScene(string sceneName)
     {
-        Debug.Log("PrintFunction()");
+        StartCoroutine("Waiting", sceneName);
     }
 
-    public void InputJoystick()
+    IEnumerator Waiting(string sceneName)
     {
-        Debug.Log(Joystick.all[0].deviceId);
-    }
-
-    private void Update()
-    {
-
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -15,7 +15,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/deckPlayers.god";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        SaveData listDeckData = new SaveData(deckP1, deckP2);
+        DeckData listDeckData = new DeckData(deckP1, deckP2);
         formatter.Serialize(stream, listDeckData);
         stream.Close();
     }
@@ -30,8 +30,18 @@ public static class SaveSystem
         formatter.Serialize(stream, controllerData);
         stream.Close();
     }
+    public static void SaveRoundsData(int victoryCountP1, int victoryCountP2)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/rounds.god";
+        FileStream stream = new FileStream(path, FileMode.Create);
 
-    public static SaveData LoadData()
+        RoundsData roundData = new RoundsData(victoryCountP1, victoryCountP2);
+        formatter.Serialize(stream, roundData);
+        stream.Close();
+    }
+
+    public static DeckData LoadData()
     {
         string path = Application.persistentDataPath + "/deckPlayers.god";
         if (!File.Exists(path))
@@ -42,7 +52,7 @@ public static class SaveSystem
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Open);
-        SaveData data = formatter.Deserialize(stream) as SaveData;
+        DeckData data = formatter.Deserialize(stream) as DeckData;
         return data;
     }
 
@@ -58,6 +68,20 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Open);
         ControllerData data = formatter.Deserialize(stream) as ControllerData;
+        return data;
+    }
+    public static RoundsData LoadRoundsData()
+    {
+        string path = Application.persistentDataPath + "/rounds.god";
+        if (!File.Exists(path))
+        {
+            Debug.LogError("Save not found in " + path);
+            return null;
+        }
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Open);
+        RoundsData data = formatter.Deserialize(stream) as RoundsData;
         return data;
     }
 
