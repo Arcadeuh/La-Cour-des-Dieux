@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class ScoreProgress : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class ScoreProgress : MonoBehaviour
     public GameObject UIScore;
     public GameObject UIRound;
     public GameObject UIWin;
+    public GameObject matchWin;
 
 
     public void killPlayer(string playerName)
@@ -35,16 +37,18 @@ public class ScoreProgress : MonoBehaviour
             if (scorePlayer2 >= 3)
             {
                 //roundNb++;
-                reDrawUI();
-                win(player2.name);
                 victoryCountP2++;
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
-                if (victoryCountP2 == 3)
+                if (victoryCountP2 >= 3)
                 {
                     onVictoryP2.Invoke();
+                    matchWin.SetActive(true);
+                    matchWin.GetComponent<TMP_Text>().SetText("Player 2 Wins !!");
                     return;
                 }
+                reDrawUI();
+                win(player2.name);
                 onPlayer2Win.Invoke();
             }
             else
@@ -63,16 +67,18 @@ public class ScoreProgress : MonoBehaviour
             if (scorePlayer1 >= 3)
             {
                 //roundNb++;
-                reDrawUI();
-                win(player1.name);
                 victoryCountP1++; 
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
-                if (victoryCountP1 == 3)
+                if (victoryCountP1 >= 3)
                 {
                     onVictoryP1.Invoke();
+                    matchWin.SetActive(true);
+                    matchWin.GetComponent<TMP_Text>().SetText("Player 1 Wins !!");
                     return;
                 }
+                reDrawUI();
+                win(player1.name);
                 onPlayer1Win.Invoke();
             }
             else
