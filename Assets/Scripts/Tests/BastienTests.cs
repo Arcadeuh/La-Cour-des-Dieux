@@ -11,7 +11,7 @@ public class BastienTests : MonoBehaviour
 
     IEnumerator Waiting(string sceneName)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene(sceneName);
     }
 }
