@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
 
@@ -108,6 +109,7 @@ public class ScoreProgress : MonoBehaviour
     public void win(string playerName)
     {
         UIWin.GetComponentInChildren<UnityEngine.UI.Text>().text = playerName + " Won This Round";
+        SceneManager.LoadScene("DeckBuildingQuentin");
     }
 
     public void SetVictoriesNumber(int p1, int p2)

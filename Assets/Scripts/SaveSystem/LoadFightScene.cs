@@ -10,17 +10,28 @@ using UnityEngine;
  */
 public class LoadFightScene : LoadDeck
 {
-
+    public bool testMode = false;
     private void Start()
     {
-        DeckManager deckManagerP1 = GameObject.Find("Player1").GetComponent<DeckManager>();
-        DeckManager deckManagerP2 = GameObject.Find("Player2").GetComponent<DeckManager>();
+        if (testMode)
+        {
+            DeckManager deckManagerP1 = GameObject.Find("Player1").GetComponent<DeckManager>();
+            DeckManager deckManagerP2 = GameObject.Find("Player2").GetComponent<DeckManager>();
 
-        //Set les deck manager...
-        deckManagerP1.SetDeckInit(GetListPlanet(1));
-        deckManagerP2.SetDeckInit(GetListPlanet(2));
-        //Et les met a jour
-        deckManagerP1.RefillQueueAndHand();
-        deckManagerP2.RefillQueueAndHand();
+            deckManagerP1.RefillQueueAndHand();
+            deckManagerP2.RefillQueueAndHand();
+        }
+        else
+        {
+            DeckManager deckManagerP1 = GameObject.Find("Player1").GetComponent<DeckManager>();
+            DeckManager deckManagerP2 = GameObject.Find("Player2").GetComponent<DeckManager>();
+
+            //Set les deck manager...
+            deckManagerP1.SetDeckInit(GetListPlanet(1));
+            deckManagerP2.SetDeckInit(GetListPlanet(2));
+            //Et les met a jour
+            deckManagerP1.RefillQueueAndHand();
+            deckManagerP2.RefillQueueAndHand();
+        }
     }
 }
