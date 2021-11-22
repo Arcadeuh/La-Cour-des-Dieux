@@ -21,8 +21,8 @@ public class LoadController : MonoBehaviour
         {
             playerA.name = "Player1";
             playerB.name = "Player2";
-            playerA.transform.position = new Vector3(-8.15f, playerA.transform.position.y, playerA.transform.position.z);
-            playerB.transform.position = new Vector3(8.15f, playerB.transform.position.y, playerB.transform.position.z);
+            playerA.transform.position = new Vector3(-Mathf.Abs(playerA.transform.position.x), playerA.transform.position.y, playerA.transform.position.z);
+            playerB.transform.position = new Vector3(Mathf.Abs(playerA.transform.position.x), playerB.transform.position.y, playerB.transform.position.z);
             TokenManager tokenManager = null;
             if (playerA.TryGetComponent<TokenManager>(out tokenManager)) { tokenManager.playerId = 1; Debug.Log(playerA.name + " : " + tokenManager.playerId); }
             if (playerB.TryGetComponent<TokenManager>(out tokenManager)) { tokenManager.playerId = 2; Debug.Log(playerB.name + " : " + tokenManager.playerId); }
@@ -31,8 +31,8 @@ public class LoadController : MonoBehaviour
         {
             playerA.name = "Player2";
             playerB.name = "Player1";
-            playerA.transform.position = new Vector3(8.15f, playerA.transform.position.y, playerA.transform.position.z);
-            playerB.transform.position = new Vector3(-8.15f, playerB.transform.position.y, playerB.transform.position.z);
+            playerA.transform.position = new Vector3(Mathf.Abs(playerA.transform.position.x), playerA.transform.position.y, playerA.transform.position.z);
+            playerB.transform.position = new Vector3(-Mathf.Abs(playerA.transform.position.x), playerB.transform.position.y, playerB.transform.position.z);
             TokenManager tokenManager = null;
             if (playerA.TryGetComponent<TokenManager>(out tokenManager)) { tokenManager.playerId = 2; Debug.Log(playerA.name + " : " + tokenManager.playerId); }
             if (playerB.TryGetComponent<TokenManager>(out tokenManager)) { tokenManager.playerId = 1; Debug.Log(playerB.name + " : " + tokenManager.playerId); }

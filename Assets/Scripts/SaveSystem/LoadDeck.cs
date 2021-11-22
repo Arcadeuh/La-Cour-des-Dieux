@@ -8,7 +8,7 @@ using UnityEngine;
 public class LoadDeck : MonoBehaviour
 {
     [SerializeField] private List<Planet> planetsAvailable;
-    private SaveData saveData;
+    private DeckData saveData;
 
     private void Awake()
     {
