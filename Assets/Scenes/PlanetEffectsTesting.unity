@@ -414,7 +414,7 @@ MonoBehaviour:
   planetsAvailable:
   - {fileID: 11400000, guid: 6c2d7cc13e1535b4aab63f9bb81048bb, type: 2}
   - {fileID: 11400000, guid: c51db8f0ff9494e4f910e1235663aa02, type: 2}
-  - {fileID: 11400000, guid: c51db8f0ff9494e4f910e1235663aa02, type: 2}
+  - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
   - {fileID: 11400000, guid: e084b00eb180ded4cae77213dbf1ce93, type: 2}
   - {fileID: 11400000, guid: 6c2d7cc13e1535b4aab63f9bb81048bb, type: 2}
   - {fileID: 11400000, guid: e084b00eb180ded4cae77213dbf1ce93, type: 2}
@@ -837,6 +837,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 3.098999
       objectReference: {fileID: 0}
+    - target: {fileID: 1819292777683074704, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.82037354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144291054734952532, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.6160507
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333040756052729514, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.42317963
+      objectReference: {fileID: 0}
     - target: {fileID: 8606055276740891491, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.5980988
@@ -1164,6 +1176,14 @@ PrefabInstance:
     - target: {fileID: 1370779902195487361, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3.098999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819292777683074704, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.82037354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144291054734952532, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.6160507
       objectReference: {fileID: 0}
     - target: {fileID: 8606055276740891491, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
       propertyPath: m_AnchoredPosition.y
