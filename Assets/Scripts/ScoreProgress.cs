@@ -25,6 +25,8 @@ public class ScoreProgress : MonoBehaviour
     public GameObject UIRound;
     public GameObject UIWin;
     public GameObject matchWin;
+    [SerializeField] private VictoryPoints victoryPointsP1;
+    [SerializeField] private VictoryPoints victoryPointsP2;
 
 
     public void killPlayer(string playerName)
@@ -95,7 +97,10 @@ public class ScoreProgress : MonoBehaviour
 
     public void reDrawUI()
     {
-        
+        victoryPointsP1.SetVictoryPoints(victoryCountP1);
+        victoryPointsP2.SetVictoryPoints(victoryCountP2);
+        victoryPointsP1.UpdateUI();
+        victoryPointsP2.UpdateUI();
         UIScore.GetComponentInChildren<UnityEngine.UI.Text>().text = scorePlayer1 + " : " + scorePlayer2;
         UIRound.GetComponentInChildren<UnityEngine.UI.Text>().text = "Round " + roundNb;
     }
