@@ -10,6 +10,8 @@ public class GoToFight : MonoBehaviour
     public GameObject videoPlayer;
     public float timeVideoStop;
     public GameObject canvasButtons;
+    public SceneTransitioner ST;
+    public GameObject imageTransition;
 
 
     void LoadNewScene()
@@ -31,17 +33,19 @@ public class GoToFight : MonoBehaviour
         
         if (cardTokenHolder.HasToken(1) && cardTokenHolder.HasToken(2))
         {
-            
-            
+            imageTransition.SetActive(true);
+            ST.StartCoroutine("SceneTransition", "Quentin2");
+
             if (videoPlayer == null)
             {
-                LoadNewScene();
+                //LoadNewScene();
             }
             else
             {
-                videoPlayer.SetActive(true);
+                //ST.StartCoroutine("Quentin2");
+                //videoPlayer.SetActive(true);
                 Destroy(canvasButtons);
-                Destroy(videoPlayer, timeVideoStop);
+                //Destroy(videoPlayer, timeVideoStop);
             }
             
         }
