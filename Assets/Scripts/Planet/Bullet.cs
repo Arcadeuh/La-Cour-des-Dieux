@@ -47,11 +47,17 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
 
             //If the player is shielded
-            if (player.shielded && player.shield)
+            if (player.shielded && player.shields.Count != 0)
             {
-                player.shielded = false;
+
+                Destroy(player.shields[0]);
+                player.shields.RemoveAt(0);
+
                 flag = false;
-                Destroy(player.shield);
+
+                if (player.shields.Count == 0)
+                    player.shielded = false;
+
             } else
             {
                 UIRounds.killPlayer(player.name);
