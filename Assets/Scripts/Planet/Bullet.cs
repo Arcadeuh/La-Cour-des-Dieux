@@ -44,7 +44,12 @@ public class Bullet : MonoBehaviour
 
         if (player && !isDefense && flag)
         {
-            Destroy(gameObject);
+
+            //We need this check to avoid the water planet being destroyed on player contact
+            if (GetComponent<Water>())
+               GetComponent<Water>().RemovePlanet();
+            else
+               Destroy(gameObject);
 
             //If the player is shielded
             if (player.shielded && player.shields.Count != 0)
