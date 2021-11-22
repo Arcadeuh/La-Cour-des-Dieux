@@ -388,8 +388,9 @@ GameObject:
   - component: {fileID: 3839958490922350549}
   - component: {fileID: 9106359952426165274}
   - component: {fileID: 8554163796400614138}
+  - component: {fileID: 4493633484956272390}
   m_Layer: 0
-  m_Name: Player2Points (1)
+  m_Name: Player1Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +411,7 @@ RectTransform:
   - {fileID: 2716851431087694221}
   - {fileID: 813416422683191764}
   m_Father: {fileID: 5614134346186181791}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -478,6 +479,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4493633484956272390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906302883188243296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8388a1cd20cb4f84a866f31562285ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 6789824909277980334}
+  - {fileID: 4228394112815256980}
+  - {fileID: 5708160524659260328}
 --- !u!1 &4154745860403253014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,8 +1147,8 @@ RectTransform:
   - {fileID: 5614134345923659584}
   - {fileID: 5614134344871877868}
   - {fileID: 5614134345629208136}
-  - {fileID: 5339494360181014834}
   - {fileID: 139217979067359869}
+  - {fileID: 5339494360181014834}
   m_Father: {fileID: 5614134346517018838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1383,6 +1400,8 @@ MonoBehaviour:
   UIRound: {fileID: 5614134345612623274}
   UIWin: {fileID: 5614134344871877869}
   matchWin: {fileID: 5614134345629208140}
+  victoryPointsP1: {fileID: 0}
+  victoryPointsP2: {fileID: 0}
 --- !u!1 &5708160524659260328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1641,7 @@ GameObject:
   - component: {fileID: 4962252492687736162}
   - component: {fileID: 6873162262993942886}
   - component: {fileID: 1053697908509575670}
+  - component: {fileID: 6162669448173147627}
   m_Layer: 0
   m_Name: Player2Points
   m_TagString: Untagged
@@ -1644,7 +1664,7 @@ RectTransform:
   - {fileID: 5247901246081979783}
   - {fileID: 9012213108270328961}
   m_Father: {fileID: 5614134346186181791}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1712,6 +1732,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6162669448173147627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809333189514833936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8388a1cd20cb4f84a866f31562285ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 8228535599144700006}
+  - {fileID: 2684890889064417964}
+  - {fileID: 4156934561038925750}
 --- !u!1 &8228535599144700006
 GameObject:
   m_ObjectHideFlags: 0

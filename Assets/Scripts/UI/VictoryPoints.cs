@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class VictoryPoints : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> pointsP1;
-    [SerializeField] private List<GameObject> pointsP2;
+    [SerializeField] private List<GameObject> points;
+    private int victoryPoints = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetVictoryPoints(int points)
     {
-        
+        victoryPoints = points;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateUI()
     {
-        
+        for (int i = 0; i < victoryPoints; i++)
+        {
+            if (i > points.Count) { break; }
+            points[i].transform.Find("PointObtained").gameObject.SetActive(true);
+        }
     }
 }
