@@ -44,12 +44,21 @@ public class Bullet : MonoBehaviour
 
         if (player && !isDefense && flag)
         {
-            //UIRounds.killPlayer(player.name);
-            //Destroy(player.gameObject);
             Destroy(gameObject);
-            UIRounds.killPlayer(player.name);
-            flag = false;
-            StartCoroutine("InvincibleTime");
+
+            //If the player is shielded
+            if (player.shielded && player.shield)
+            {
+                player.shielded = false;
+                flag = false;
+                Destroy(player.shield);
+            } else
+            {
+                UIRounds.killPlayer(player.name);
+                flag = false;
+                StartCoroutine("InvincibleTime");
+            }
+
         }
         else if (player && isDefense){
 

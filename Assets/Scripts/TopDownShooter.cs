@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 
 
 public class TopDownShooter : MonoBehaviour
-{
+{ 
+    public bool shielded = false;
+    public GameObject shield = null;
     private DeckManager deckManager;     
     [SerializeField] private float bulletForce = 15.0f;     // force à laquel on envoie la planete
 
