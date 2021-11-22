@@ -101,6 +101,8 @@ public class WaterTrailBehaviour : MonoBehaviour
         //Wait for the all the particles to disappear
         yield return new WaitForSeconds(timeBeforeDestroy);
 
+        playerSlowed.GetComponent<TopDownMovement>().currentSpeed = playerSlowed.GetComponent<TopDownMovement>().maxSpeed;
+
         Destroy(transform.parent.gameObject);
 
     }

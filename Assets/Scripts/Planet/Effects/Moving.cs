@@ -14,6 +14,7 @@ public class Moving : MonoBehaviour
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None; //We remove the constraints to allow the rigibody to move
         GetComponent<Rigidbody>().isKinematic = true; //We make the planet kinematic to make it not movable by other objects 
+        initialVerticalValue = transform.position.z;
     } 
 
     // Update is called once per frame

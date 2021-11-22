@@ -20,6 +20,7 @@ public class Water : MonoBehaviour
         Destroy(GetComponent<MeshFilter>());
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<SphereCollider>());
+        Destroy(transform.GetChild(0).gameObject);
         StartCoroutine(particleTrail.GetComponent<WaterTrailBehaviour>().waitBeforeDestroy());
     }
 

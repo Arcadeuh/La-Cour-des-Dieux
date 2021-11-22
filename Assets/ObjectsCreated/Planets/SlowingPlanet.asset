@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9005c16a8ef9d9d46b8da8554dc6b9cb, type: 3}
-  m_Name: Mover
+  m_Name: SlowingPlanet
   m_EditorClassIdentifier: 
-  title: "Plan\xE8te Water-Moving"
+  title: Slowing Planet
   radius: 10
   speed: 10
   active: {fileID: 11400000, guid: 9b6149ac6966ec940b99db6c6c792c70, type: 2}
-  passive: {fileID: 11400000, guid: 70dff2bc53809854f99755a7fb3a6a51, type: 2}
-  appearance: {fileID: 3884935236133718758, guid: 440f05ca979198349bd7b3c139c1cb5b, type: 3}
+  passive: {fileID: 11400000, guid: b15ccb5e0891ac24d8c8fed78f5146d2, type: 2}
+  appearance: {fileID: 8317731901759447477, guid: 0294751c43d6d3c4ba896dc0be1f062d, type: 3}

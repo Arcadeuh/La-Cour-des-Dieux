@@ -6,13 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DeckConstructingQuentin.unity
-    guid: c0bc1992358a0a9468412b3c50ba70cc
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0b5aedcd55fe4a14f8f49834ca3dd5c8
   - enabled: 1
-    path: Assets/Scenes/Quentin2.unity
-    guid: 90c5ba7962f1a3d46ac7d0f04bda8c34
+    path: Assets/Scenes/DeckConstructing.unity
+    guid: 30d021fcec37a1e4a9f1642388399c82
   - enabled: 1
-    path: Assets/Scenes/DeckBuildingQuentin.unity
-    guid: 20794b6ec59352842a934e4f36b88b0d
+    path: Assets/Scenes/DeckBuilding.unity
+    guid: 26404543f0cb024419834f83c5b3a539
+  - enabled: 1
+    path: Assets/Scenes/FightSceneWithLoad.unity
+    guid: 77ac2e84203587745828df949e286482
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0b163b4f88859f940a425ddb17115778, type: 2}

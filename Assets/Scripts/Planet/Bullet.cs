@@ -44,12 +44,32 @@ public class Bullet : MonoBehaviour
 
         if (player && !isDefense && flag)
         {
-            //UIRounds.killPlayer(player.name);
-            //Destroy(player.gameObject);
-            Destroy(gameObject);
-            UIRounds.killPlayer(player.name);
-            flag = false;
-            StartCoroutine("InvincibleTime");
+
+            //We need this check to avoid the water planet being destroyed on player contact
+            if (GetComponent<Water>())
+               GetComponent<Water>().RemovePlanet();
+            else
+               Destroy(gameObject);
+
+            //If the player is shielded
+            if (player.shielded && player.shields.Count != 0)
+            {
+
+                Destroy(player.shields[0]);
+                player.shields.RemoveAt(0);
+
+                flag = false;
+
+                if (player.shields.Count == 0)
+                    player.shielded = false;
+
+            } else
+            {
+                UIRounds.killPlayer(player.name);
+                flag = false;
+                StartCoroutine("InvincibleTime");
+            }
+
         }
         else if (player && isDefense){
 
