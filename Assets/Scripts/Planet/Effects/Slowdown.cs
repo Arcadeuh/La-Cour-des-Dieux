@@ -51,7 +51,14 @@ public class Slowdown : MonoBehaviour
         if (other.gameObject.layer == 7 && other.tag != gameObject.tag)
         {
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            other.GetComponent<Rigidbody>().AddForce(other.GetComponent<Bullet>().forwardVector * other.GetComponent<Bullet>().bulletForce, ForceMode.Impulse);
+            if (other.GetComponent<Bounce>() && !other.GetComponent<Bounce>().GetBounceActivated())
+            {
+                other.GetComponent<Rigidbody>().AddForce(-other.GetComponent<Bullet>().forwardVector * other.GetComponent<Bullet>().bulletForce, ForceMode.Impulse);
+            }
+            else
+            {
+                other.GetComponent<Rigidbody>().AddForce(other.GetComponent<Bullet>().forwardVector * other.GetComponent<Bullet>().bulletForce, ForceMode.Impulse);
+            }
         }
     }
 }
