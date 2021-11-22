@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Water
   description: "Laisse une tra\xEEn\xE9e d'eau qui ralentit le joueur"
   type: 0
-  color: {r: 0, g: 0.4567151, b: 1, a: 0}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 0.4567151, b: 1, a: 1}
+  textColor: {r: 0, g: 0, b: 0, a: 1}
   effectName: 2
   bounceNumber: 0

@@ -16,7 +16,7 @@ public class Slowdown : MonoBehaviour
         //We create the area of effect game object
         effectArea = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         effectArea.transform.parent = transform;
-        effectArea.transform.localScale = new Vector3(areaOfEffectRadius * 2, areaOfEffectRadius * 2, areaOfEffectRadius * 2);
+        effectArea.transform.localScale = new Vector3(areaOfEffectRadius * 2, 1, areaOfEffectRadius * 2);
         effectArea.transform.localPosition = new Vector3(0, 0, 0);
 
         effectArea.GetComponent<SphereCollider>().radius = 0.5f;

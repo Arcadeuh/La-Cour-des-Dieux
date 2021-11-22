@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "Explose au bout de 3 secondes(pas de collision avec d\u2019autres
     plan\xE8tes)"
   type: 0
-  color: {r: 0.54501, g: 0.2891153, b: 0.8396226, a: 0}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.54501, g: 0.2891153, b: 0.8396226, a: 1}
+  textColor: {r: 0, g: 0, b: 0, a: 1}
   effectName: 0
   bounceNumber: 0

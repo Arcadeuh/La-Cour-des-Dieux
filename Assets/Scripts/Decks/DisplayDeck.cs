@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class DisplayDeck : MonoBehaviour
 {
-    [SerializeField] private List<Planet> planetsToShow;
+    private List<Planet> planetsToShow;
     [SerializeField] private List<GameObject> cards;
 
     private void Start()

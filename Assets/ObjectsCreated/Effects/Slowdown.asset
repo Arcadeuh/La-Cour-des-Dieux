@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Slowdown
   description: Ralentit les attaques dans une zone d'effet
   type: 1
-  color: {r: 0.16887684, g: 0.6509434, b: 0.42666435, a: 0}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.16887684, g: 0.6509434, b: 0.42666435, a: 1}
+  textColor: {r: 0, g: 0, b: 0, a: 1}
   effectName: 0
   bounceNumber: 0

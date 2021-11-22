@@ -19,6 +19,7 @@ public class LoadController : MonoBehaviour
 
         if (cd.controllerP1 == presentGamepad.name)
         {
+            Debug.Log("Player 1");
             playerA.name = "Player1";
             playerB.name = "Player2";
             playerA.transform.position = new Vector3(-8.15f, playerA.transform.position.y, playerA.transform.position.z);
@@ -29,6 +30,7 @@ public class LoadController : MonoBehaviour
         }
         else if (cd.controllerP2 == presentGamepad.name)
         {
+            Debug.Log("Player 2");
             playerA.name = "Player2";
             playerB.name = "Player1";
             playerA.transform.position = new Vector3(8.15f, playerA.transform.position.y, playerA.transform.position.z);
