@@ -77,6 +77,8 @@ public class TopDownShooter : MonoBehaviour
 
             
         }
+
+        SaveSystem.p1GamePad.SetMotorSpeeds(0.2f, 0.4f);
     }
 
     // defendre

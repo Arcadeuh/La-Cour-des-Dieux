@@ -8,7 +8,9 @@ using UnityEngine.InputSystem;
  */
 public static class SaveSystem
 {
-    
+    public static Gamepad p1GamePad;
+    public static Gamepad p2GamePad;
+
     public static void SaveDeckData(Deck deckP1, Deck deckP2)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -20,13 +22,17 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static void SaveControllerData(string controllerP1, string controllerP2)
+    public static void SaveControllerData(Gamepad controllerP1, Gamepad controllerP2)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/controllerPlayers.god";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ControllerData controllerData = new ControllerData(controllerP1, controllerP2);
+        ControllerData controllerData = new ControllerData(controllerP1.name, controllerP2.name);
+
+        p1GamePad = controllerP1;
+        p2GamePad = controllerP2;
+
         formatter.Serialize(stream, controllerData);
         stream.Close();
     }
