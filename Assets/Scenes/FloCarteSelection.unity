@@ -1219,7 +1219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc4516aa514b29489380a51bdf4eab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetsToShow: []
   cards:
   - {fileID: 888955943}
   - {fileID: 176652067}
@@ -3048,12 +3047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc4516aa514b29489380a51bdf4eab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetsToShow:
-  - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
-  - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
-  - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
-  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
-  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
   cards:
   - {fileID: 82209697}
   - {fileID: 1666356055}

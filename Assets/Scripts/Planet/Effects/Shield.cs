@@ -11,6 +11,7 @@ public class Shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //We get the player who placed the planet
         playerShielded = GameObject.Find(tag.Substring(0,7));
 
@@ -40,5 +41,17 @@ public class Shield : MonoBehaviour
         {
             Destroy(shield);
         }*/
+    }
+
+    private void OnDestroy()
+    {
+        if (shield)
+        {
+            Destroy(shield);
+            playerShielded.GetComponent<TopDownShooter>().shields.RemoveAt(0);
+
+            if (playerShielded.GetComponent<TopDownShooter>().shields.Count == 0)
+                playerShielded.GetComponent<TopDownShooter>().shielded = false;
+        }
     }
 }

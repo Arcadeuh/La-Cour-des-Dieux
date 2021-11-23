@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GoToFight : MonoBehaviour
@@ -12,7 +13,8 @@ public class GoToFight : MonoBehaviour
     public GameObject canvasButtons;
     public SceneTransitioner ST;
     public GameObject imageTransition;
-
+    private bool flag = false;
+    [SerializeField] private UnityEvent onSceneTransition = new UnityEvent();
 
     void LoadNewScene()
     {
@@ -34,7 +36,13 @@ public class GoToFight : MonoBehaviour
         if (cardTokenHolder.HasToken(1) && cardTokenHolder.HasToken(2))
         {
             imageTransition.SetActive(true);
-            ST.StartCoroutine("SceneTransition", "Quentin2");
+            ST.StartCoroutine("SceneTransition", "FightSceneWithLoad");
+
+            if (!flag)
+            {
+                flag = true;
+                onSceneTransition.Invoke();
+            }
 
             if (videoPlayer == null)
             {

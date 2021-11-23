@@ -109,7 +109,7 @@ public class ScoreProgress : MonoBehaviour
     public void win(string playerName)
     {
         UIWin.GetComponentInChildren<UnityEngine.UI.Text>().text = playerName + " Won This Round";
-        SceneManager.LoadScene("DeckBuildingQuentin");
+        //SceneManager.LoadScene("DeckBuildingQuentin");
     }
 
     public void SetVictoriesNumber(int p1, int p2)

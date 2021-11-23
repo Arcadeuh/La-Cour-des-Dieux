@@ -35,13 +35,19 @@ public class SaveManager : MonoBehaviour
         GameObject[] tokensP1 = GameObject.FindGameObjectsWithTag("TokenP1");
         foreach(GameObject token in tokensP1)
         {
-            deckP1.AddPlanetToDeck(token.GetComponentInParent<DisplayCard>().GetPlanet());
+            if (token.GetComponentInParent<DisplayCard>())
+            {
+                deckP1.AddPlanetToDeck(token.GetComponentInParent<DisplayCard>().GetPlanet());
+            }
         }
 
         GameObject[] tokensP2 = GameObject.FindGameObjectsWithTag("TokenP2");
         foreach (GameObject token in tokensP2)
         {
-            deckP2.AddPlanetToDeck(token.GetComponentInParent<DisplayCard>().GetPlanet());
+            if (token.GetComponentInParent<DisplayCard>())
+            {
+                deckP2.AddPlanetToDeck(token.GetComponentInParent<DisplayCard>().GetPlanet());
+            }
         }
 
         SaveSystem.SaveDeckData(deckP1, deckP2);
