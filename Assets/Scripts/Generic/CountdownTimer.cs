@@ -19,6 +19,9 @@ public class CountdownTimer : MonoBehaviour
 
     private void Start()
     {
+
+        AudioListener.volume = PlayerPrefs.GetFloat("volume");
+
         currentTime = startingTime;                     // On fixe le temps à attendre
         textMeshPro.text = currentTime.ToString("0");   // On affiche le start time
 

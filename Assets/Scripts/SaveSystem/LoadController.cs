@@ -11,6 +11,9 @@ public class LoadController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+
+        AudioListener.volume = PlayerPrefs.GetFloat("volume");
+
         ControllerData cd = SaveSystem.LoadControllerData();
         if (cd == null) { Debug.LogError("Pas de controllers sauvegardés"); return; }
 
