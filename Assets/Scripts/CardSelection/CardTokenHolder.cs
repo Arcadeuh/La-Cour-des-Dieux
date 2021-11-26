@@ -11,10 +11,14 @@ public class CardTokenHolder : MonoBehaviour
     public GameObject visuelTokenp2;
     public Token tokenPlayerTwo = null;
 
+    [SerializeField] private AudioClip addTokenSound;
+    [SerializeField] private AudioClip deleteTokenSound;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,8 @@ public class CardTokenHolder : MonoBehaviour
                 Debug.LogError("playerId is not 1 or 2");
                 break;
         };
+        audioSource.pitch = 3.0f;
+        audioSource.PlayOneShot(deleteTokenSound);
         return removedToken;
     }
 
@@ -73,5 +79,7 @@ public class CardTokenHolder : MonoBehaviour
             default:
                 break;
         }
+        audioSource.pitch = 1.0f;
+        audioSource.PlayOneShot(addTokenSound);
     }
 }
