@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 
 public class TopDownShooter : MonoBehaviour
-{ 
+{
+    public Animator characterAnimator;
     public bool shielded = false;
     public List<GameObject> shields = null;
     private DeckManager deckManager;     
@@ -24,6 +25,10 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed)
         {
             deckManager.SelectPlanet(3);
+
+            // animation 
+            characterAnimator.SetBool("PlaneteSelected", true);
+
         }
     }
     public void OnEast(InputAction.CallbackContext context)
@@ -32,6 +37,10 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed)
         {
             deckManager.SelectPlanet(2);
+
+            // animation 
+            characterAnimator.SetBool("PlaneteSelected", true);
+
         }
     }
     public void OnWest(InputAction.CallbackContext context)
@@ -40,6 +49,10 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed)
         {
             deckManager.SelectPlanet(1);
+
+            // animation 
+            characterAnimator.SetBool("PlaneteSelected", true);
+
         }
     }
     public void OnNorth(InputAction.CallbackContext context)
@@ -48,6 +61,10 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed)
         {
             deckManager.SelectPlanet(0);
+
+            // animation 
+            characterAnimator.SetBool("PlaneteSelected", true);
+
         }
     }
 
@@ -59,8 +76,16 @@ public class TopDownShooter : MonoBehaviour
         if (context.performed && deckManager.GetPlanetSelected())
         {
             Debug.Log("Fire");
+
+            // animation 
+            characterAnimator.SetBool("PlaneteSelected", false);
+            characterAnimator.SetTrigger("ThrowPlanet");
+            //characterAnimator.ResetTrigger("ThrowPlanet");
+
+
+
             //Debug.Log(deckManager.GetPlanetSelected().active.name);
-            
+
             GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
 
             planet.GetComponent<Bullet>().bulletForce = bulletForce;
@@ -84,10 +109,17 @@ public class TopDownShooter : MonoBehaviour
     // defendre
     public void OnShoulderLeft(InputAction.CallbackContext context)
     {
+        
         Debug.Log("Def planet");
         if (!gameObject.scene.IsValid() ||  !enabled ) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
+
+            // animation 
+            characterAnimator.SetBool("PlaneteSelected", false);
+            characterAnimator.SetTrigger("PlacePlanet");
+            //characterAnimator.ResetTrigger("PlacePlanet");
+
             Debug.Log(deckManager.GetPlanetSelected().passive.name);
             GameObject planet = GetComponent<TopDownMovement>().PlanetAttached; // on recup la planete
 
