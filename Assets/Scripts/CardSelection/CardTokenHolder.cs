@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardTokenHolder : MonoBehaviour
 {
@@ -11,14 +12,15 @@ public class CardTokenHolder : MonoBehaviour
     public GameObject visuelTokenp2;
     public Token tokenPlayerTwo = null;
 
-    [SerializeField] private AudioClip addTokenSound;
-    [SerializeField] private AudioClip deleteTokenSound;
-    private AudioSource audioSource;
+    private AudioManager audioManager;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if(audioManager == null)
+        {
+            Debug.LogError("No AudioManager found");
+        }
     }
 
     // Update is called once per frame
@@ -61,8 +63,7 @@ public class CardTokenHolder : MonoBehaviour
                 Debug.LogError("playerId is not 1 or 2");
                 break;
         };
-        audioSource.pitch = 3.0f;
-        audioSource.PlayOneShot(deleteTokenSound);
+        audioManager.Play("DeleteToken");
         return removedToken;
     }
 
@@ -79,7 +80,6 @@ public class CardTokenHolder : MonoBehaviour
             default:
                 break;
         }
-        audioSource.pitch = 1.0f;
-        audioSource.PlayOneShot(addTokenSound);
+        audioManager.Play("AddToken");
     }
 }
