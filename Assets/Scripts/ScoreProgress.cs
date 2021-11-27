@@ -32,7 +32,6 @@ public class ScoreProgress : MonoBehaviour
 
     public void killPlayer(string playerName)
     {
-        
         if (player1.name == playerName)
         {
             player1Alive = false;
