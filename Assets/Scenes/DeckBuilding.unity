@@ -1598,7 +1598,6 @@ GameObject:
   m_Component:
   - component: {fileID: 875751423}
   - component: {fileID: 875751422}
-  - component: {fileID: 875751421}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1606,14 +1605,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &875751421
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875751420}
-  m_Enabled: 1
 --- !u!20 &875751422
 Camera:
   m_ObjectHideFlags: 0
@@ -2931,6 +2922,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1945326386}
     m_Modifications:
+    - target: {fileID: 1817493110539043779, guid: 1b098d48090975d4c888aedc01b5adcc, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7881817716697197832, guid: 1b098d48090975d4c888aedc01b5adcc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3740,6 +3735,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 337d572c85b46124d8e4a2b9b2d03ab2, type: 3}
+--- !u!1 &1911313561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911313564}
+  - component: {fileID: 1911313562}
+  - component: {fileID: 1911313563}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1911313562
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911313561}
+  m_Enabled: 1
+--- !u!114 &1911313563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911313561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e84781a92f1004cb6faa77dc7f9054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: AddToken
+    audio: {fileID: 8300000, guid: 04cf6b824d332af4f83735e48b0f8327, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: DeleteToken
+    audio: {fileID: 8300000, guid: c81f8f08f8de87849aabf0f383ada6be, type: 3}
+    volume: 1
+    pitch: 3
+    source: {fileID: 0}
+--- !u!4 &1911313564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911313561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936252166 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3306835430611287112, guid: 337d572c85b46124d8e4a2b9b2d03ab2, type: 3}

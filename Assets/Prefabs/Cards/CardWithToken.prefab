@@ -757,6 +757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visuelTokenp1: {fileID: 3065725846695750430}
   visuelTokenp2: {fileID: 927868165438098240}
+  addTokenSound: {fileID: 8300000, guid: 04cf6b824d332af4f83735e48b0f8327, type: 3}
+  deleteTokenSound: {fileID: 8300000, guid: c81f8f08f8de87849aabf0f383ada6be, type: 3}
 --- !u!114 &7881817716697197834
 MonoBehaviour:
   m_ObjectHideFlags: 0

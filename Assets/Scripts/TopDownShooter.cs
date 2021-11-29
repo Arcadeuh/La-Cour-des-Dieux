@@ -11,11 +11,14 @@ public class TopDownShooter : MonoBehaviour
     public List<GameObject> shields = null;
     private DeckManager deckManager;     
     [SerializeField] private float bulletForce = 15.0f;     // force à laquel on envoie la planete
+    private AudioManager audioManager;
 
     private void Start()
     {
         deckManager = GetComponent<DeckManager>();
         if (!deckManager) { Debug.LogError("No Deck Mnager in TopDownShooter"); }
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if (!audioManager) { Debug.LogError("No AudioManager found"); }
     }
 
     public void OnSouth(InputAction.CallbackContext context)
@@ -75,7 +78,7 @@ public class TopDownShooter : MonoBehaviour
 
             planet.tag = gameObject.name + "Planets"; //on identifie cette planète comme appartenant a ce joueur (Player1 ou Player2) pour les zones d"effets
 
-            
+            audioManager.Play("Attack");
         }
 
         SaveSystem.p1GamePad.SetMotorSpeeds(0.2f, 0.4f);
@@ -102,6 +105,8 @@ public class TopDownShooter : MonoBehaviour
             GetComponent<TopDownMovement>().detach();
 
             deckManager.DeletePlanetSelected();
+
+            audioManager.Play("Defense");
         }
     }
 

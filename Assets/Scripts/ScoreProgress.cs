@@ -28,11 +28,16 @@ public class ScoreProgress : MonoBehaviour
     public GameObject matchWin;
     [SerializeField] private VictoryPoints victoryPointsP1;
     [SerializeField] private VictoryPoints victoryPointsP2;
+    private AudioManager audioManager;
 
+    private void Start()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     public void killPlayer(string playerName)
     {
-        
+        audioManager.Play("Hurt");
         if (player1.name == playerName)
         {
             player1Alive = false;

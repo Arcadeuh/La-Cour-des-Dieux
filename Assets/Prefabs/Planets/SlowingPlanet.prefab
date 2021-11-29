@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abce2ae07addaf647a0867f51ac4d2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  destroySound: {fileID: 8300000, guid: 63c37a3cb867c9641a83311a77d97071, type: 3}
   bulletForce: 0
   forwardVector: {x: 0, y: 0, z: 0}
 --- !u!1001 &3482781216211723719

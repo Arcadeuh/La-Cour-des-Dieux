@@ -14,6 +14,7 @@ public class VictoryPoints : MonoBehaviour
 
     public void UpdateUI()
     {
+        Debug.Log(victoryPoints);
         for (int i = 0; i < victoryPoints; i++)
         {
             if (i > points.Count) { break; }

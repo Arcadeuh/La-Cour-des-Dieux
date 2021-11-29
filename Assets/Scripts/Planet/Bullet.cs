@@ -16,9 +16,13 @@ public class Bullet : MonoBehaviour
     private bool flag = true;
     private ScoreProgress UIRounds;
 
+    private AudioManager audioManager;
+
     private void Start()
     {
         UIRounds = GameObject.Find("Rounds").GetComponent<ScoreProgress>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        Debug.Log(audioManager);
     }
 
 
@@ -44,7 +48,6 @@ public class Bullet : MonoBehaviour
 
         if (player && !isDefense && flag)
         {
-
             //We need this check to avoid the water planet being destroyed on player contact
             if (GetComponent<Water>())
                GetComponent<Water>().RemovePlanet();
@@ -100,6 +103,14 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (audioManager)
+        {
+            audioManager.Play("DestroyPlanet");
         }
     }
 

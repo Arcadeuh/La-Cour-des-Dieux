@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardTokenHolder : MonoBehaviour
 {
@@ -11,10 +12,15 @@ public class CardTokenHolder : MonoBehaviour
     public GameObject visuelTokenp2;
     public Token tokenPlayerTwo = null;
 
-    // Start is called before the first frame update
-    void Start()
+    private AudioManager audioManager;
+
+    private void Start()
     {
-        
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        if(audioManager == null)
+        {
+            Debug.LogError("No AudioManager found");
+        }
     }
 
     // Update is called once per frame
@@ -57,6 +63,7 @@ public class CardTokenHolder : MonoBehaviour
                 Debug.LogError("playerId is not 1 or 2");
                 break;
         };
+        audioManager.Play("DeleteToken");
         return removedToken;
     }
 
@@ -73,5 +80,6 @@ public class CardTokenHolder : MonoBehaviour
             default:
                 break;
         }
+        audioManager.Play("AddToken");
     }
 }
