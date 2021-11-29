@@ -12,7 +12,7 @@ public class SaveController : MonoBehaviour
     {
         InputDevice inputDevice = player1.devices[0];
         Gamepad p1Gamepad = (Gamepad)InputSystem.GetDeviceById(inputDevice.deviceId);
-        inputDevice = player2.devices[0];
+        inputDevice = player2.devices[0]; //DOES NOT FIND IF NO CONTROLLER
         Gamepad p2Gamepad = (Gamepad)InputSystem.GetDeviceById(inputDevice.deviceId);
         SaveSystem.SaveControllerData(p1Gamepad, p2Gamepad);
     }
