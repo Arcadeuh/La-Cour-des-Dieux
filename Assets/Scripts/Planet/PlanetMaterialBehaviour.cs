@@ -34,7 +34,7 @@ public class PlanetMaterialBehaviour : MonoBehaviour
     public void ChangeMaterialsRenderingMode(BlendMode blendMode)
     {
 
-        foreach (Material material in transform.GetChild(0).GetComponent<MeshRenderer>().materials)
+        foreach (Material material in transform.GetComponent<MeshRenderer>().materials)
         {
             switch (blendMode)
             {

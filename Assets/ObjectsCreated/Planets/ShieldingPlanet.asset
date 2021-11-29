@@ -17,4 +17,4 @@ MonoBehaviour:
   speed: 10
   active: {fileID: 11400000, guid: 9ad59fba970dcfd42b8283599a16ae5b, type: 2}
   passive: {fileID: 11400000, guid: f01de8ef08c7853468d6b222f8e9ff29, type: 2}
-  appearance: {fileID: 6957097405880808199, guid: 641630838669b5b4c9b5f82e7a11b267, type: 3}
+  appearance: {fileID: 597592524289165737, guid: dd4876b69d2d3bc4dafef823d50d07d8, type: 3}
