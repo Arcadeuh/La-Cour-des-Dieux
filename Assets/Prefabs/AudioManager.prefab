@@ -96,6 +96,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: DeckBuilding
+    audio: {fileID: 8300000, guid: 94d26646dd5fb5e4783a09798eb2bb04, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!82 &8205902666404378682
 AudioSource:
   m_ObjectHideFlags: 0
