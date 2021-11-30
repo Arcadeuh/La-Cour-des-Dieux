@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Permet la sélection de planètes de manière random
+ * Permet la sï¿½lection de planï¿½tes de maniï¿½re random
  */
 public class SelectPlanetsRandom : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class SelectPlanetsRandom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //If "showAtStart", show them using DisplayDeck script
+        // If "showAtStart", show them using DisplayDeck script
         SelectPlanets(numberPlanetsToGet);
         if (showAtStart)
         {
