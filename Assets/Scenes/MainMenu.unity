@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7795b3914eb3148ba95f4abf968144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopEveryMusicOnPlay: 1
+  stopEveryMusicOnPlay: 0
   musicTitle: IntroMusic
 --- !u!114 &153478867
 MonoBehaviour:
