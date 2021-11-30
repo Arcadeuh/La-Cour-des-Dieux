@@ -62,7 +62,8 @@ public class OPHandItem : MonoBehaviour
         planetGameObject = GameObject.Instantiate(planet.appearance, planetCanvas.transform);   // on creer le game object planete
         planetGameObject.GetComponent<SphereCollider>().enabled = false;
         planetGameObject.GetComponent<Bullet>().enabled = false;
-        planetGameObject.transform.localScale = new Vector3(80, 80, 1);
+        
+        planetGameObject.transform.localScale = new Vector3(4000, 1, 4000);     // applatir la planete
 
         activeBack.enabled = true;
         passiveBack.enabled = true;

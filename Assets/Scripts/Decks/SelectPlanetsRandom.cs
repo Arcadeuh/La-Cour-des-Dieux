@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Permet la sélection de planètes de manière random
+ * Permet la sï¿½lection de planï¿½tes de maniï¿½re random
  */
 public class SelectPlanetsRandom : MonoBehaviour
 {
 
-    public List<Planet> listPlanets = new List<Planet>();
+    private List<Planet> listPlanets = new List<Planet>();
     [SerializeField] private int numberPlanetsToGet = 4;
     [Header("Display features")]
     public bool showAtStart = false;
@@ -16,10 +16,18 @@ public class SelectPlanetsRandom : MonoBehaviour
 
     private List<Planet> planetsSelected = new List<Planet>();
 
+    private void Awake()
+    {
+        foreach (Object planet in Resources.LoadAll("Planets", typeof(Planet)))
+        {
+            listPlanets.Add((Planet)planet);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //If "showAtStart", show them using DisplayDeck script
+        // If "showAtStart", show them using DisplayDeck script
         SelectPlanets(numberPlanetsToGet);
         if (showAtStart)
         {

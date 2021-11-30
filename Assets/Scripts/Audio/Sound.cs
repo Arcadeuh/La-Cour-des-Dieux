@@ -12,7 +12,7 @@ public class Sound
     public float volume = 1.0f;
     [Range(0.1f, 3.0f)]
     public float pitch = 0.1f;
-    public bool playOnAwake = false;
+    public bool loop = false;
 
     [HideInInspector]
     public AudioSource source;

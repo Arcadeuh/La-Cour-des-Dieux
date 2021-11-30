@@ -42,7 +42,7 @@ public class DisplayCard : MonoBehaviour
         planetGameObject = GameObject.Instantiate(planet.appearance, planetAppareance.transform);
         planetGameObject.GetComponent<SphereCollider>().enabled = false;
         planetGameObject.GetComponent<Bullet>().enabled = false;
-        planetGameObject.transform.localScale = planetAppareance.transform.localScale * 200;
+        planetGameObject.transform.localScale = planetAppareance.transform.localScale * 10000;
     }
 
     public void SetPlanet(Planet newPlanet)

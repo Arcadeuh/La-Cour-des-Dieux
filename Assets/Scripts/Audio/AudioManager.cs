@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.audio;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-            s.source.playOnAwake = s.playOnAwake;
+            s.source.loop = s.loop;
         }
     }
 
@@ -34,5 +34,24 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public bool IsPlaying(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogError("Sound " + name + " not found !");
+            throw new Exception("This sound does not exist");
+        }
+        return s.source.isPlaying;
+    }
+
+    public void StopEverySounds()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
     }
 }
