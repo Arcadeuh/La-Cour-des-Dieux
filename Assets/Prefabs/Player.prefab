@@ -347,6 +347,9 @@ MonoBehaviour:
   endTimer:
     m_PersistentCalls:
       m_Calls: []
+  beginTimer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2011958981711884554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,15 +363,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24d2be7f9171ff4a9fa1d534672da95, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24d2be7f9171ff4a9fa1d534672da95, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24d2be7f9171ff4a9fa1d534672da95, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b24d2be7f9171ff4a9fa1d534672da95, type: 3}
       propertyPath: m_LocalPosition.x
