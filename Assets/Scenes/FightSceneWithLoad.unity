@@ -244,7 +244,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -415,6 +415,22 @@ PrefabInstance:
       propertyPath: players.Array.data[1]
       value: 
       objectReference: {fileID: 1310048923}
+    - target: {fileID: 5806869104721667161, guid: 30aae29cc8080424c8004ac33a605e06, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806869104721667161, guid: 30aae29cc8080424c8004ac33a605e06, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806869104721667161, guid: 30aae29cc8080424c8004ac33a605e06, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806869104721667161, guid: 30aae29cc8080424c8004ac33a605e06, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30aae29cc8080424c8004ac33a605e06, type: 3}
 --- !u!1 &758335024
@@ -5324,16 +5340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81ec3a2102fe084fbf5ac01a2cf4c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetsAvailable:
-  - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
-  - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
-  - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
-  - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
-  - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
-  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
-  - {fileID: 11400000, guid: c51db8f0ff9494e4f910e1235663aa02, type: 2}
-  - {fileID: 11400000, guid: 6c2d7cc13e1535b4aab63f9bb81048bb, type: 2}
-  - {fileID: 11400000, guid: e084b00eb180ded4cae77213dbf1ce93, type: 2}
   testMode: 0
 --- !u!114 &800068026
 MonoBehaviour:
@@ -5627,6 +5633,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 206724600}
     m_Modifications:
+    - target: {fileID: 44814157351474785, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.350296
+      objectReference: {fileID: 0}
+    - target: {fileID: 585612487462767139, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 850922416266263025, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -11539,6 +11553,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 206724600}
     m_Modifications:
+    - target: {fileID: 44814157351474785, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.350296
+      objectReference: {fileID: 0}
     - target: {fileID: 850922416266263025, guid: 7b97f882d99114c45b60576978d9aa87, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0

@@ -935,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3973133682968600266, guid: 8b0f6528096081648a5122c7fddcf26c, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3973133682968600266, guid: 8b0f6528096081648a5122c7fddcf26c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2273,7 +2273,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3753712084382598873, guid: 79a9060a391612d47940a27bb42cb6fe, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3753712084382598873, guid: 79a9060a391612d47940a27bb42cb6fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2561,16 +2561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0078c825e68954391058424606e7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetsAvailable:
-  - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
-  - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
-  - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
-  - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
-  - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
-  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
-  - {fileID: 11400000, guid: 6c2d7cc13e1535b4aab63f9bb81048bb, type: 2}
-  - {fileID: 11400000, guid: c51db8f0ff9494e4f910e1235663aa02, type: 2}
-  - {fileID: 11400000, guid: e084b00eb180ded4cae77213dbf1ce93, type: 2}
   deckP1: {fileID: 384763460}
   deckP2: {fileID: 867096247}
 --- !u!114 &1302123467
@@ -3253,7 +3243,7 @@ Transform:
   m_Children:
   - {fileID: 1462319848}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1689734310
 GameObject:
@@ -3887,16 +3877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056f9280cf31ba24bb39e85e9d2e2727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listPlanets:
-  - {fileID: 11400000, guid: 7a0389f7f9d38cd4ba9d23318d85a180, type: 2}
-  - {fileID: 11400000, guid: b4f6756e580620646860492241ca1f4c, type: 2}
-  - {fileID: 11400000, guid: 9e52ef006777f4d4994c3ebeebd6b7da, type: 2}
-  - {fileID: 11400000, guid: c550113e8cd86ee4fab362388d7ca602, type: 2}
-  - {fileID: 11400000, guid: 3cea0b8deb03a10438b8849f03f8ac90, type: 2}
-  - {fileID: 11400000, guid: 2a29a1c1987028742a75fbf52477b020, type: 2}
-  - {fileID: 11400000, guid: c51db8f0ff9494e4f910e1235663aa02, type: 2}
-  - {fileID: 11400000, guid: 6c2d7cc13e1535b4aab63f9bb81048bb, type: 2}
-  - {fileID: 11400000, guid: e084b00eb180ded4cae77213dbf1ce93, type: 2}
   numberPlanetsToGet: 4
   showAtStart: 1
   displayDeck: {fileID: 1945326387}
@@ -3916,7 +3896,7 @@ Transform:
   - {fileID: 2001590943}
   - {fileID: 1366491977}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1945326387
 MonoBehaviour:

@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class Timer : MonoBehaviour
 {
     public UnityEvent endTimer;
+    public UnityEvent beginTimer;
 
     private float currentTime;
     private bool isRunning = false;
@@ -17,12 +18,14 @@ public class Timer : MonoBehaviour
     public void StartTimer(float time)
     {
         currentTime = time;
+        beginTimer.Invoke();
         isRunning = true;
     }
 
     public void StartTimer()
     {
         if (currentTime <= 0.0f) { throw new Exception("Please set a time to decount"); }
+        beginTimer.Invoke();
         isRunning = true;
     }
 
@@ -49,9 +52,13 @@ public class Timer : MonoBehaviour
 
 
     //~~~~~~Callbacks methods~~~~~~
-    public void AddCallback(UnityAction callback)
+    public void AddEndCallback(UnityAction callback)
     {
         endTimer.AddListener(callback);
+    }
+    public void AddBeginCallback(UnityAction callback)
+    {
+        beginTimer.AddListener(callback);
     }
 
     public void RemoveCallbacks(UnityAction callback)

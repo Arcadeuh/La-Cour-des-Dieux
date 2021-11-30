@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class LoadDeck : MonoBehaviour
 {
-    private List<Planet> planetsAvailable;
+    private List<Planet> planetsAvailable = new List<Planet>();
     private DeckData saveData;
 
     private void Awake()

@@ -20,6 +20,7 @@ public class OPHandItem : MonoBehaviour
     [SerializeField] private Image passiveBack; // Effet passif
     [SerializeField] private Canvas planetCanvas; // Pour l'instant c'est temporaire
     [SerializeField] private GameObject selectedSprite; // Encadré de sélection
+    [SerializeField] private GameObject black; // Encadré de sélection
 
     [SerializeField] private Planet planet; // Objet planete
 
@@ -45,16 +46,18 @@ public class OPHandItem : MonoBehaviour
 
         if (!planet)
         {
-            planetName.SetText("None");
-            activeText.SetText("None");
-            passiveText.SetText("None");
+            planetName.SetText("");
+            activeText.SetText("");
+            passiveText.SetText("");
             activeBack.enabled = false;
             passiveBack.enabled = false;
             activeText.color = Color.white;
             passiveText.color = Color.white;
+            black.SetActive(true);
             return;
         }
 
+        black.SetActive(false);
         planetName.SetText(planet.title);               // show Planete name in UI
         activeText.SetText(planet.active.title);      // show Planete active effect in UI
         passiveText.SetText(planet.passive.title);    // show Planete passive effect in UI

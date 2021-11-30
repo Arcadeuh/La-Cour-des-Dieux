@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using TMPro;
 
 
 /*
@@ -19,13 +19,13 @@ public class DeckManager : MonoBehaviour
     private Planet planetSelected = null;   
     private GameObject planetSelectedAttached = null;
     private Timer timer;
+    private GameObject playerUI;
 
     //Deck, se vidant au fur et à mesure
     private Queue<Planet> deck = new Queue<Planet>();
 
     void Awake()
     {
-        GameObject playerUI = null;
         /*
         ControllerData cd = SaveSystem.LoadControllerData();
         if (cd == null) { Debug.LogError("Pas de controllers sauvegardés"); return; }
@@ -54,7 +54,9 @@ public class DeckManager : MonoBehaviour
         else { Debug.LogError("The gameObject name is not 'Player1' nor 'Player2'"); return; }
 
         timer = GetComponent<Timer>();
-        timer.AddCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer
+        timer.AddEndCallback(RefillQueueAndHand);  //Callback appelée à la fin du timer
+        timer.AddEndCallback(InactiveTimerUI);
+        timer.AddBeginCallback(ActiveTimerUI);
 
         // link la main
         OPHandItem[] hand = playerUI.GetComponentsInChildren<OPHandItem>();   // recupère toutes les OPHand
@@ -148,6 +150,16 @@ public class DeckManager : MonoBehaviour
         UpdateHandDisplay();
     }
 
+    public void ActiveTimerUI()
+    {
+        playerUI.transform.Find("Timer").gameObject.SetActive(true);
+    }
+
+    public void InactiveTimerUI()
+    {
+        playerUI.transform.Find("Timer").gameObject.SetActive(false);
+    }
+
     public void SelectPlanet(int i)
     {
         
@@ -186,6 +198,16 @@ public class DeckManager : MonoBehaviour
         foreach(Planet planet in deckInit)
         {
             Debug.Log(planet.title);
+        }
+    }
+
+    private void Update()
+    {
+        GameObject timerUI = playerUI.transform.Find("Timer").gameObject;
+        Debug.Log(timerUI.activeInHierarchy);
+        if (timerUI.activeInHierarchy)
+        {
+            timerUI.GetComponent<TMP_Text>().SetText(Mathf.Round(timer.GetCurrentTime() + 1).ToString());
         }
     }
 }
