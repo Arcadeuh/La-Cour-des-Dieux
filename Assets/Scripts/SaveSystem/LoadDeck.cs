@@ -7,11 +7,15 @@ using UnityEngine;
  */
 public class LoadDeck : MonoBehaviour
 {
-    [SerializeField] private List<Planet> planetsAvailable;
+    private List<Planet> planetsAvailable;
     private DeckData saveData;
 
     private void Awake()
     {
+        foreach (Object planet in Resources.LoadAll("Planets", typeof(Planet)))
+        {
+            planetsAvailable.Add((Planet)planet);
+        }
         saveData = SaveSystem.LoadData();
     }
 

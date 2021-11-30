@@ -8,13 +8,21 @@ using UnityEngine;
 public class SelectPlanetsRandom : MonoBehaviour
 {
 
-    public List<Planet> listPlanets = new List<Planet>();
+    private List<Planet> listPlanets = new List<Planet>();
     [SerializeField] private int numberPlanetsToGet = 4;
     [Header("Display features")]
     public bool showAtStart = false;
     [SerializeField] private DisplayDeck displayDeck;
 
     private List<Planet> planetsSelected = new List<Planet>();
+
+    private void Awake()
+    {
+        foreach (Object planet in Resources.LoadAll("Planets", typeof(Planet)))
+        {
+            listPlanets.Add((Planet)planet);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
