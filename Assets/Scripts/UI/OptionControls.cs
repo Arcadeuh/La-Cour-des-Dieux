@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,13 +34,19 @@ public class OptionControls : MonoBehaviour
 
         soundBlockedVal = slider.value;
 
-        resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions.Select(resolution =>
+            new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            dropdown.options[i].text = resolutions[i].ToString();
+            string resolutionString = resolutions[i].width.ToString() + " X " + resolutions[i].height.ToString();
+            dropdown.options[i].text = resolutionString;
             dropdown.options.Add(new UnityEngine.UI.Dropdown.OptionData(dropdown.options[i].text));
         }
+
+        //we use this to refresh the dropdown menu 
+        dropdown.value = 1;
+        dropdown.value = 0;
     }
 
     // Update is called once per frame
@@ -64,19 +71,23 @@ public class OptionControls : MonoBehaviour
 
     public void UpdateResolution()
     {
-        Debug.Log(resolutions[dropdown.value]);
         Screen.SetResolution(resolutions[dropdown.value].width,resolutions[dropdown.value].height,false);
     }
 
     public void onSouth(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (gameObject.activeSelf)
         {
-            soundBlocked = false;
-        } else if (context.canceled)
-        {
-            soundBlockedVal = slider.value;
-            soundBlocked = true;
+            if (context.started)
+            {
+                soundBlocked = false;
+            }
+            else if (context.canceled)
+            {
+                soundBlockedVal = slider.value;
+                soundBlocked = true;
+            }
         }
+
     }
 }
