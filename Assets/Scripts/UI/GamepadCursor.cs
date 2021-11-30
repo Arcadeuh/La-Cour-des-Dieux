@@ -14,9 +14,7 @@ public class GamepadCursor : MonoBehaviour
     [SerializeField] private float cursorSpeed = 1000.0f;
 
     private Camera mainCamera;
-
     private bool previousMouseState;
-
     private Mouse virtualMouse;
 
    
@@ -54,9 +52,7 @@ public class GamepadCursor : MonoBehaviour
     private void OnDisable()
     {
         if(virtualMouse != null && virtualMouse.added) InputSystem.RemoveDevice(virtualMouse);
-        InputSystem.onAfterUpdate -= UpdateMotion; 
-
-
+        InputSystem.onAfterUpdate -= UpdateMotion;
     }
 
     private void UpdateMotion()

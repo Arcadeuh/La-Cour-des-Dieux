@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("Colliding with : " + collision.gameObject.name);
@@ -68,16 +69,22 @@ public class Bullet : MonoBehaviour
 
             } else
             {
+
+                UnityEngine.InputSystem.Gamepad playerGamepad;
+                if (player.gameObject.name == "Player1")
+                    playerGamepad = SaveSystem.p1GamePad;
+                else
+                    playerGamepad = SaveSystem.p2GamePad;
+                UIRounds.StartCoroutine(UIRounds.InvincibleTimeAndRumble(playerGamepad));
                 UIRounds.killPlayer(player.name);
                 flag = false;
-                StartCoroutine("InvincibleTime");
             }
 
         }
         else if (player && isDefense){
 
         }else
-        {            
+        {
             //We check if a bouncing script is attached to the planet and if yes if the bouncing effect is deactivated
             if (GetComponent<Bounce>())
             {

@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class ScoreProgress : MonoBehaviour
 {
-    private int scorePlayer1 = 0;
-    private int scorePlayer2 = 0;
+    public int scorePlayer1 = 0;
+    public int scorePlayer2 = 0;
     private int roundNb = 1;
     private int victoryCountP1 = 0;
     private int victoryCountP2 = 0;
@@ -35,6 +36,9 @@ public class ScoreProgress : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
+
+    public Gamepad vibratingGamepad;
+
     public void killPlayer(string playerName)
     {
         audioManager.Play("Hurt");
@@ -44,7 +48,6 @@ public class ScoreProgress : MonoBehaviour
             scorePlayer2++;
             if (scorePlayer2 >= 3)
             {
-                //roundNb++;
                 victoryCountP2++;
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
@@ -53,6 +56,7 @@ public class ScoreProgress : MonoBehaviour
                     onVictoryP2.Invoke();
                     matchWin.SetActive(true);
                     matchWin.GetComponent<TMP_Text>().SetText("Player 2 Wins !!");
+
                     return;
                 }
                 reDrawUI();
@@ -75,6 +79,7 @@ public class ScoreProgress : MonoBehaviour
             if (scorePlayer1 >= 3)
             {
                 //roundNb++;
+
                 victoryCountP1++; 
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
@@ -101,6 +106,7 @@ public class ScoreProgress : MonoBehaviour
 
     }
 
+   
     public void reDrawUI()
     {
         victoryPointsP1.SetVictoryPoints(victoryCountP1);
@@ -127,5 +133,13 @@ public class ScoreProgress : MonoBehaviour
     {
         roundNb = n;
         reDrawUI();
+    }
+
+    public IEnumerator InvincibleTimeAndRumble(UnityEngine.InputSystem.Gamepad playerGamepad)
+    {
+        vibratingGamepad = playerGamepad;
+        playerGamepad.SetMotorSpeeds(0.1f, 0.2f);
+        yield return new WaitForSeconds(1.5f);
+        playerGamepad.SetMotorSpeeds(0, 0);
     }
 }

@@ -10,7 +10,7 @@ public class TopDownShooter : MonoBehaviour
     public Animator characterAnimator;
     public bool shielded = false;
     public List<GameObject> shields = null;
-    private DeckManager deckManager;     
+    private DeckManager deckManager;
     [SerializeField] private float bulletForce = 15.0f;     // force à laquel on envoie la planete
     private AudioManager audioManager;
 
@@ -29,7 +29,7 @@ public class TopDownShooter : MonoBehaviour
         {
             deckManager.SelectPlanet(3);
 
-            // animation 
+            // animation
             characterAnimator.SetBool("PlaneteSelected", true);
 
         }
@@ -41,7 +41,7 @@ public class TopDownShooter : MonoBehaviour
         {
             deckManager.SelectPlanet(2);
 
-            // animation 
+            // animation
             characterAnimator.SetBool("PlaneteSelected", true);
 
         }
@@ -53,7 +53,7 @@ public class TopDownShooter : MonoBehaviour
         {
             deckManager.SelectPlanet(1);
 
-            // animation 
+            // animation
             characterAnimator.SetBool("PlaneteSelected", true);
 
         }
@@ -65,7 +65,7 @@ public class TopDownShooter : MonoBehaviour
         {
             deckManager.SelectPlanet(0);
 
-            // animation 
+            // animation
             characterAnimator.SetBool("PlaneteSelected", true);
 
         }
@@ -80,7 +80,7 @@ public class TopDownShooter : MonoBehaviour
         {
             Debug.Log("Fire");
 
-            // animation 
+            // animation
             characterAnimator.SetBool("PlaneteSelected", false);
             characterAnimator.SetTrigger("ThrowPlanet");
             //characterAnimator.ResetTrigger("ThrowPlanet");
@@ -106,19 +106,18 @@ public class TopDownShooter : MonoBehaviour
             audioManager.Play("Attack");
         }
 
-        SaveSystem.p1GamePad.SetMotorSpeeds(0.2f, 0.4f);
     }
 
     // defendre
     public void OnShoulderLeft(InputAction.CallbackContext context)
     {
-        
+
         Debug.Log("Def planet");
         if (!gameObject.scene.IsValid() ||  !enabled ) { return; }    // avoid to create things with Player Input manager
         if (context.performed && deckManager.GetPlanetSelected())
         {
 
-            // animation 
+            // animation
             characterAnimator.SetBool("PlaneteSelected", false);
             characterAnimator.SetTrigger("PlacePlanet");
             //characterAnimator.ResetTrigger("PlacePlanet");
@@ -141,5 +140,9 @@ public class TopDownShooter : MonoBehaviour
             audioManager.Play("Defense");
         }
     }
+
+
+
+
 
 }
