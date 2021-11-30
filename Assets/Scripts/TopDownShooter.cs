@@ -78,9 +78,6 @@ public class TopDownShooter : MonoBehaviour
             
         }
 
-        Debug.Log(SaveSystem.p1GamePad.name);
-
-        SaveSystem.p1GamePad.SetMotorSpeeds(0.1f, 0.8f);
     }
 
     // defendre
@@ -106,5 +103,9 @@ public class TopDownShooter : MonoBehaviour
             deckManager.DeletePlanetSelected();
         }
     }
+
+
+
+
 
 }

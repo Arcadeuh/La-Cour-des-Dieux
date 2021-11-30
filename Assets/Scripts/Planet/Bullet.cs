@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("Colliding with : " + collision.gameObject.name);
@@ -65,9 +66,15 @@ public class Bullet : MonoBehaviour
 
             } else
             {
+
+                UnityEngine.InputSystem.Gamepad playerGamepad;
+                if (player.gameObject.name == "Player1")
+                    playerGamepad = SaveSystem.p1GamePad;
+                else
+                    playerGamepad = SaveSystem.p2GamePad;
+                UIRounds.StartCoroutine(UIRounds.InvincibleTimeAndRumble(playerGamepad));
                 UIRounds.killPlayer(player.name);
                 flag = false;
-                StartCoroutine("InvincibleTime");
             }
 
         }
@@ -103,9 +110,5 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    IEnumerator InvincibleTime()
-    {
-        yield return new WaitForSeconds(2.0f);
-        flag = true;
-    }
+
 }
