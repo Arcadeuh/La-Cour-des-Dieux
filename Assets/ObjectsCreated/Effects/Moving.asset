@@ -16,6 +16,6 @@ MonoBehaviour:
   description: "Fait un petit aller-retour sur l\u2019axe vertical"
   type: 1
   color: {r: 0.19472593, g: 0.18289427, b: 0.2830189, a: 1}
-  textColor: {r: 0, g: 0, b: 0, a: 1}
+  textColor: {r: 1, g: 0, b: 0.81861305, a: 1}
   effectName: 0
   bounceNumber: 0

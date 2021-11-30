@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9005c16a8ef9d9d46b8da8554dc6b9cb, type: 3}
   m_Name: Star
   m_EditorClassIdentifier: 
-  title: 
+  title: Star
   radius: 10
   speed: 10
-  active: {fileID: 0}
-  passive: {fileID: 0}
-  appearance: {fileID: 0}
+  active: {fileID: 11400000, guid: a1a3a1603cd338146a069cdc65a60436, type: 2}
+  passive: {fileID: 11400000, guid: e19f5cb8509de0a40bd3ffca0700809f, type: 2}
+  appearance: {fileID: 5454470245184339435, guid: 2a928010a18b30a4781eb61788e6d235, type: 3}

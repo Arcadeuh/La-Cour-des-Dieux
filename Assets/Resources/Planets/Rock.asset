@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9005c16a8ef9d9d46b8da8554dc6b9cb, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
-  title: 
+  title: Rock
   radius: 10
   speed: 10
-  active: {fileID: 0}
-  passive: {fileID: 0}
-  appearance: {fileID: 0}
+  active: {fileID: 11400000, guid: 9ad59fba970dcfd42b8283599a16ae5b, type: 2}
+  passive: {fileID: 11400000, guid: f01de8ef08c7853468d6b222f8e9ff29, type: 2}
+  appearance: {fileID: 2467907207550941622, guid: f8c90ebc4604738499d970a5499bc523, type: 3}

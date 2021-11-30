@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9005c16a8ef9d9d46b8da8554dc6b9cb, type: 3}
   m_Name: Unstable
   m_EditorClassIdentifier: 
-  title: 
+  title: Unstable
   radius: 10
   speed: 10
-  active: {fileID: 0}
-  passive: {fileID: 0}
-  appearance: {fileID: 0}
+  active: {fileID: 11400000, guid: ff16324c540e3764a84c353d67bd85a7, type: 2}
+  passive: {fileID: 11400000, guid: 9ad59fba970dcfd42b8283599a16ae5b, type: 2}
+  appearance: {fileID: 7922930220061867056, guid: 9fc090d091460224ab0feecd91514737, type: 3}
