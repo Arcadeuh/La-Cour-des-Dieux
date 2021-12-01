@@ -204,7 +204,7 @@ public class DeckManager : MonoBehaviour
     private void Update()
     {
         GameObject timerUI = playerUI.transform.Find("Timer").gameObject;
-        Debug.Log(timerUI.activeInHierarchy);
+        //Debug.Log(timerUI.activeInHierarchy);
         if (timerUI.activeInHierarchy)
         {
             timerUI.GetComponent<TMP_Text>().SetText(Mathf.Round(timer.GetCurrentTime() + 1).ToString());

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ScoreProgress : MonoBehaviour
 {
@@ -29,11 +30,25 @@ public class ScoreProgress : MonoBehaviour
     public GameObject matchWin;
     [SerializeField] private VictoryPoints victoryPointsP1;
     [SerializeField] private VictoryPoints victoryPointsP2;
+    [SerializeField] private Image backgroundImage;
     private AudioManager audioManager;
+
+    private Sprite backgroundScore0;
+    private Sprite backgroundScore1;
+    private Sprite backgroundScore2;
+
+
+ 
 
     private void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        backgroundScore0 = Resources.Load<Sprite>("Backgrounds/Nebula Aqua-Pink");
+        backgroundScore1 = Resources.Load<Sprite>("Backgrounds/Nebula Blue");
+        backgroundScore2  = Resources.Load<Sprite>("Backgrounds/Nebula Red");
+
+
+        reDrawUI();
     }
 
 
@@ -111,6 +126,21 @@ public class ScoreProgress : MonoBehaviour
     {
         victoryPointsP1.SetVictoryPoints(victoryCountP1);
         victoryPointsP2.SetVictoryPoints(victoryCountP2);
+        if (backgroundImage.sprite == null)
+        {
+            switch (Mathf.Max(victoryCountP1, victoryCountP2))
+            {
+                case 0:
+                    backgroundImage.sprite = backgroundScore0;
+                    break;
+                case 1:
+                    backgroundImage.sprite = backgroundScore1;
+                    break;
+                case 2:
+                    backgroundImage.sprite = backgroundScore2;
+                    break;
+            }
+        }
         victoryPointsP1.UpdateUI();
         victoryPointsP2.UpdateUI();
         UIScore.GetComponentInChildren<UnityEngine.UI.Text>().text = scorePlayer1 + " : " + scorePlayer2;
