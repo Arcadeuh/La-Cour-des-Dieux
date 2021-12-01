@@ -22,15 +22,18 @@ public class OptionControls : MonoBehaviour
     {
         slider = soundSliderObject.GetComponent<UnityEngine.UI.Slider>();
         dropdown = resolutionDropdownObject.GetComponent<UnityEngine.UI.Dropdown>();
-       
+
         if (PlayerPrefs.GetFloat("volume")!=0)
         {
             slider.value = PlayerPrefs.GetFloat("volume");
+
         } else
         {
             slider.value = 50;
-            UpdateSound();
         }
+
+
+        UpdateSound();
 
         soundBlockedVal = slider.value;
 
