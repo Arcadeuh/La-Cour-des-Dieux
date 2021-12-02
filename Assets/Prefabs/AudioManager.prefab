@@ -102,6 +102,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Fight
+    audio: {fileID: 8300000, guid: 1bec68157e422684ab5747a27c84e295, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!82 &8205902666404378682
 AudioSource:
   m_ObjectHideFlags: 0
