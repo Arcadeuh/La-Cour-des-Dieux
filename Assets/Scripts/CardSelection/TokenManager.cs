@@ -8,6 +8,10 @@ public class TokenManager : MonoBehaviour
     public int tokensNumber = 4;
     public int playerId;
 
+    private void Start()
+    {
+        GetComponentInChildren<TMPro.TMP_Text>().SetText(playerId.ToString());
+    }
 
     public void Interact(InputAction.CallbackContext context){
 
