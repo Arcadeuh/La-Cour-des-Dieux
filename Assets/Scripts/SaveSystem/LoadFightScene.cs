@@ -23,15 +23,20 @@ public class LoadFightScene : LoadDeck
         }
         else
         {
+            Debug.Log("ONE");
             DeckManager deckManagerP1 = GameObject.Find("Player1").GetComponent<DeckManager>();
             DeckManager deckManagerP2 = GameObject.Find("Player2").GetComponent<DeckManager>();
+            Debug.Log(deckManagerP1);
+            Debug.Log(deckManagerP2);
 
             //Set les deck manager...
             deckManagerP1.SetDeckInit(GetListPlanet(1));
             deckManagerP2.SetDeckInit(GetListPlanet(2));
+            Debug.Log("THREE");
             //Et les met a jour
             deckManagerP1.RefillQueueAndHand();
             deckManagerP2.RefillQueueAndHand();
+            Debug.Log("FOUR");
         }
     }
 }
