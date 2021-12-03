@@ -5,7 +5,7 @@ using UnityEngine;
 public class Slowdown : MonoBehaviour
 {
 
-    private float areaOfEffectRadius = 3;
+    private float areaOfEffectRadius = 0.1f;
     private float slowIntensity = 30;
 
     private GameObject effectArea;
@@ -16,7 +16,7 @@ public class Slowdown : MonoBehaviour
         //We create the area of effect game object
         effectArea = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         effectArea.transform.parent = transform;
-        effectArea.transform.localScale = new Vector3(areaOfEffectRadius * 2, 1, areaOfEffectRadius * 2);
+        effectArea.transform.localScale = new Vector3(areaOfEffectRadius, 0.0001f, areaOfEffectRadius);
         effectArea.transform.localPosition = new Vector3(0, 0, 0);
 
         effectArea.GetComponent<SphereCollider>().radius = 0.5f;
