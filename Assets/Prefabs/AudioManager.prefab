@@ -92,19 +92,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: IntroMusic
     audio: {fileID: 8300000, guid: 391ee03b57a3fbf4fbde196916605b71, type: 3}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: DeckBuilding
     audio: {fileID: 8300000, guid: 94d26646dd5fb5e4783a09798eb2bb04, type: 3}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Fight
     audio: {fileID: 8300000, guid: 1bec68157e422684ab5747a27c84e295, type: 3}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
