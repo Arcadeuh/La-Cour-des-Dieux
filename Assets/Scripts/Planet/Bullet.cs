@@ -14,7 +14,10 @@ public class Bullet : MonoBehaviour
 {
     private bool isDefense = false;
     private bool flag = true;
+    private bool explosionPossible = true;
     private ScoreProgress UIRounds;
+    private ParticleSystem explosion;
+    private ParticleSystem fumee;
 
     private AudioManager audioManager;
 
@@ -22,12 +25,14 @@ public class Bullet : MonoBehaviour
     {
         UIRounds = GameObject.Find("Rounds").GetComponent<ScoreProgress>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        Debug.Log(audioManager);
+        explosion = GameObject.Find("ParticuleExplosion").GetComponent<ParticleSystem>();
+        fumee = GameObject.Find("ParticuleFumee").GetComponent<ParticleSystem>();
     }
 
 
     public float bulletForce;
     public Vector3 forwardVector;
+    
 
 
     // disable collision
@@ -46,6 +51,10 @@ public class Bullet : MonoBehaviour
         //Debug.Log("Colliding with : " + collision.gameObject.name);
 
         TopDownShooter player = collision.gameObject.GetComponentInParent<TopDownShooter>();
+
+        explosion.transform.position = gameObject.transform.position;
+        fumee.transform.position = gameObject.transform.position;
+        
 
         if (player && !isDefense && flag)
         {
@@ -80,6 +89,19 @@ public class Bullet : MonoBehaviour
                 flag = false;
             }
 
+            //UIRounds.killPlayer(player.name);
+            //Destroy(player.gameObject);
+            Destroy(gameObject);
+            if (explosionPossible)
+            {
+                explosion.Play();
+                fumee.Play();
+                explosionPossible = false;
+            }
+            
+            UIRounds.killPlayer(player.name);
+            flag = false;
+            StartCoroutine("InvincibleTime");
         }
         else if (player && isDefense){
 
@@ -95,6 +117,14 @@ public class Bullet : MonoBehaviour
                 } else
                 {
                     Destroy(gameObject);
+                    
+                    if (explosionPossible)
+                    {
+                        explosion.Play();
+                        
+                        fumee.Play();
+                        explosionPossible = false;
+                    }
                 }
             }
             //We check if a RussianDoll script is attached to the planet and if yes we reduce the size of the planet or destroy it
@@ -109,9 +139,17 @@ public class Bullet : MonoBehaviour
             else
             {
                 Destroy(gameObject);
+                if (explosionPossible)
+                {
+                    explosion.Play();
+                    fumee.Play();
+                    explosionPossible = false;
+                }
             }
         }
+        
     }
+    
 
     private void OnDestroy()
     {
