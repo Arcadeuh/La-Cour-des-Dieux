@@ -5439,6 +5439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 875751423}
   - component: {fileID: 875751422}
+  - component: {fileID: 875751421}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5446,6 +5447,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &875751421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875751420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd3564deec67f9458b816db5b307e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &875751422
 Camera:
   m_ObjectHideFlags: 0
@@ -11637,6 +11650,10 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 612085013}
+    - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 875751421}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: backgroundImage
       value: 
