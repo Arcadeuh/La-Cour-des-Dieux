@@ -37,8 +37,12 @@ public class ScoreProgress : MonoBehaviour
     private Sprite backgroundScore1;
     private Sprite backgroundScore2;
 
+    [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private float duration = 0.5f;
+    [SerializeField] private float magnitude = 0.5f;
 
- 
+
+
 
     private void Start()
     {
@@ -56,7 +60,9 @@ public class ScoreProgress : MonoBehaviour
 
     public void killPlayer(string playerName)
     {
-        audioManager.Play("Hurt");
+        audioManager.Play("Hurt");      // play sound
+        StartCoroutine(cameraShake.Shake(duration, magnitude));
+
         if (player1.name == playerName)
         {
             player1Alive = false;
