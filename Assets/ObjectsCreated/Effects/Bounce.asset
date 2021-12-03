@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b56da938adf7945841af3a02fe0e91, type: 3}
   m_Name: Bounce
   m_EditorClassIdentifier: 
-  title: Bounce
-  description: Rebondis une fois sur le mur
+  title: Rebond
+  description: Rebondit une fois en touchant un obstacle.
   type: 0
-  color: {r: 0.96610284, g: 1, b: 0, a: 0}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
-  effectEnum: 3
+  color: {r: 0.96610284, g: 1, b: 0, a: 1}
+  textColor: {r: 0, g: 0, b: 0, a: 1}
+  effectName: 0
+  bounceNumber: 0

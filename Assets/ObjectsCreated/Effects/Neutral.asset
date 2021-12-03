@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Neutre
   description: N'a pas d'effet
   type: 2
-  color: {r: 1, g: 1, b: 1, a: 0}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
-  effectEnum: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  textColor: {r: 0, g: 0, b: 0, a: 1}
+  effectName: 0
+  bounceNumber: 0
