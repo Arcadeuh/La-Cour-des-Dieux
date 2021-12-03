@@ -102,7 +102,6 @@ public class WaterTrailBehaviour : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeDestroy);
 
         playerSlowed.GetComponent<TopDownMovement>().currentSpeed = playerSlowed.GetComponent<TopDownMovement>().maxSpeed;
-
         Destroy(transform.parent.gameObject);
 
     }
