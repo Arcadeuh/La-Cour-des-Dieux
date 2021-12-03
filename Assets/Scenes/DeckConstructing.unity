@@ -1425,11 +1425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8839842669875725223, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -159
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8839842669875725223, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8839842670291828446, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1437,11 +1437,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8839842670291828446, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -159
+      value: -159.7
       objectReference: {fileID: 0}
-    - target: {fileID: 8839842670291828446, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.0000005
+    - target: {fileID: 8839842670944398953, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839842670944398953, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839842670944398953, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839842670944398953, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8839842670944398954, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_Camera
@@ -1550,10 +1562,6 @@ PrefabInstance:
     - target: {fileID: 8839842671095344770, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8839842671095344770, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -84
       objectReference: {fileID: 0}
     - target: {fileID: 8839842671095344770, guid: 2532a7fbad840754bb68b520f4ac2048, type: 3}
       propertyPath: m_AnchoredPosition.y
