@@ -76,7 +76,7 @@ public class ScoreProgress : MonoBehaviour
                 {
                     onVictoryP2.Invoke();
                     matchWin.SetActive(true);
-                    matchWin.GetComponent<TMP_Text>().SetText("Player 2 est le dieu de cette cours !");
+                    matchWin.GetComponent<TMP_Text>().SetText("Player 2 est le dieu de cette cour !");
                     audioManager.StopEverySounds();
                     audioManager.Play("Victory");
                     return;
@@ -109,7 +109,7 @@ public class ScoreProgress : MonoBehaviour
                 {
                     onVictoryP1.Invoke();
                     matchWin.SetActive(true);
-                    matchWin.GetComponent<TMP_Text>().SetText("Player 1 est le dieu de cette cours !");
+                    matchWin.GetComponent<TMP_Text>().SetText("Player 1 est le dieu de cette cour !");
                     audioManager.StopEverySounds();
                     audioManager.Play("Victory");
                     return;
