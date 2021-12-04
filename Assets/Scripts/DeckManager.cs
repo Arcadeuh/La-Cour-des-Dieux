@@ -49,8 +49,8 @@ public class DeckManager : MonoBehaviour
         else { Debug.LogError("The gameObject name is not 'Player1' nor 'Player2'"); return; }
         */
 
-        if (gameObject.name == "Player1"){ playerUI = GameObject.Find("UI/Player1"); }
-        else if (gameObject.name == "Player2") { playerUI = GameObject.Find("UI/Player2"); }
+        if (gameObject.name == "Player1"){ playerUI = GameObject.Find("UI/Player1UI"); }
+        else if (gameObject.name == "Player2") { playerUI = GameObject.Find("UI/Player2UI"); }
         else { Debug.LogError("The gameObject name is not 'Player1' nor 'Player2'"); return; }
 
         timer = GetComponent<Timer>();

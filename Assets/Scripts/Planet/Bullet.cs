@@ -48,14 +48,16 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Colliding with : " + collision.gameObject.name);
+        Debug.Log("Colliding with : " + collision.gameObject.name);
 
+        //Get TopDownShooter from the object (can be null, we'll use this case next)
         TopDownShooter player = collision.gameObject.GetComponentInParent<TopDownShooter>();
 
+        //Set position for explosion effects
         explosion.transform.position = gameObject.transform.position;
         fumee.transform.position = gameObject.transform.position;
-        
 
+        //if there is a TopDownShooter (trad: if it's a player), the bullet is attacking (do it once)
         if (player && !isDefense && flag)
         {
             //We need this check to avoid the water planet being destroyed on player contact
@@ -78,15 +80,15 @@ public class Bullet : MonoBehaviour
 
             } else
             {
-
                 UnityEngine.InputSystem.Gamepad playerGamepad;
                 if (player.gameObject.name == "Player1")
                     playerGamepad = SaveSystem.p1GamePad;
                 else
                     playerGamepad = SaveSystem.p2GamePad;
-                UIRounds.StartCoroutine(UIRounds.InvincibleTimeAndRumble(playerGamepad));
+                if (playerGamepad!=null){ UIRounds.StartCoroutine(UIRounds.InvincibleTimeAndRumble(playerGamepad)); }
                 UIRounds.killPlayer(player.name);
                 flag = false;
+                StartCoroutine("InvincibleTime");
             }
 
             //UIRounds.killPlayer(player.name);
@@ -98,14 +100,10 @@ public class Bullet : MonoBehaviour
                 fumee.Play();
                 explosionPossible = false;
             }
-            
-            UIRounds.killPlayer(player.name);
-            flag = false;
-            StartCoroutine("InvincibleTime");
         }
         else if (player && isDefense){
 
-        }else
+        }else //if this is not a player
         {
             //We check if a bouncing script is attached to the planet and if yes if the bouncing effect is deactivated
             if (GetComponent<Bounce>())
@@ -139,12 +137,12 @@ public class Bullet : MonoBehaviour
             else
             {
                 Destroy(gameObject);
-                if (explosionPossible)
-                {
-                    explosion.Play();
-                    fumee.Play();
-                    explosionPossible = false;
-                }
+            }
+            if (explosionPossible)
+            {
+                explosion.Play();
+                fumee.Play();
+                explosionPossible = false;
             }
         }
         
