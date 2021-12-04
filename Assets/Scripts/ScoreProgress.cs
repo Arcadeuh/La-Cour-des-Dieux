@@ -18,8 +18,8 @@ public class ScoreProgress : MonoBehaviour
     private bool player1Alive = true;
     private bool player2Alive = true;
 
-    [SerializeField] private UnityEvent onPlayer1Win;
-    [SerializeField] private UnityEvent onPlayer2Win;
+    [SerializeField] private UnityEvent player1WinRound;
+    [SerializeField] private UnityEvent player2WinRound;
     [SerializeField] private UnityEvent onVictoryP1;
     [SerializeField] private UnityEvent onVictoryP2;
     public GameObject player1;
@@ -60,7 +60,6 @@ public class ScoreProgress : MonoBehaviour
 
     public void killPlayer(string playerName)
     {
-        Debug.Log("HERE");
         audioManager.Play("Hurt");      // play sound
         StartCoroutine(cameraShake.Shake(duration, magnitude));
 
@@ -77,13 +76,14 @@ public class ScoreProgress : MonoBehaviour
                 {
                     onVictoryP2.Invoke();
                     matchWin.SetActive(true);
-                    matchWin.GetComponent<TMP_Text>().SetText("Player 2 Wins !!");
-
+                    matchWin.GetComponent<TMP_Text>().SetText("Player 2 est le dieu de cette cours !");
+                    audioManager.StopEverySounds();
+                    audioManager.Play("Victory");
                     return;
                 }
                 reDrawUI();
                 win(player2.name);
-                onPlayer2Win.Invoke();
+                player2WinRound.Invoke();
             }
             else
             {
@@ -109,12 +109,14 @@ public class ScoreProgress : MonoBehaviour
                 {
                     onVictoryP1.Invoke();
                     matchWin.SetActive(true);
-                    matchWin.GetComponent<TMP_Text>().SetText("Player 1 Wins !!");
+                    matchWin.GetComponent<TMP_Text>().SetText("Player 1 est le dieu de cette cours !");
+                    audioManager.StopEverySounds();
+                    audioManager.Play("Victory");
                     return;
                 }
                 reDrawUI();
                 win(player1.name);
-                onPlayer1Win.Invoke();
+                player1WinRound.Invoke();
             }
             else
             {
@@ -156,7 +158,7 @@ public class ScoreProgress : MonoBehaviour
 
     public void win(string playerName)
     {
-        UIWin.GetComponentInChildren<UnityEngine.UI.Text>().text = playerName + " Won This Round";
+        UIWin.GetComponentInChildren<UnityEngine.UI.Text>().text = playerName + " a gagné ce round";
         //SceneManager.LoadScene("DeckBuildingQuentin");
     }
 

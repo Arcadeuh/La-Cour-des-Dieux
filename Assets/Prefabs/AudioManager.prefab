@@ -108,6 +108,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Victory
+    audio: {fileID: 8300000, guid: c9da71abcd67b5c4fa5e3bcb4de30a9d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!82 &8205902666404378682
 AudioSource:
   m_ObjectHideFlags: 0
