@@ -60,6 +60,7 @@ public class ScoreProgress : MonoBehaviour
 
     public void killPlayer(string playerName)
     {
+        Debug.Log("HERE");
         audioManager.Play("Hurt");      // play sound
         StartCoroutine(cameraShake.Shake(duration, magnitude));
 
