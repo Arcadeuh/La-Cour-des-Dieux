@@ -7,6 +7,7 @@ public class LoadController : MonoBehaviour
 {
     [SerializeField] private GameObject playerA;
     [SerializeField] private GameObject playerB;
+    [SerializeField] private ScoreProgress scoreProgress;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,7 +34,6 @@ public class LoadController : MonoBehaviour
         }
         else if (cd.controllerP2 == presentGamepad.name)
         {
-            Debug.Log("Player 2");
             playerA.name = "Player2";
             playerB.name = "Player1";
             playerA.transform.position = new Vector3(8.15f, playerA.transform.position.y, playerA.transform.position.z);
@@ -41,6 +41,10 @@ public class LoadController : MonoBehaviour
             TokenManager tokenManager = null;
             if (playerA.TryGetComponent<TokenManager>(out tokenManager)) { tokenManager.playerId = 2; Debug.Log(playerA.name + " : " + tokenManager.playerId); }
             if (playerB.TryGetComponent<TokenManager>(out tokenManager)) { tokenManager.playerId = 1; Debug.Log(playerB.name + " : " + tokenManager.playerId); }
+        }
+        if (scoreProgress)
+        {
+            scoreProgress.ExchangePlayers();
         }
     }
 }
