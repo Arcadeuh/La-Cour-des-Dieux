@@ -21944,12 +21944,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5614134345231636934}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
-      propertyPath: player1WinRound.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: onVictoryP1.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
-      propertyPath: player2WinRound.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: onVictoryP2.m_PersistentCalls.m_Calls.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: player1WinRound.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: player2WinRound.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: onVictoryP1.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21958,7 +21966,7 @@ PrefabInstance:
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: onVictoryP1.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 612085013}
+      objectReference: {fileID: 2099719740}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: onVictoryP1.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -21970,7 +21978,7 @@ PrefabInstance:
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: onVictoryP2.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1310048923}
+      objectReference: {fileID: 2099719740}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: onVictoryP2.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -22118,6 +22126,14 @@ PrefabInstance:
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: onPlayer2Win.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SimpleSceneTransition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: onVictoryP1.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
+      propertyPath: onVictoryP2.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5614134346033397252, guid: b8c1a8f6391badd429ab11334bc4582c, type: 3}
       propertyPath: player1WinRound.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

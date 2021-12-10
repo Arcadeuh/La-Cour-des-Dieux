@@ -72,6 +72,7 @@ public class ScoreProgress : MonoBehaviour
                 victoryCountP2++;
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
+                player1.SetActive(false);
                 if (victoryCountP2 >= 3)
                 {
                     onVictoryP2.Invoke();
@@ -102,6 +103,7 @@ public class ScoreProgress : MonoBehaviour
             {
                 //roundNb++;
 
+                player2.SetActive(false);
                 victoryCountP1++; 
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
