@@ -72,6 +72,7 @@ public class ScoreProgress : MonoBehaviour
                 victoryCountP2++;
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
+                player1.SetActive(false);
                 if (victoryCountP2 >= 3)
                 {
                     onVictoryP2.Invoke();
@@ -102,6 +103,7 @@ public class ScoreProgress : MonoBehaviour
             {
                 //roundNb++;
 
+                player2.SetActive(false);
                 victoryCountP1++; 
                 SaveSystem.SaveRoundsData(victoryCountP1, victoryCountP2);
 
@@ -172,6 +174,14 @@ public class ScoreProgress : MonoBehaviour
     {
         roundNb = n;
         reDrawUI();
+    }
+
+    public void ExchangePlayers()
+    {
+        if(player1.name == "Player1" && player2.name == "Player2") { return; }
+        GameObject playerTemp = player1;
+        player1 = player2;
+        player2 = playerTemp;
     }
 
     public IEnumerator InvincibleTimeAndRumble(UnityEngine.InputSystem.Gamepad playerGamepad)
